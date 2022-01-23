@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
-//drivetrain class
+/**
+ * The drive train subsystem. Controls the motors.
+ */
 public class DriveTrain extends SubsystemBase {
   private TalonSRX motorLF = new TalonSRX(PortMap.MOTOR_LF_ID);
   private TalonSRX motorLM = new TalonSRX(PortMap.MOTOR_LM_ID);

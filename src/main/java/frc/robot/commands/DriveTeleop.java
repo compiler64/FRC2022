@@ -6,7 +6,11 @@ import frc.robot.Controllers;
 import frc.robot.PortMap;
 import frc.robot.subsystems.DriveTrain;
 
-// drive in teleop mode
+/**
+ * Allows the driver to control the robot with an Xbox controller.
+ * The Y coordinate of the left joystick controls speed, and
+ * the X coordinate of the right joystick controls rotation.
+ */
 public class DriveTeleop extends CommandBase {
   private DriveTrain m_driveTrain;
 

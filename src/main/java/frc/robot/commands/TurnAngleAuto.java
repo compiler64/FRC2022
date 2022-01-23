@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 
+/**
+ * Makes the robot turn by a given angle at a fixed speed. It will keep turning until the gyroscope detects the correct angle.
+ */
 public class TurnAngleAuto extends CommandBase {
     private DriveTrain m_driveTrain;
     private Gyro m_gyro;
@@ -38,7 +41,8 @@ public class TurnAngleAuto extends CommandBase {
 
     @Override
     public boolean isFinished() {
+        double sign = Math.signum(m_angle);
         // the command is finished if the angle is at least m_angle
-        return m_gyro.getAngle() >= m_angle;
+        return sign * m_gyro.getAngle() >= sign * m_angle;
     }
 }

@@ -2,10 +2,13 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
+import static frc.robot.Constants.*;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 
+/**
+ * Runs the autonomous commands in order.
+ */
 public class AutoCommand extends CommandBase {
     // private DriveTrain m_driveTrain;
     // private Gyro m_gyro;
@@ -13,6 +16,7 @@ public class AutoCommand extends CommandBase {
     private DriveDistanceAuto distance1;
     private TurnAngleAuto angle2;
     private DriveDistanceAuto distance3;
+    private TurnAngleAuto angle4;
 
     private Command[] commands;
 
@@ -22,11 +26,12 @@ public class AutoCommand extends CommandBase {
         // m_driveTrain = driveTrain;
         // m_gyro = gyro;
 
-        distance1 = new DriveDistanceAuto(driveTrain, Constants.AUTO_DISTANCE_1, Constants.AUTO_SPEED);
-        angle2 = new TurnAngleAuto(driveTrain, gyro, Constants.AUTO_ANGLE_2, Constants.AUTO_SPEED);
-        distance3 = new DriveDistanceAuto(driveTrain, Constants.AUTO_DISTANCE_3, Constants.AUTO_SPEED);
+        distance1 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_1, AUTO_SPEED);
+        angle2 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_2, AUTO_SPEED);
+        distance3 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_3, AUTO_SPEED);
+        angle4 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_4, AUTO_SPEED);
 
-        commands = new Command[] {distance1,angle2, distance3};
+        commands = new Command[] {distance1, angle2, distance3, angle4};
     }
 
     @Override
@@ -39,10 +44,13 @@ public class AutoCommand extends CommandBase {
         // if the current command is finished
         if (commandNumber < commands.length && commands[commandNumber].isFinished())
         {
+            commands[commandNumber].cancel();
             // increment commandNumber
             commandNumber++;
+            System.out.println("Command number: " + commandNumber);
             if (commandNumber < commands.length)
             {
+                System.out.println("Scheduling command: " + commandNumber);
                 // schedule the next command
                 commands[commandNumber].schedule();
             }
