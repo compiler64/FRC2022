@@ -3,7 +3,8 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
@@ -16,15 +17,23 @@ public class DriveTrain extends SubsystemBase {
   private TalonSRX motorRM = new TalonSRX(PortMap.MOTOR_RM_ID);
   private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
 
-  //initialization
-  public DriveTrain() {}
+  private Encoder leftEncoder = new Encoder(PortMap.LEFT_ENCODER_PIN_1, PortMap.LEFT_ENCODER_PIN_2);
+  private Encoder rightEncoder = new Encoder(PortMap.RIGHT_ENCODER_PIN_1, PortMap.RIGHT_ENCODER_PIN_2);
+
+  private double leftSpeed = 0;
+  private double rightSpeed = 0;
+
+  public DriveTrain() {
+    Shuffleboard.getTab("main").addNumber("Left Speed", () -> leftSpeed);
+    Shuffleboard.getTab("main").addNumber("Right Speed", () -> rightSpeed);
+  }
 
   //set the speed of the left motors
   public void setLeftMotors(double speed){
     motorLF.set(ControlMode.PercentOutput, -speed);
     motorLM.set(ControlMode.PercentOutput, -speed);
     motorLR.set(ControlMode.PercentOutput, -speed);
-    SmartDashboard.putNumber("LeftSpeed", speed);
+    leftSpeed = speed;
   }
 
   //set the speed of the right motors
@@ -32,12 +41,36 @@ public class DriveTrain extends SubsystemBase {
     motorRF.set(ControlMode.PercentOutput, speed);
     motorRM.set(ControlMode.PercentOutput, speed);
     motorRR.set(ControlMode.PercentOutput, speed);
-    SmartDashboard.putNumber("RightSpeed", speed);
+    rightSpeed = speed;
   }
 
   //set both motors
   public void setBothMotors(double speed){
     setRightMotors(speed);
     setLeftMotors(speed);
+  }
+
+  /**
+   * Gets the distance of the left encoder.
+   * @return the distance of the left encoder
+   */
+  public double getLeftEncoderDistance() {
+    return leftEncoder.getDistance();
+  }
+
+  /**
+   * Gets the distance of the right encoder.
+   * @return the distance of the right encoder
+   */
+  public double getRightEncoderDistance() {
+    return rightEncoder.getDistance();
+  }
+
+  /**
+   * Gets the average distance of the two encoders.
+   * @return the average distance of the two encoders
+   */
+  public double getAverageEncoderDistance() {
+    return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
   }
 }
