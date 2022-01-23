@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Gyro;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -19,6 +20,7 @@ import frc.robot.subsystems.DriveTrain;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain m_driveTrain = new DriveTrain();
+  private final Gyro m_gyro = new Gyro();
 
   private final DriveTeleop m_testCommand = new DriveTeleop(m_driveTrain);
 

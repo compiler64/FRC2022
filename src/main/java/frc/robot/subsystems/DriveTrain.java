@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
+//drivetrain class
 public class DriveTrain extends SubsystemBase {
   private TalonSRX motorLF = new TalonSRX(PortMap.MOTOR_LF_ID);
   private TalonSRX motorLM = new TalonSRX(PortMap.MOTOR_LM_ID);
@@ -15,8 +16,10 @@ public class DriveTrain extends SubsystemBase {
   private TalonSRX motorRM = new TalonSRX(PortMap.MOTOR_RM_ID);
   private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
 
+  //initialization
   public DriveTrain() {}
 
+  //set the speed of the left motors
   public void setLeftMotors(double speed){
     motorLF.set(ControlMode.PercentOutput, -speed);
     motorLM.set(ControlMode.PercentOutput, -speed);
@@ -24,12 +27,15 @@ public class DriveTrain extends SubsystemBase {
     SmartDashboard.putNumber("LeftSpeed", speed);
   }
 
+  //set the speed of the right motors
   public void setRightMotors(double speed){
     motorRF.set(ControlMode.PercentOutput, speed);
     motorRM.set(ControlMode.PercentOutput, speed);
     motorRR.set(ControlMode.PercentOutput, speed);
     SmartDashboard.putNumber("RightSpeed", speed);
   }
+
+  //set both motors
   public void setBothMotors(double speed){
     setRightMotors(speed);
     setLeftMotors(speed);
