@@ -22,6 +22,7 @@ public class DriveTeleop extends CommandBase {
     double rightStickX = Controllers.GetRawAxis(PortMap.XBOX_RS_X, true);
 
     //set the value to zero if it is close to 0
+    //System.out.println("Left stick Y: " + leftStickY);
     if (Math.abs(leftStickY) < Constants.JOYSTICK_BUFFER) {
       leftStickY = 0;
     }
@@ -51,8 +52,8 @@ public class DriveTeleop extends CommandBase {
 
     if (power == 0) {
 
-      leftMotorPower = turningFactor;
-      rightMotorPower = -turningFactor;
+      leftMotorPower = turningFactor * Constants.MOTOR_POWER_FACTOR;
+      rightMotorPower = -turningFactor * Constants.MOTOR_POWER_FACTOR;
 
     }
 
@@ -70,6 +71,7 @@ public class DriveTeleop extends CommandBase {
   public void end(boolean interrupted) {
     // stop both motors
     m_driveTrain.setBothMotors(0);
+    System.out.println("Ending drive teleop");
   }
 
   @Override

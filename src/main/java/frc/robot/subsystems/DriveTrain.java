@@ -30,6 +30,7 @@ public class DriveTrain extends SubsystemBase {
 
   //set the speed of the left motors
   public void setLeftMotors(double speed){
+    // System.out.println("Setting left motor speed to " + speed);
     motorLF.set(ControlMode.PercentOutput, -speed);
     motorLM.set(ControlMode.PercentOutput, -speed);
     motorLR.set(ControlMode.PercentOutput, -speed);
