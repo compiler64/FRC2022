@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import static frc.robot.Constants.*;
@@ -19,8 +20,9 @@ public class AutoCommand extends CommandBase {
     private TurnAngleAuto angle4;
 
     private Command[] commands;
-
     private int commandNumber = 0;
+
+    private Timer timer = new Timer();
 
     public AutoCommand(DriveTrain driveTrain, Gyro gyro) {
         // m_driveTrain = driveTrain;
@@ -37,6 +39,7 @@ public class AutoCommand extends CommandBase {
     @Override
     public void initialize() {
         commands[0].schedule();
+        timer.reset();
     }
 
     @Override
@@ -58,8 +61,13 @@ public class AutoCommand extends CommandBase {
     }
 
     @Override
+    public void end(boolean interrupted) {
+        commands[commandNumber].cancel();
+    }
+
+    @Override
     public boolean isFinished() {
         // autonomous is finished when the command number is the length of the array
-        return commandNumber >= commands.length;
+        return commandNumber >= commands.length || timer.get() >= AUTO_TIME;
     }
 }
