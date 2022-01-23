@@ -14,4 +14,5 @@ package frc.robot;
  */
 public final class Constants {
   public static final double JOYSTICK_BUFFER= .1;
+  public static final double MOTOR_POWER_FACTOR = 0.5;
 }

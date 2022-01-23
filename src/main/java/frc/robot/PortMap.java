@@ -17,4 +17,9 @@ public class PortMap {
     //Right Stick
 	public static final int XBOX_RS_X = 4;
     public static final int XBOX_RS_Y = 5;
+
+	public static final int LEFT_ENCODER_PIN_1 = 0; // TODO CHANGE THESE LATER!
+	public static final int LEFT_ENCODER_PIN_2 = 1; // TODO CHANGE THESE LATER!
+	public static final int RIGHT_ENCODER_PIN_1 = 0; // TODO CHANGE THESE LATER!
+	public static final int RIGHT_ENCODER_PIN_2 = 1; // TODO CHANGE THESE LATER!
 }

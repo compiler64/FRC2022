@@ -15,13 +15,7 @@ public class DriveTeleop extends CommandBase {
   }
 
   @Override
-  public void initialize() {
-
-  }
-
-  @Override
   public void execute() {
-    System.out.println("Executing DriveTeleop command...");
     double leftStickY = -Controllers.GetRawAxis(PortMap.XBOX_LS_Y, true);
     double rightStickX = Controllers.GetRawAxis(PortMap.XBOX_RS_X, true);
 
@@ -33,7 +27,7 @@ public class DriveTeleop extends CommandBase {
       rightStickX = 0;
     }
 
-    double power = leftStickY;
+    double power = leftStickY * Constants.MOTOR_POWER_FACTOR;
     double turningFactor = rightStickX;
 
     double leftMotorPower = 1;
@@ -71,8 +65,8 @@ public class DriveTeleop extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    m_driveTrain.setLeftMotors(0);
-    m_driveTrain.setRightMotors(0);
+    // stop both motors
+    m_driveTrain.setBothMotors(0);
   }
 
   @Override
