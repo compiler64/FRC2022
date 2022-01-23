@@ -27,6 +27,8 @@ public class DriveDistanceAuto extends CommandBase {
     public void initialize() {
         // set the speed of both motors to m_speed
         m_driveTrain.setBothMotors(m_speed);
+        // reset the encoders
+        m_driveTrain.resetEncoders();
     }
 
     @Override

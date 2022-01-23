@@ -74,4 +74,12 @@ public class DriveTrain extends SubsystemBase {
   public double getAverageEncoderDistance() {
     return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
   }
+
+  /**
+   * Resets the encoders.
+   */
+  public void resetEncoders() {
+    leftEncoder.reset();
+    rightEncoder.reset();
+  }
 }
