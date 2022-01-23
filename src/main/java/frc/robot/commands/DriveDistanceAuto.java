@@ -3,11 +3,20 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
+/**
+ * Makes the robot drive a given distance at a fixed speed.
+ */
 public class DriveDistanceAuto extends CommandBase {
     private DriveTrain m_driveTrain;
     private double m_distance;
     private double m_speed;
 
+    /**
+     * Creates a new DriveDistanceAuto command.
+     * @param driveTrain the DriveTrain subsystem
+     * @param distance the distance to travel
+     * @param speed the speed to travel at
+     */
     public DriveDistanceAuto(DriveTrain driveTrain, double distance, double speed) {
         m_driveTrain = driveTrain;
         m_distance = distance;

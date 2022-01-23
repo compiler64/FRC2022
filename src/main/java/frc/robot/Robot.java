@@ -30,6 +30,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     System.out.println("Initializing robot...");
     m_robotContainer = new RobotContainer();
+    // SmartDashboard.putData(CommandScheduler.getInstance());
   }
 
   /**
@@ -91,9 +92,13 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().cancelAll();
     m_testCommand = m_robotContainer.getTestCommand();
     m_testCommand.schedule();
+    System.out.println("Initializing test");
   }
 
   /** This function is called periodically during test mode. */
   @Override
-  public void testPeriodic() {}
+  public void testPeriodic() {
+    m_testCommand.execute();
+    //System.out.println("Running testPeriodic()");
+  }
 }
