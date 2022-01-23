@@ -6,9 +6,11 @@ import frc.robot.Controllers;
 import frc.robot.PortMap;
 import frc.robot.subsystems.DriveTrain;
 
+// drive in teleop mode
 public class DriveTeleop extends CommandBase {
   private DriveTrain m_driveTrain;
 
+    //initialize
   public DriveTeleop(DriveTrain driveTrain) {
     m_driveTrain = driveTrain;
     addRequirements(driveTrain);
@@ -19,6 +21,7 @@ public class DriveTeleop extends CommandBase {
     double leftStickY = -Controllers.GetRawAxis(PortMap.XBOX_LS_Y, true);
     double rightStickX = Controllers.GetRawAxis(PortMap.XBOX_RS_X, true);
 
+    //set the value to zero if it is close to 0
     if (Math.abs(leftStickY) < Constants.JOYSTICK_BUFFER) {
       leftStickY = 0;
     }

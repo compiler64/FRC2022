@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
+//drivetrain class
 public class DriveTrain extends SubsystemBase {
   private TalonSRX motorLF = new TalonSRX(PortMap.MOTOR_LF_ID);
   private TalonSRX motorLM = new TalonSRX(PortMap.MOTOR_LM_ID);
@@ -27,6 +28,7 @@ public class DriveTrain extends SubsystemBase {
     Shuffleboard.getTab("main").addNumber("Right Speed", () -> rightSpeed);
   }
 
+  //set the speed of the left motors
   public void setLeftMotors(double speed){
     motorLF.set(ControlMode.PercentOutput, -speed);
     motorLM.set(ControlMode.PercentOutput, -speed);
@@ -34,6 +36,7 @@ public class DriveTrain extends SubsystemBase {
     leftSpeed = speed;
   }
 
+  //set the speed of the right motors
   public void setRightMotors(double speed){
     motorRF.set(ControlMode.PercentOutput, speed);
     motorRM.set(ControlMode.PercentOutput, speed);
@@ -41,6 +44,7 @@ public class DriveTrain extends SubsystemBase {
     rightSpeed = speed;
   }
 
+  //set both motors
   public void setBothMotors(double speed){
     setRightMotors(speed);
     setLeftMotors(speed);
