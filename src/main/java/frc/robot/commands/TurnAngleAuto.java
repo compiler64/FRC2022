@@ -1,8 +1,8 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Gyro;
 
 public class TurnAngleAuto extends CommandBase {
     private DriveTrain m_driveTrain;
@@ -12,8 +12,11 @@ public class TurnAngleAuto extends CommandBase {
 
     public TurnAngleAuto(DriveTrain driveTrain, Gyro gyro, double angle, double speed) {
         m_driveTrain = driveTrain;
+        m_gyro = gyro;
         m_angle = angle;
         m_speed = speed;
+
+        addRequirements(driveTrain, gyro);
     }
 
     @Override

@@ -21,6 +21,8 @@ public class DriveDistanceAuto extends CommandBase {
         m_driveTrain = driveTrain;
         m_distance = distance;
         m_speed = speed;
+
+        addRequirements(driveTrain);
     }
 
     @Override
