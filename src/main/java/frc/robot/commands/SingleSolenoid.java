@@ -8,6 +8,7 @@ import frc.robot.subsystems.Pneumatics;
 public class SingleSolenoid  extends CommandBase {
     Pneumatics pneumatics = new Pneumatics();
     boolean buttonPressed = false;
+    boolean highGear = false;
     public SingleSolenoid() {
         Shuffleboard.getTab("main").add(pneumatics);
         addRequirements(pneumatics);
@@ -15,9 +16,12 @@ public class SingleSolenoid  extends CommandBase {
     public void control(int button, int solenoid) {
         if (Controllers.isButtonPressed(button, true)) {
             pneumatics.setSingle(solenoid, true);
+            highGear = true;
         }
         if (Controllers.isButtonReleased(button, true)) {
             pneumatics.setSingle(solenoid, false);
+            highGear = false;
+
         }
     }
 }
