@@ -25,7 +25,7 @@ public class RobotContainer {
   private final Gyro m_gyro = new Gyro();
 
   private final AutoCommand m_autonomousCommand = new AutoCommand(m_driveTrain, m_gyro);
-  private final DriveTeleop m_testCommand = new DriveTeleop(m_driveTrain);
+  public final DriveTeleop m_testCommand = new DriveTeleop(m_driveTrain);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
