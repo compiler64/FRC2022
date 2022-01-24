@@ -22,4 +22,6 @@ public final class Constants {
   public static final double AUTO_ANGLE_2 = 45; // TODO CHANGE THIS LATER
   public static final double AUTO_DISTANCE_3 = 3; // TODO CHANGE THIS LATER
   public static final double AUTO_ANGLE_4 = -90; // TODO CHANGE THIS LATER
+
+  public static final boolean ENCODERS_READY = false;
 }

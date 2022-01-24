@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.PortMap;
 
 /**
@@ -19,8 +20,8 @@ public class DriveTrain extends SubsystemBase {
   private TalonSRX motorRM = new TalonSRX(PortMap.MOTOR_RM_ID);
   private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
 
-  private Encoder leftEncoder = new Encoder(PortMap.LEFT_ENCODER_PIN_1, PortMap.LEFT_ENCODER_PIN_2);
-  private Encoder rightEncoder = new Encoder(PortMap.RIGHT_ENCODER_PIN_1, PortMap.RIGHT_ENCODER_PIN_2);
+  private Encoder leftEncoder = Constants.ENCODERS_READY ? new Encoder(PortMap.LEFT_ENCODER_PIN_1, PortMap.LEFT_ENCODER_PIN_2) : null;
+  private Encoder rightEncoder = Constants.ENCODERS_READY ? new Encoder(PortMap.RIGHT_ENCODER_PIN_1, PortMap.RIGHT_ENCODER_PIN_2) : null;
 
   private double leftSpeed = 0;
   private double rightSpeed = 0;

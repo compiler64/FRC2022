@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
 
 /**
@@ -30,7 +31,9 @@ public class DriveDistanceAuto extends CommandBase {
         // set the speed of both motors to m_speed
         m_driveTrain.setBothMotors(m_speed);
         // reset the encoders
-        m_driveTrain.resetEncoders();
+        if (Constants.ENCODERS_READY) {
+            m_driveTrain.resetEncoders();
+        }
     }
 
     @Override
