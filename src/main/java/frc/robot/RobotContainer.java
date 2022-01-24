@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.AutoCommand;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
@@ -23,6 +24,7 @@ public class RobotContainer {
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final Gyro m_gyro = new Gyro();
 
+  private final AutoCommand m_autonomousCommand = new AutoCommand(m_driveTrain, m_gyro);
   private final DriveTeleop m_testCommand = new DriveTeleop(m_driveTrain);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -46,7 +48,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_testCommand;
+    return m_autonomousCommand;
   }
 
   public Command getTestCommand() {

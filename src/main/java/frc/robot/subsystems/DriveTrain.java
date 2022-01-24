@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
-//drivetrain class
+/**
+ * The drive train subsystem. Controls the motors.
+ */
 public class DriveTrain extends SubsystemBase {
   private TalonSRX motorLF = new TalonSRX(PortMap.MOTOR_LF_ID);
   private TalonSRX motorLM = new TalonSRX(PortMap.MOTOR_LM_ID);
@@ -30,6 +32,7 @@ public class DriveTrain extends SubsystemBase {
 
   //set the speed of the left motors
   public void setLeftMotors(double speed){
+    // System.out.println("Setting left motor speed to " + speed);
     motorLF.set(ControlMode.PercentOutput, -speed);
     motorLM.set(ControlMode.PercentOutput, -speed);
     motorLR.set(ControlMode.PercentOutput, -speed);
@@ -72,5 +75,13 @@ public class DriveTrain extends SubsystemBase {
    */
   public double getAverageEncoderDistance() {
     return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
+  }
+
+  /**
+   * Resets the encoders.
+   */
+  public void resetEncoders() {
+    leftEncoder.reset();
+    rightEncoder.reset();
   }
 }

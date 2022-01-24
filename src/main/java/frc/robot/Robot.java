@@ -33,6 +33,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     System.out.println("Initializing robot...");
     m_robotContainer = new RobotContainer();
+    // SmartDashboard.putData(CommandScheduler.getInstance());
   }
 
   /**
@@ -99,9 +100,6 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().cancelAll();
     m_testCommand = m_robotContainer.getTestCommand();
     m_testCommand.schedule();
-
-    
-    
   }
   SingleSolenoid singleSolenoid = new SingleSolenoid();
   /** This function is called periodically during test mode. */

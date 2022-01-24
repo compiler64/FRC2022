@@ -12,6 +12,15 @@ public class Gyro extends SubsystemBase {
     AHRS gyroscope = new AHRS(SPI.Port.kMXP);
 
     public Gyro() {
+        super();
         Shuffleboard.getTab("main").add(gyroscope);
+    }
+
+    public void reset() {
+        gyroscope.reset();
+    }
+
+    public double getAngle() {
+        return gyroscope.getAngle();
     }
 }
