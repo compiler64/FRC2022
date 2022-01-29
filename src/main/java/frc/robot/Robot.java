@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.SingleSolenoid;
-// import frc.robot.subsystems.Camera;
+import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Pneumatics;
 
 /**
@@ -23,6 +23,9 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
+
+  Camera camera = new Camera();
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -34,6 +37,8 @@ public class Robot extends TimedRobot {
     System.out.println("Initializing robot...");
     m_robotContainer = new RobotContainer();
     // SmartDashboard.putData(CommandScheduler.getInstance());
+
+    camera.setPipeline();
   }
 
   /**
