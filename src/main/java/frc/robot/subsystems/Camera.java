@@ -53,4 +53,16 @@ public class Camera extends SubsystemBase {
 
         NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipeline").setNumber(number);
     }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getArea() {
+        return area;
+    }
 }
