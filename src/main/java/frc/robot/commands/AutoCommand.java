@@ -28,12 +28,15 @@ public class AutoCommand extends CommandBase {
         // m_driveTrain = driveTrain;
         // m_gyro = gyro;
 
-        // distance1 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_1, AUTO_SPEED);
+        if (ENCODERS_READY) distance1 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_1, AUTO_SPEED);
         angle2 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_2, AUTO_SPEED);
-        // distance3 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_3, AUTO_SPEED);
+        if (ENCODERS_READY) distance3 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_3, AUTO_SPEED);
         angle4 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_4, AUTO_SPEED);
 
-        commands = new Command[] {/* distance1,  */angle2,/*  distance3,  */angle4};
+        if (ENCODERS_READY)
+            commands = new Command[] {distance1,  angle2, distance3, angle4};
+        else
+            commands = new Command[] {angle2, angle4};
     }
 
     @Override
@@ -62,7 +65,9 @@ public class AutoCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        commands[commandNumber].cancel();
+        if (commandNumber < commands.length) {
+            commands[commandNumber].cancel();
+        }
     }
 
     @Override

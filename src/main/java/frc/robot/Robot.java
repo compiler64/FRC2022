@@ -5,10 +5,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.DriveTeleop;
 import frc.robot.commands.SingleSolenoid;
 // import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Pneumatics;
