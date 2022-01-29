@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.SingleSolenoid;
-import frc.robot.subsystems.Camera;
+// import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Pneumatics;
 
 /**
@@ -104,12 +104,10 @@ public class Robot extends TimedRobot {
     m_testCommand.schedule();
   }
   SingleSolenoid singleSolenoid = new SingleSolenoid();
-  //Camera camera = new Camera();
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {
     singleSolenoid.control(1, 0);
     m_testCommand.execute();
-    //camera.display();
   }
 }
