@@ -40,18 +40,18 @@ public class Camera extends SubsystemBase {
         x = tx.getDouble(0.0);
         y = ty.getDouble(0.0);
         area = ta.getDouble(0.0);
-        mode = pipeline.getDouble(0.0);
+      //  mode = (double) pipeline.getNumber(0);
     }
 
     public void setPipeline() {
         int number;
-        // DriverStation.getAlliance();
+        DriverStation.getAlliance();
         if (DriverStation.getAlliance() == Alliance.Blue) {
             number = 1;
         } else {
             number = 0;
         }
-
+        mode = number;
         NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipeline").setNumber(number);
     }
 
