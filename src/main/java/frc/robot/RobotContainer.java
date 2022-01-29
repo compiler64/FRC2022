@@ -25,12 +25,12 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final Gyro m_gyro = new Gyro();
-  private final Pneumatics m_pneumatics = new Pneumatics();
-  private final Camera m_camera = new Camera();
+  private final Pneumatics m_pneumatics = null;//new Pneumatics();
+  public final Camera m_camera = new Camera();
 
   private final AutoCommand m_autonomousCommand = new AutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera);
   public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
-  public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
+ // public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

@@ -22,6 +22,7 @@ public class Camera extends SubsystemBase {
     public Camera() {
         //post to shuffleboard periodically
         table = NetworkTableInstance.getDefault().getTable("limelight");
+       setPipeline();
         Shuffleboard.getTab("main").addNumber("Limelight X", () -> x);
         Shuffleboard.getTab("main").addNumber("Limelight Y", () -> y);
         Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
