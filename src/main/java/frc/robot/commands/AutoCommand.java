@@ -65,7 +65,9 @@ public class AutoCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        commands[commandNumber].cancel();
+        if (commandNumber < commands.length) {
+            commands[commandNumber].cancel();
+        }
     }
 
     @Override
