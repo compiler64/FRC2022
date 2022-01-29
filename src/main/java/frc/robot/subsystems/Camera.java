@@ -22,9 +22,6 @@ public class Camera extends SubsystemBase {
         double y = ty.getDouble(0.0);
         double area = ta.getDouble(0.0);
 
-        //post to shuffleboard periodically
-        SmartDashboard.putNumber("LimelightX", x);
-        SmartDashboard.putNumber("LimelightY", y);
-        SmartDashboard.putNumber("LimelightArea", area);
+     
     }
 }
