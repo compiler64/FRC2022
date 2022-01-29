@@ -9,8 +9,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.AutoCommand;
 import frc.robot.commands.DriveTeleop;
+import frc.robot.commands.SingleSolenoid;
+import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
+import frc.robot.subsystems.Pneumatics;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -22,9 +25,12 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final Gyro m_gyro = new Gyro();
+  private final Pneumatics m_pneumatics = new Pneumatics();
+  private final Camera m_camera = new Camera();
 
   private final AutoCommand m_autonomousCommand = new AutoCommand(m_driveTrain, m_gyro);
-  public final DriveTeleop m_testCommand = new DriveTeleop(m_driveTrain);
+  public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
+  public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -51,6 +57,6 @@ public class RobotContainer {
   }
 
   public Command getTestCommand() {
-    return m_testCommand;
+    return m_driveCommand;
   }
 }

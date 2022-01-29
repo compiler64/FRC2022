@@ -92,10 +92,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     
   }
-  
-  
-  
-  
+
   @Override
   public void testInit() {
     // Cancels all running commands at the start of test mode.
@@ -103,11 +100,11 @@ public class Robot extends TimedRobot {
     m_testCommand = m_robotContainer.getTestCommand();
     m_testCommand.schedule();
   }
-  SingleSolenoid singleSolenoid = new SingleSolenoid();
+
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {
-    singleSolenoid.control(1, 0);
+    m_robotContainer.m_singleSolenoid.control(1, 0);
     m_testCommand.execute();
   }
 }
