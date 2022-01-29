@@ -11,7 +11,6 @@ import frc.robot.commands.AutoCommand;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
-import frc.robot.subsystems.Pneumatics;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
