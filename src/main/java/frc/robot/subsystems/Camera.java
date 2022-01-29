@@ -22,7 +22,6 @@ public class Camera extends SubsystemBase {
     public Camera() {
         //post to shuffleboard periodically
         table = NetworkTableInstance.getDefault().getTable("limelight");
-       setPipeline();
         Shuffleboard.getTab("main").addNumber("Limelight X", () -> x);
         Shuffleboard.getTab("main").addNumber("Limelight Y", () -> y);
         Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
@@ -30,6 +29,8 @@ public class Camera extends SubsystemBase {
     }
     
     public void display() {
+        setPipeline();
+
         // get the entries periodically
         tx = table.getEntry("tx");
         ty = table.getEntry("ty");
@@ -40,7 +41,7 @@ public class Camera extends SubsystemBase {
         x = tx.getDouble(0.0);
         y = ty.getDouble(0.0);
         area = ta.getDouble(0.0);
-      //  mode = (double) pipeline.getNumber(0);
+        mode = pipeline.getDouble(0);
     }
 
     public void setPipeline() {
@@ -51,7 +52,6 @@ public class Camera extends SubsystemBase {
         } else {
             number = 0;
         }
-        mode = number;
         NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipeline").setNumber(number);
     }
 
