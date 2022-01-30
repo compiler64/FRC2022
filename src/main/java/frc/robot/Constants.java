@@ -18,10 +18,10 @@ public final class Constants {
   public static final double AUTO_SPEED = 0.15;
   public static final double AUTO_TIME = 15;
 
-  public static final double AUTO_DISTANCE_1 = 5; // TODO CHANGE THIS LATER
-  public static final double AUTO_ANGLE_2 = 45; // TODO CHANGE THIS LATER
-  public static final double AUTO_DISTANCE_3 = 3; // TODO CHANGE THIS LATER
-  public static final double AUTO_ANGLE_4 = -90; // TODO CHANGE THIS LATER
+  // public static final double AUTO_DISTANCE_1 = 5; // TODO CHANGE THIS LATER
+  // public static final double AUTO_ANGLE_2 = 45; // TODO CHANGE THIS LATER
+  // public static final double AUTO_DISTANCE_3 = 3; // TODO CHANGE THIS LATER
+  // public static final double AUTO_ANGLE_4 = -90; // TODO CHANGE THIS LATER
 
   public static final boolean ENCODERS_READY = false;
 

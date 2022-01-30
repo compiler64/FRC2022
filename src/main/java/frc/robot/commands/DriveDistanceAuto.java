@@ -1,5 +1,7 @@
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
@@ -9,6 +11,7 @@ import frc.robot.subsystems.DriveTrain;
  */
 public class DriveDistanceAuto extends CommandBase {
     private DriveTrain m_driveTrain;
+    private DoubleSupplier m_distanceSupplier;
     private double m_distance;
     private double m_speed;
 
@@ -26,8 +29,26 @@ public class DriveDistanceAuto extends CommandBase {
         addRequirements(driveTrain);
     }
 
+    /**
+     * Creates a new DriveDistanceAuto command, with the distance being calculated during initialization.
+     * @param driveTrain the DriveTrain subsystem
+     * @param distanceSupplier a function that returns the distance to travel
+     * @param speed the speed to travel at
+     */
+    public DriveDistanceAuto(DriveTrain driveTrain, DoubleSupplier distanceSupplier, double speed) {
+        m_driveTrain = driveTrain;
+        m_distanceSupplier = distanceSupplier;
+        m_speed = speed;
+
+        addRequirements(driveTrain);
+    }
+
     @Override
     public void initialize() {
+        // get the distance if a DoubleSupplier was passed to the constructor
+        if (m_distanceSupplier != null) {
+            m_distance = m_distanceSupplier.getAsDouble();
+        }
         // set the speed of both motors to m_speed
         m_driveTrain.setBothMotors(m_speed);
         // reset the encoders
