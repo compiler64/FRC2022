@@ -49,6 +49,21 @@ public class AutoCommand extends CommandBase {
         //     commands = new Command[] {faceBall1, distance1,  angle2, distance3, angle4};
         // else
         //     commands = new Command[] {faceBall1, angle2, angle4};
+
+        commands = new Command[] {
+            new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
+            new FaceBall(driveTrain, camera, AUTO_SPEED),
+            // TODO new DriveToBall(),
+            // TODO new PickUpBall(),
+            new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
+            // TODO new DriveDistanceAuto(driveTrain, 16.3 feet, AUTO_SPEED),
+            new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
+            // TODO new TurnFlywheel(),
+            // TODO new DriveDistanceAuto(driveTrain, 3.7 feet, AUTO_SPEED),
+            // TODO new ShootBall(),
+            // TODO new LoadBall(),
+            // TODO new ShootBall(),
+        };
     }
 
     @Override
