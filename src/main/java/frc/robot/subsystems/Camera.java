@@ -8,6 +8,9 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
+/**
+ * The subsystem that gets data from the camera.
+ */
 public class Camera extends SubsystemBase {
     private NetworkTable table;
     private NetworkTableEntry tx;
@@ -19,6 +22,9 @@ public class Camera extends SubsystemBase {
     private double area;
     private double mode;
 
+    /**
+     * Creates a new Camera subsystem.
+     */
     public Camera() {
         //post to shuffleboard periodically
         table = NetworkTableInstance.getDefault().getTable("limelight");
@@ -26,11 +32,13 @@ public class Camera extends SubsystemBase {
         Shuffleboard.getTab("main").addNumber("Limelight Y", () -> y);
         Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
         Shuffleboard.getTab("main").addNumber("Pipeline Number", () -> mode);
+        setPipeline();
     }
     
+    /**
+     * Display the camera information (x, y, area, pipeline) on the shuffleboard.
+     */
     public void display() {
-        setPipeline();
-
         // get the entries periodically
         tx = table.getEntry("tx");
         ty = table.getEntry("ty");
@@ -44,6 +52,9 @@ public class Camera extends SubsystemBase {
         mode = pipeline.getDouble(0);
     }
 
+    /**
+     * Set the pipeline to 0 if the current alliance is red, 1 if the current alliance is blue.
+     */
     public void setPipeline() {
         int number;
         DriverStation.getAlliance();
@@ -55,14 +66,26 @@ public class Camera extends SubsystemBase {
         NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipeline").setNumber(number);
     }
 
+    /**
+     * Gets the x-coordinate of the ball.
+     * @return the x-coordinate of the ball
+     */
     public double getX() {
         return x;
     }
 
+    /**
+     * Gets the y-coordinate of the ball.
+     * @return the y-coordinate of the ball
+     */
     public double getY() {
         return y;
     }
 
+    /**
+     * Gets the area of the target.
+     * @return the area of the target
+     */
     public double getArea() {
         return area;
     }

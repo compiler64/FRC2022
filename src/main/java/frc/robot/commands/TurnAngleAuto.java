@@ -13,6 +13,13 @@ public class TurnAngleAuto extends CommandBase {
     private double m_angle;
     private double m_speed;
 
+    /**
+     * Creates a new TurnAngleAuto command.
+     * @param driveTrain the drive train of the robot
+     * @param gyro the gyro of the robot
+     * @param angle the angle to turn
+     * @param speed the factor to multiply the speed by
+     */
     public TurnAngleAuto(DriveTrain driveTrain, Gyro gyro, double angle, double speed) {
         m_driveTrain = driveTrain;
         m_gyro = gyro;

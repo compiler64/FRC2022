@@ -26,6 +26,9 @@ public class DriveTrain extends SubsystemBase {
   private double leftSpeed = 0;
   private double rightSpeed = 0;
 
+  /**
+   * Creates a new DriveTrain subsystem.
+   */
   public DriveTrain() {
     Shuffleboard.getTab("main").addNumber("Left Speed", () -> leftSpeed);
     Shuffleboard.getTab("main").addNumber("Right Speed", () -> rightSpeed);

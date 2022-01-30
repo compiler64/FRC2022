@@ -11,15 +11,25 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Gyro extends SubsystemBase {
     AHRS gyroscope = new AHRS(SPI.Port.kMXP);
 
+    /**
+     * Creates a new Gyro subsystem.
+     */
     public Gyro() {
         super();
         Shuffleboard.getTab("main").add(gyroscope);
     }
 
+    /**
+     * Resets the gyro.
+     */
     public void reset() {
         gyroscope.reset();
     }
 
+    /**
+     * Gets the angle of the gyro.
+     * @return the angle of the gyro
+     */
     public double getAngle() {
         return gyroscope.getAngle();
     }

@@ -28,6 +28,13 @@ public class AutoCommand extends CommandBase {
 
     private Timer timer = new Timer();
 
+    /**
+     * Creates a new AutoCommand command.
+     * @param driveTrain the drive train of the robot
+     * @param gyro the gyro of the robot
+     * @param pneumatics the pneumatics subsystem of the robot
+     * @param camera the camera of the robot
+     */
     public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera) {
         // m_driveTrain = driveTrain;
         // m_gyro = gyro;
