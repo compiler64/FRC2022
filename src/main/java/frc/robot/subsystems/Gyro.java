@@ -16,6 +16,7 @@ public class Gyro extends SubsystemBase {
      */
     public Gyro() {
         super();
+        reset();
         Shuffleboard.getTab("main").add(gyroscope);
     }
 
