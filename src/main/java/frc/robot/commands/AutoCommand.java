@@ -17,11 +17,11 @@ public class AutoCommand extends CommandBase {
     // private DriveTrain m_driveTrain;
     // private Gyro m_gyro;
 
-    private FaceBall faceBall1;
-    private DriveDistanceAuto distance1;
-    private TurnAngleAuto angle2;
-    private DriveDistanceAuto distance3;
-    private TurnAngleAuto angle4;
+    // private FaceBall faceBall1;
+    // private DriveDistanceAuto distance1;
+    // private TurnAngleAuto angle2;
+    // private DriveDistanceAuto distance3;
+    // private TurnAngleAuto angle4;
 
     private Command[] commands;
     private int commandNumber = 0;
@@ -39,16 +39,16 @@ public class AutoCommand extends CommandBase {
         // m_driveTrain = driveTrain;
         // m_gyro = gyro;
 
-        faceBall1 = new FaceBall(driveTrain, camera, AUTO_SPEED);
-        if (ENCODERS_READY) distance1 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_1, AUTO_SPEED);
-        angle2 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_2, AUTO_SPEED);
-        if (ENCODERS_READY) distance3 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_3, AUTO_SPEED);
-        angle4 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_4, AUTO_SPEED);
+        // faceBall1 = new FaceBall(driveTrain, camera, AUTO_SPEED);
+        // if (ENCODERS_READY) distance1 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_1, AUTO_SPEED);
+        // angle2 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_2, AUTO_SPEED);
+        // if (ENCODERS_READY) distance3 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_3, AUTO_SPEED);
+        // angle4 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_4, AUTO_SPEED);
 
-        if (ENCODERS_READY)
-            commands = new Command[] {faceBall1, distance1,  angle2, distance3, angle4};
-        else
-            commands = new Command[] {faceBall1, angle2, angle4};
+        // if (ENCODERS_READY)
+        //     commands = new Command[] {faceBall1, distance1,  angle2, distance3, angle4};
+        // else
+        //     commands = new Command[] {faceBall1, angle2, angle4};
     }
 
     @Override
