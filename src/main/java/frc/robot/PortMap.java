@@ -17,6 +17,9 @@ public class PortMap {
     //Right Stick
 	public static final int XBOX_RS_X = 4;
     public static final int XBOX_RS_Y = 5;
+	// Buttons
+	public static final int XBOX_BUTTON_HIGH_GEAR = 1; // A
+	public static final int XBOX_BUTTON_INTAKE = 2; // maybe B?
 
 	public static final int LEFT_ENCODER_PIN_1 = 0; // TODO CHANGE THESE LATER!
 	public static final int LEFT_ENCODER_PIN_2 = 1; // TODO CHANGE THESE LATER!

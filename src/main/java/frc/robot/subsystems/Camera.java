@@ -8,15 +8,19 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
+import static frc.robot.Constants.*;
+
 /**
  * The subsystem that gets data from the camera.
  */
 public class Camera extends SubsystemBase {
     private NetworkTable table;
+    private NetworkTableEntry tv;
     private NetworkTableEntry tx;
     private NetworkTableEntry ty;
     private NetworkTableEntry ta;
     private NetworkTableEntry pipeline;
+    private boolean validTarget;
     private double x;
     private double y;
     private double area;
@@ -28,6 +32,7 @@ public class Camera extends SubsystemBase {
     public Camera() {
         //post to shuffleboard periodically
         table = NetworkTableInstance.getDefault().getTable("limelight");
+        Shuffleboard.getTab("main").addBoolean("Limelight Valid Target", () -> validTarget);
         Shuffleboard.getTab("main").addNumber("Limelight X", () -> x);
         Shuffleboard.getTab("main").addNumber("Limelight Y", () -> y);
         Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
@@ -36,16 +41,18 @@ public class Camera extends SubsystemBase {
     }
     
     /**
-     * Display the camera information (x, y, area, pipeline) on the shuffleboard.
+     * Update the camera info fields.
      */
     public void display() {
         // get the entries periodically
+        tv = table.getEntry("tv");
         tx = table.getEntry("tx");
         ty = table.getEntry("ty");
         ta = table.getEntry("ta");
         pipeline = table.getEntry("getpipe");
 
         //read values periodically
+        validTarget = tv.getDouble(0.0) == 1;  // true if value=1, false if value=0
         x = tx.getDouble(0.0);
         y = ty.getDouble(0.0);
         area = ta.getDouble(0.0);
@@ -53,17 +60,27 @@ public class Camera extends SubsystemBase {
     }
 
     /**
-     * Set the pipeline to 0 if the current alliance is red, 1 if the current alliance is blue.
+     * Sets the pipeline to 0 if the current alliance is red, 1 if the current alliance is blue.
      */
     public void setPipeline() {
-        int number;
-        DriverStation.getAlliance();
-        if (DriverStation.getAlliance() == Alliance.Blue) {
-            number = 1;
-        } else {
-            number = 0;
-        }
+        // set the pipeline to the alliance pipeline
+        setPipelineTo(getAlliancePipeline());
+    }
+
+    /**
+     * Sets the pipeline to number.
+     * @param number the new pipeline number
+     */
+    public void setPipelineTo(int number) {
         NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipeline").setNumber(number);
+    }
+
+    /**
+     * Returns true when the camera is detecting a ball of the right color.
+     * @return if the camera has a valid target
+     */
+    public boolean hasValidTarget() {
+        return validTarget;
     }
 
     /**
@@ -88,5 +105,18 @@ public class Camera extends SubsystemBase {
      */
     public double getArea() {
         return area;
+    }
+
+    public static int getOppositePipeline(int pipeline) {
+        return 1 - pipeline;
+    }
+
+    public static int getAlliancePipeline() {
+        // set number to BLUE_PIPELINE if the alliance is blue, else RED_PIPELINE
+        return (DriverStation.getAlliance() == Alliance.Blue) ? BLUE_PIPELINE : RED_PIPELINE;
+    }
+
+    public static int getNonAlliancePipeline() {
+        return getOppositePipeline(getAlliancePipeline());
     }
 }

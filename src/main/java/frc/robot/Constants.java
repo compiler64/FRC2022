@@ -24,4 +24,7 @@ public final class Constants {
   public static final double AUTO_ANGLE_4 = -90; // TODO CHANGE THIS LATER
 
   public static final boolean ENCODERS_READY = false;
+
+  public static final int RED_PIPELINE = 0;
+  public static final int BLUE_PIPELINE = 1;
 }

@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     m_driveCommand.execute();
-    // m_robotContainer.m_singleSolenoid.control(1,0); //TODO turn pneumatics back on
+    // m_robotContainer.m_singleSolenoid.control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0); //TODO turn pneumatics back on
   }
 
   @Override
@@ -111,7 +111,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {
-    //m_robotContainer.m_singleSolenoid.control(1, 0); //TODO turm pneumatics back on
+    //m_robotContainer.m_singleSolenoid.control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0); //TODO turm pneumatics back on
     m_testCommand.execute();
   }
 }
