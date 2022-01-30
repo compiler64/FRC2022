@@ -12,6 +12,7 @@ public class SingleSolenoid  extends CommandBase {
 
     public SingleSolenoid(Pneumatics pneumatics) {
         Shuffleboard.getTab("main").add(pneumatics);
+        Shuffleboard.getTab("main").addBoolean("high gear", () -> highGear);
         addRequirements(pneumatics);
     }
 

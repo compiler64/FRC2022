@@ -30,7 +30,7 @@ public class RobotContainer {
 
   private final AutoCommand m_autonomousCommand = new AutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera);
   public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
- // public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
+ // public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics); //TODO turn pneumatics back on
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
