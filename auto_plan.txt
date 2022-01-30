@@ -6,7 +6,7 @@ go to ball and pick it up
 
 turn 180 degrees
 
-// IMPORTANT
+// IMPORTANT remember these values
 first distance = 83px = 16.3 ft
 
 turn angle = +- 135 degrees
