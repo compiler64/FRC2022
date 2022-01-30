@@ -1,0 +1,19 @@
+go forward aprox to tape
+align with ball
+go to ball
+pick up ball
+back up and turn around
+go forward to goal
+at 2 feet from goal
+    start shooter wheel
+    align with goal
+when at goal
+    use the indexer wheel to send ball to shooter
+    use conveyer belt to move 2nd ball into place
+    shoot 2nd ball
+back up and turn around
+identify next ball
+go to next ball
+pick up next ball
+go to goal
+shoot ball
