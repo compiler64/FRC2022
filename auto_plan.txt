@@ -1,19 +1,18 @@
-go forward aprox to tape
-align with ball
-go to ball
-pick up ball
-back up and turn around
-go forward to goal
-at 2 feet from goal
-    start shooter wheel
-    align with goal
-when at goal
-    use the indexer wheel to send ball to shooter
-    use conveyer belt to move 2nd ball into place
-    shoot 2nd ball
-back up and turn around
-identify next ball
-go to next ball
-pick up next ball
-go to goal
-shoot ball
+in diagram 130 px = 25.5 ft
+
+// IMPORTANT start robot paralel to one of the upper exits or tarmac lines
+
+go to ball and pick it up
+
+turn 180 degrees
+
+// IMPORTANT
+first distance = 83px = 16.3 ft
+
+turn angle = +- 135 degrees
+
+second distance = 19 px = 3.7 ft 
+
+
+
+distances are rounded down for safty
