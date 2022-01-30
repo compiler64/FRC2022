@@ -56,6 +56,9 @@ public class RobotContainer {
     return m_autonomousCommand;
   }
 
+  public Command getDriveCommand() {
+    return m_driveCommand;
+  }
   public Command getTestCommand() {
     return m_driveCommand;
   }

@@ -20,6 +20,7 @@ import frc.robot.subsystems.Pneumatics;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private Command m_testCommand;
+  private Command m_driveCommand;
 
   private RobotContainer m_robotContainer;
 
@@ -92,12 +93,14 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    m_driveCommand = m_robotContainer.getDriveCommand();
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    
+    m_driveCommand.execute();
+    // m_robotContainer.m_singleSolenoid.control(1,0);
   }
 
   @Override
