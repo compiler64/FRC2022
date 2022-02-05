@@ -15,6 +15,8 @@ public class TurnToAngle extends CommandBase {
         m_gyro = gyro;
         m_angle = angle;
         m_speed = speed;
+
+        addRequirements(driveTrain, gyro);
     }
 
     @Override

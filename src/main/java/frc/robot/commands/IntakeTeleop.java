@@ -9,10 +9,14 @@ import frc.robot.subsystems.intake;
 public class IntakeTeleop extends CommandBase {
     private intake m_intake;
     private Camera m_camera;
+    private double m_intakeSpeed;
 
-    public IntakeTeleop(intake intake, Camera camera) {
+    public IntakeTeleop(intake intake, Camera camera, double intakeSpeed) {
         m_intake = intake;
         m_camera = camera;
+        m_intakeSpeed = intakeSpeed;
+
+        addRequirements(intake, camera);
     }
 
     @Override
@@ -24,7 +28,9 @@ public class IntakeTeleop extends CommandBase {
     public void execute() {
         // intake if the button was pressed and there is no ball of the wrong color
         if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE, true) && !badBall()) {
-            intake();
+            intake(true);
+        } else if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE, true)) {
+            intake(false);
         }
     }
 
@@ -40,7 +46,7 @@ public class IntakeTeleop extends CommandBase {
         return m_camera.hasValidTarget();
     }
 
-    public void intake() {
-        // TODO call a method on m_intake
+    public void intake(boolean on) {
+        m_intake.setIntakeSpeed(on ? m_intakeSpeed : 0);
     }
 }
