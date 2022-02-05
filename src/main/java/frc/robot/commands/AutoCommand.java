@@ -51,6 +51,7 @@ public class AutoCommand extends CommandBase {
         //     commands = new Command[] {faceBall1, angle2, angle4};
 
         commands = new Command[] {
+            // the lower left ball
             new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
@@ -63,6 +64,26 @@ public class AutoCommand extends CommandBase {
             // TODO new ShootBall(),
             // TODO new LoadBall(),
             // TODO new ShootBall(),
+            // TODO turn off flywheel
+            /* 
+            * if we are going for the middle ball as well do this
+            * later put in if statement
+            */
+            // TODO new DriveDistanceAuto(driveTrain, -1 foot, AUTO_SPEED),
+            new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
+            // TODO new DriveDistanceAuto(driveTrain, 2.6 feet, AUTO_SPEED),
+            new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
+            new FaceBall(driveTrain, camera, AUTO_SPEED),
+            // TODO new DriveToBall(),
+            // TODO new PickUpBall(),
+            new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
+            // TODO new DriveDistanceAuto(driveTrain, 16 feet, AUTO_SPEED),
+            new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
+            // TODO new TurnFlywheel(),
+            // TODO new DriveDistanceAuto(driveTrain, 3.6 feet, AUTO_SPEED),
+            // TODO new LoadBall(),
+            // TODO new ShootBall(),
+            // TODO stop flywheel
         };
     }
 
