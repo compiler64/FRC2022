@@ -16,4 +16,12 @@ public class Shooter extends SubsystemBase {
     public void setFlywheelSpeed(double speed) {
         m_motor_flywheel.set(ControlMode.PercentOutput, speed);
     }
+
+    public void loadBall() {
+        // TODO load ball
+    }
+
+    public void shootBall() {
+        // TODO shoot ball
+    }
 }
