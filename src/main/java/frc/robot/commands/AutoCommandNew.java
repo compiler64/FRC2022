@@ -48,6 +48,12 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 ),
                 // TODO new ShootBall(),
                 new TurnFlywheel(intake, 0),
+                /* 
+                 * if after that we go for the balls at the terminal
+                 */
+                new DriveDistanceAuto(driveTrain, -1, AUTO_SPEED),
+                new TurnAngleAuto(driveTrain, gyro, -128, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, -1, AUTO_SPEED),
         };
 
         addCommands(commands);
