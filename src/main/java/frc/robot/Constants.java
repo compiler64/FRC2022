@@ -21,12 +21,10 @@ public final class Constants {
   public static final double AUTO_INTAKE_TIME = 1; // TODO check this
   public static final double AUTO_FLYWHEEL_SPEED = 1; // TODO check this
 
-  // public static final double AUTO_DISTANCE_1 = 5; // TODO CHANGE THIS LATER
-  // public static final double AUTO_ANGLE_2 = 45; // TODO CHANGE THIS LATER
-  // public static final double AUTO_DISTANCE_3 = 3; // TODO CHANGE THIS LATER
-  // public static final double AUTO_ANGLE_4 = -90; // TODO CHANGE THIS LATER
-
   public static final boolean ENCODERS_READY = false;
+  public static final double WHEEL_DIAMETER = 6.0; // TODO check this
+  public static final double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
+  public static final double DISTANCE_PER_PULSE = WHEEL_CIRCUMFERENCE / 256.0;
 
   public static final int RED_PIPELINE = 0;
   public static final int BLUE_PIPELINE = 1;

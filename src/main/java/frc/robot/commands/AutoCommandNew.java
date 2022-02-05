@@ -19,10 +19,10 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new DriveToBall(driveTrain, camera, AUTO_SPEED),
                 new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
                 new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
-                // TODO new DriveDistanceAuto(driveTrain, 16.3 feet, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, 16.3, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
                 new TurnFlywheel(intake, AUTO_FLYWHEEL_SPEED),
-                // TODO new DriveDistanceAuto(driveTrain, 3.7 feet, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, 3.7, AUTO_SPEED),
                 // TODO new ShootBall(),
                 // TODO new LoadBall(),
                 // TODO new ShootBall(),
@@ -31,21 +31,21 @@ public class AutoCommandNew extends SequentialCommandGroup {
                  * if we are going for the middle ball as well do this
                  * later put in if statement
                  */
-                // TODO new DriveDistanceAuto(driveTrain, -1 foot, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, -1, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
-                // TODO new DriveDistanceAuto(driveTrain, 2.6 feet, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, 2.6, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
                 new FaceBall(driveTrain, camera, AUTO_SPEED),
                 new DriveToBall(driveTrain, camera, AUTO_SPEED),
-                // TODO new PickUpBall(),
+                new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
                 new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
-                // TODO new DriveDistanceAuto(driveTrain, 16 feet, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, 16, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
                 new TurnFlywheel(intake, AUTO_FLYWHEEL_SPEED),
-                new ParallelCommandGroup() {
-                    // TODO new DriveDistanceAuto(driveTrain, 3.6 feet, AUTO_SPEED),
+                new ParallelCommandGroup(
+                    new DriveDistanceAuto(driveTrain, 3.6, AUTO_SPEED)
                     // TODO new LoadBall(),
-                },
+                ),
                 // TODO new ShootBall(),
                 new TurnFlywheel(intake, 0),
         };
