@@ -49,6 +49,8 @@ public class DriveDistanceAuto extends CommandBase {
         if (m_distanceSupplier != null) {
             m_distance = m_distanceSupplier.getAsDouble();
         }
+        // make the speed negative if the distance is negative
+        m_speed *= Math.signum(m_distance);
         // set the speed of both motors to m_speed
         m_driveTrain.setBothMotors(m_speed);
         // reset the encoders

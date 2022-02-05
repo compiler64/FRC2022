@@ -27,4 +27,6 @@ public final class Constants {
 
   public static final int RED_PIPELINE = 0;
   public static final int BLUE_PIPELINE = 1;
+
+  public static final double CAMERA_Y_OF_BALL_AT_INTAKE = -20;
 }
