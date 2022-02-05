@@ -21,22 +21,22 @@ public class TerminalAuto  extends SequentialCommandGroup {
             new DriveDistanceAuto(driveTrain, 12, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 94, AUTO_SPEED),
-            // new EnableHighGear(true),
+            // TODO new EnableHighGear(true),
             new DriveDistanceAuto(driveTrain, 18, AUTO_SPEED), //top speed possible if not already enabled
-            // new EnableHighGear(false),
+            // TODO new EnableHighGear(false),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 130, AUTO_SPEED),
-            // new EnableHighGear(true),
+            // TODO new EnableHighGear(true),
             new DriveDistanceAuto(driveTrain, 19.5, AUTO_SPEED), //top speed possible if not already enabled
             // new EnableHighGear(false),
             new TurnAngleAuto(driveTrain, gyro, 132, AUTO_SPEED),
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, 2.4, AUTO_SPEED),
-            // new ShootBall
+            // TODO new ShootBall
             new TurnFlywheel(shooter, 0),
-            //get out of the way
+            // TODO get out of the way
         };
         addCommands(commands);
     }
