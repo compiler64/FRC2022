@@ -7,7 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.AutoCommand;
+import frc.robot.commands.AutoCommandNew;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.commands.FollowBall;
 import frc.robot.commands.IntakeTeleop;
@@ -40,7 +40,7 @@ public class RobotContainer {
     return m_camera;
   }
 
-  private final AutoCommand m_autonomousCommand = new AutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
+  private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
   public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
   public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED);
   public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);

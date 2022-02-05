@@ -15,6 +15,7 @@ import frc.robot.subsystems.intake;
 /**
  * Runs the autonomous commands in order.
  */
+@Deprecated
 public class AutoCommand extends CommandBase {
     // private DriveTrain m_driveTrain;
     // private Gyro m_gyro;
