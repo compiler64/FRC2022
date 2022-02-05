@@ -53,7 +53,7 @@ public class AutoCommand extends CommandBase {
         commands = new Command[] {
             new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
-            // TODO new DriveToBall(),
+            new DriveToBall(driveTrain, camera, AUTO_SPEED),
             // TODO new PickUpBall(),
             new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
             // TODO new DriveDistanceAuto(driveTrain, 16.3 feet, AUTO_SPEED),
