@@ -10,6 +10,8 @@ public class TurnFlywheel extends CommandBase {
     public TurnFlywheel(intake intake, double flywheelSpeed) {
         m_intake = intake;
         m_flywheelSpeed = flywheelSpeed;
+
+        addRequirements(intake);
     }
 
     @Override

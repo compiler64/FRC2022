@@ -22,6 +22,8 @@ public class FollowBall extends CommandBase {
         m_driveTrain = driveTrain;
         m_camera = camera;
         m_speed = speed;
+
+        addRequirements(driveTrain, camera);
     }
 
     @Override

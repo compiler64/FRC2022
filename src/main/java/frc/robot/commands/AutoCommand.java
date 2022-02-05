@@ -57,7 +57,7 @@ public class AutoCommand extends CommandBase {
             new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
-            // TODO new PickUpBall(),
+            new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
             new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
             // TODO new DriveDistanceAuto(driveTrain, 16.3 feet, AUTO_SPEED),
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),

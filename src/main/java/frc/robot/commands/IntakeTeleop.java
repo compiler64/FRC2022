@@ -15,6 +15,8 @@ public class IntakeTeleop extends CommandBase {
         m_intake = intake;
         m_camera = camera;
         m_intakeSpeed = intakeSpeed;
+
+        addRequirements(intake, camera);
     }
 
     @Override
