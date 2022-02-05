@@ -90,9 +90,9 @@ public class AutoCommand extends CommandBase {
             /* 
             * if after that we go for the balls at the terminal
             */
-            // TODO new DriveDistanceAuto(driveTrain, -1 foot, AUTO_SPEED),
+            new DriveDistanceAuto(driveTrain, -1, AUTO_SPEED),
             new TurnAngleAuto(driveTrain, gyro, -128, AUTO_SPEED),
-            // TODO new DriveDistanceAuto(driveTrain, -1 foot, AUTO_SPEED),
+            new DriveDistanceAuto(driveTrain, -1, AUTO_SPEED),
 
         };
     }
