@@ -11,8 +11,8 @@ import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.intake;
 
-public class TerminalAuto  extends SequentialCommandGroup {
-    public TerminalAuto(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
+public class TerminalAutoCommand  extends SequentialCommandGroup {
+    public TerminalAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
         Command[] commands = {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new ShootBall(shooter),
