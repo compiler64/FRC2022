@@ -9,14 +9,15 @@ import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Pneumatics;
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.intake;
 
 public class AltAutoCommand extends SequentialCommandGroup {
-    public AltAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake) {
+    public AltAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
         Command[] commands = {
-            new TurnFlywheel(intake, AUTO_FLYWHEEL_SPEED),
+            new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, 1, AUTO_SPEED),
-            // TODO new ShootBall(),
+            new ShootBall(shooter),
             new TurnAngleAuto(driveTrain, gyro, 140, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, 12, AUTO_SPEED),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
@@ -29,8 +30,9 @@ public class AltAutoCommand extends SequentialCommandGroup {
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 110, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, 18, AUTO_SPEED),
-            // new ShootBall(),
-            // new ShootBAll(),
+            new ShootBall(shooter),
+            new LoadBall(shooter),
+            new ShootBall(shooter),
         };
         addCommands(commands);
     }

@@ -34,9 +34,10 @@ public class AutoCommand extends CommandBase {
      * Creates a new AutoCommand command.
      * @param driveTrain the drive train of the robot
      * @param gyro the gyro of the robot
-     * @param pneumatics the pneumatics subsystem of the robot
+     * @param pneumatics the pneumatics of the robot
      * @param camera the camera of the robot
      * @param intake the intake of the robot
+     * @param shooter the shooter of the robot
      */
     public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
         commands = new Command[] {
