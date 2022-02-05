@@ -11,8 +11,8 @@ import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.intake;
 
-public class AltAutoCommand extends SequentialCommandGroup {
-    public AltAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
+public class TriangleAutoCommand extends SequentialCommandGroup {
+    public TriangleAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
         Command[] commands = {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, 1, AUTO_SPEED),
