@@ -47,6 +47,6 @@ public class IntakeTeleop extends CommandBase {
     }
 
     public void intake(boolean on) {
-        m_intake.setIntakeSpeed(on ? m_intakeSpeed : 0);
+        m_intake.setSpeed(on ? m_intakeSpeed : 0);
     }
 }

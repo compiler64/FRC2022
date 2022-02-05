@@ -18,6 +18,7 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private Command m_testCommand;
   private Command m_driveCommand;
+  private Command m_intakeCommand;
 
   private RobotContainer m_robotContainer;
 
@@ -91,12 +92,16 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     m_driveCommand = m_robotContainer.getDriveCommand();
+    m_intakeCommand = m_robotContainer.getIntakeCommand();
+    m_driveCommand.schedule();
+    m_intakeCommand.schedule();
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    m_driveCommand.execute();
+    // m_driveCommand.execute();
+    // m_intakeCommand.execute();
     // m_robotContainer.m_singleSolenoid.control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0); //TODO turn pneumatics back on
   }
 

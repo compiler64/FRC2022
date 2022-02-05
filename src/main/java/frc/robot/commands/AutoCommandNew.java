@@ -8,11 +8,12 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.intake;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Pneumatics;
+import frc.robot.subsystems.Shooter;
 
 import static frc.robot.Constants.*;
 
 public class AutoCommandNew extends SequentialCommandGroup {
-    public AutoCommandNew(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake) {
+    public AutoCommandNew(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
         Command[] commands = {
                 new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
                 new FaceBall(driveTrain, camera, AUTO_SPEED),
@@ -21,12 +22,12 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
                 new DriveDistanceAuto(driveTrain, 16.3, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
-                new TurnFlywheel(intake, AUTO_FLYWHEEL_SPEED),
+                new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
                 new DriveDistanceAuto(driveTrain, 3.7, AUTO_SPEED),
                 // TODO new ShootBall(),
                 // TODO new LoadBall(),
                 // TODO new ShootBall(),
-                new TurnFlywheel(intake, 0),
+                new TurnFlywheel(shooter, 0),
                 /*
                  * if we are going for the middle ball as well do this
                  * later put in if statement
@@ -41,13 +42,13 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
                 new DriveDistanceAuto(driveTrain, 16, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
-                new TurnFlywheel(intake, AUTO_FLYWHEEL_SPEED),
+                new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
                 new ParallelCommandGroup(
                     new DriveDistanceAuto(driveTrain, 3.6, AUTO_SPEED)
                     // TODO new LoadBall(),
                 ),
                 // TODO new ShootBall(),
-                new TurnFlywheel(intake, 0),
+                new TurnFlywheel(shooter, 0),
                 /* 
                  * if after that we go for the balls at the terminal
                  */
