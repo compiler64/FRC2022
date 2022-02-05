@@ -14,11 +14,13 @@ public class PickUpBall extends CommandBase {
         m_intake = intake;
         m_intakeSpeed = intakeSpeed;
         m_time = time;
+
+        addRequirements(intake);
     }
 
     @Override
     public void initialize() {
-        m_intake.setIntakeSpeed(m_intakeSpeed);
+        m_intake.setSpeed(m_intakeSpeed);
         m_timer.reset();
     }
 

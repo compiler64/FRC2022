@@ -9,11 +9,13 @@ import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Pneumatics;
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.intake;
 
 /**
  * Runs the autonomous commands in order.
  */
+@Deprecated
 public class AutoCommand extends CommandBase {
     // private DriveTrain m_driveTrain;
     // private Gyro m_gyro;
@@ -33,25 +35,12 @@ public class AutoCommand extends CommandBase {
      * Creates a new AutoCommand command.
      * @param driveTrain the drive train of the robot
      * @param gyro the gyro of the robot
-     * @param pneumatics the pneumatics subsystem of the robot
+     * @param pneumatics the pneumatics of the robot
      * @param camera the camera of the robot
      * @param intake the intake of the robot
+     * @param shooter the shooter of the robot
      */
-    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake) {
-        // m_driveTrain = driveTrain;
-        // m_gyro = gyro;
-
-        // faceBall1 = new FaceBall(driveTrain, camera, AUTO_SPEED);
-        // if (ENCODERS_READY) distance1 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_1, AUTO_SPEED);
-        // angle2 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_2, AUTO_SPEED);
-        // if (ENCODERS_READY) distance3 = new DriveDistanceAuto(driveTrain, AUTO_DISTANCE_3, AUTO_SPEED);
-        // angle4 = new TurnAngleAuto(driveTrain, gyro, AUTO_ANGLE_4, AUTO_SPEED);
-
-        // if (ENCODERS_READY)
-        //     commands = new Command[] {faceBall1, distance1,  angle2, distance3, angle4};
-        // else
-        //     commands = new Command[] {faceBall1, angle2, angle4};
-
+    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
         commands = new Command[] {
             // the lower left ball
             new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
@@ -61,12 +50,12 @@ public class AutoCommand extends CommandBase {
             new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, 16.3, AUTO_SPEED),
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
-            new TurnFlywheel(intake, AUTO_INTAKE_SPEED),
+            new TurnFlywheel(shooter, AUTO_INTAKE_SPEED),
             new DriveDistanceAuto(driveTrain, 3.7, AUTO_SPEED),
-            // TODO new ShootBall(),
-            // TODO new LoadBall(),
-            // TODO new ShootBall(),
-            new TurnFlywheel(intake, 0),
+            new ShootBall(shooter),
+            new LoadBall(shooter),
+            new ShootBall(shooter),
+            new TurnFlywheel(shooter, 0),
             /* 
             * if we are going for the middle ball as well do this
             * later put in if statement
@@ -81,12 +70,11 @@ public class AutoCommand extends CommandBase {
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, 16, AUTO_SPEED),
             new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
-            new TurnFlywheel(intake, AUTO_INTAKE_SPEED),
+            new TurnFlywheel(shooter, AUTO_INTAKE_SPEED),
             new DriveDistanceAuto(driveTrain, 3.6, AUTO_SPEED),
-            // TODO new LoadBall(),
-            // TODO new ShootBall(),
-            new TurnFlywheel(intake, 0),
-
+            new LoadBall(shooter),
+            new ShootBall(shooter),
+            new TurnFlywheel(shooter, 0),
             /* 
             * if after that we go for the balls at the terminal
             */

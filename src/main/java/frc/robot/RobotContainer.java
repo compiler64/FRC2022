@@ -7,13 +7,14 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.AutoCommand;
+import frc.robot.commands.AutoCommandNew;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.commands.FollowBall;
 import frc.robot.commands.IntakeTeleop;
-import frc.robot.commands.SingleSolenoid;
+// import frc.robot.commands.SingleSolenoid; TODO uncomment pneumatics
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.intake;
@@ -33,12 +34,13 @@ public class RobotContainer {
   private final Pneumatics m_pneumatics = null;//new Pneumatics(); TODO uncomment pneumatics
   private final Camera m_camera = new Camera();
   private final intake m_intake = new intake();
+  private final Shooter m_shooter = new Shooter();
 
   public final Camera getCamera() {
     return m_camera;
   }
 
-  private final AutoCommand m_autonomousCommand = new AutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake);
+  private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
   public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
   public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED);
   public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
