@@ -83,7 +83,14 @@ public class AutoCommand extends CommandBase {
             // TODO new DriveDistanceAuto(driveTrain, 3.6 feet, AUTO_SPEED),
             // TODO new LoadBall(),
             // TODO new ShootBall(),
-            // TODO stop flywheel
+            // TODO stop flywheel,
+
+            /* 
+            * if after that we go for the balls at the terminal
+            */
+            // TODO new DriveDistanceAuto(driveTrain, -1 foot, AUTO_SPEED),
+            new TurnAngleAuto(driveTrain, gyro, -128, AUTO_SPEED),
+            // TODO new DriveDistanceAuto(driveTrain, -1 foot, AUTO_SPEED),
         };
     }
 

@@ -16,3 +16,21 @@ second distance = 19 px = 3.7 ft
 
 
 distances are rounded down for safty
+
+
+
+
+go forward slightly
+shoot ball
+back up slightly
+turn left 140 degrees
+go forward 12 ft
+go to ball
+pick up ball
+turn left 60 degrees
+go forward 12 ft
+go to ball
+pick up ball
+turn left 70 degrees
+go forward 18 ft
+shoot ballS
