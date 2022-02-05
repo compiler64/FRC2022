@@ -27,10 +27,10 @@ turn left 140 degrees
 go forward 12 ft
 go to ball
 pick up ball
-turn left 60 degrees
+turn left 120 degrees
 go forward 12 ft
 go to ball
 pick up ball
-turn left 70 degrees
+turn left 110 degrees
 go forward 18 ft
 shoot ballS
