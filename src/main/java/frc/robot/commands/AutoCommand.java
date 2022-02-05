@@ -9,6 +9,7 @@ import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Pneumatics;
+import frc.robot.subsystems.intake;
 
 /**
  * Runs the autonomous commands in order.
@@ -34,8 +35,9 @@ public class AutoCommand extends CommandBase {
      * @param gyro the gyro of the robot
      * @param pneumatics the pneumatics subsystem of the robot
      * @param camera the camera of the robot
+     * @param intake the intake of the robot
      */
-    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera) {
+    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake) {
         // m_driveTrain = driveTrain;
         // m_gyro = gyro;
 
@@ -59,12 +61,12 @@ public class AutoCommand extends CommandBase {
             new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
             // TODO new DriveDistanceAuto(driveTrain, 16.3 feet, AUTO_SPEED),
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
-            // TODO new TurnFlywheel(),
+            new TurnFlywheel(intake, AUTO_INTAKE_SPEED),
             // TODO new DriveDistanceAuto(driveTrain, 3.7 feet, AUTO_SPEED),
             // TODO new ShootBall(),
             // TODO new LoadBall(),
             // TODO new ShootBall(),
-            // TODO turn off flywheel
+            new TurnFlywheel(intake, 0),
             /* 
             * if we are going for the middle ball as well do this
             * later put in if statement
@@ -74,16 +76,16 @@ public class AutoCommand extends CommandBase {
             // TODO new DriveDistanceAuto(driveTrain, 2.6 feet, AUTO_SPEED),
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
-            // TODO new DriveToBall(),
+            new DriveToBall(driveTrain, camera, AUTO_SPEED),
             // TODO new PickUpBall(),
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
             // TODO new DriveDistanceAuto(driveTrain, 16 feet, AUTO_SPEED),
             new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
-            // TODO new TurnFlywheel(),
+            new TurnFlywheel(intake, AUTO_INTAKE_SPEED),
             // TODO new DriveDistanceAuto(driveTrain, 3.6 feet, AUTO_SPEED),
             // TODO new LoadBall(),
             // TODO new ShootBall(),
-            // TODO stop flywheel
+            new TurnFlywheel(intake, 0),
         };
     }
 
