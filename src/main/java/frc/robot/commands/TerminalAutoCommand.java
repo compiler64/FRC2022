@@ -18,7 +18,10 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new ShootBall(shooter),
             new TurnFlywheel(shooter, 0),
             new TurnAngleAuto(driveTrain, gyro, 140, AUTO_SPEED),
-            new DriveDistanceAuto(driveTrain, 12, AUTO_SPEED),
+            // new DriveDistanceAuto(driveTrain, 12, AUTO_SPEED),
+            new DriveDistanceAuto(driveTrain, 6, AUTO_SPEED),
+            new FaceBall(driveTrain, camera, AUTO_SPEED),
+            new DriveToBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 94, AUTO_SPEED),
             new EnableHighGear(pneumatics, true),
@@ -34,7 +37,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new TurnAngleAuto(driveTrain, gyro, 132, AUTO_SPEED),
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, 2.4, AUTO_SPEED),
-            // TODO new ShootBall
+            new ShootBall(shooter),
             new TurnFlywheel(shooter, 0),
             // TODO get out of the way
         };
