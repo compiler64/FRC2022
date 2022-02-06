@@ -20,6 +20,10 @@ public class PortMap {
 	//Left Stick
     public static final int XBOX_LS_X = 0;
     public static final int XBOX_LS_Y = 1;
+
+	// triggers
+	public static final int XBOX_L_TRIGGER = 2;
+	public static final int XBOX_R_TRIGGER = 3;
     //Right Stick
 	public static final int XBOX_RS_X = 4;
     public static final int XBOX_RS_Y = 5;
