@@ -1,20 +1,20 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
 public class Shooter extends SubsystemBase {
-    private TalonSRX m_motor_flywheel = new TalonSRX(PortMap.MOTOR_FLYWHEEL_ID);
+    private CANSparkMax m_motor_flywheel = new CANSparkMax(PortMap.MOTOR_FLYWHEEL_ID, MotorType.kBrushless);
 
     public Shooter() {
 
     }
 
     public void setFlywheelSpeed(double speed) {
-        m_motor_flywheel.set(ControlMode.PercentOutput, speed);
+        m_motor_flywheel.set(speed);
     }
 
     public void loadBall() {
