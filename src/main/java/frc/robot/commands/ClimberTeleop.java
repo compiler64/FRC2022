@@ -21,6 +21,11 @@ public class ClimberTeleop extends CommandBase {
         double leftStickY = Controllers.GetRawAxis(PortMap.XBOX_LS_Y, false);
         double rightStickX = Controllers.GetRawAxis(PortMap.XBOX_RS_X, false);
 
+        boolean extenderAtUpperLimit = false;
+        boolean rotatorAtUpperLimit = false;
+        boolean extenderAtLowerLimit = false;
+        boolean rotatorAtLowerLimit = false;
+
         if (Math.abs(leftStickY) < JOYSTICK_BUFFER) {
             leftStickY = 0;
         }
@@ -36,6 +41,20 @@ public class ClimberTeleop extends CommandBase {
             leftPower = 0;
         }
         if (rightPower > 1 || rightPower < -1) {
+            rightPower = 0;
+        }
+
+        if (extenderAtLowerLimit && leftPower < 0) {
+            leftPower = 0;
+        }
+        if (extenderAtUpperLimit && leftPower > 0) {
+            leftPower = 0;
+        }
+
+        if (rotatorAtLowerLimit && rightPower < 0) {
+            rightPower = 0;
+        }
+        if (rotatorAtUpperLimit && rightPower >0) {
             rightPower = 0;
         }
 

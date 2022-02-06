@@ -29,6 +29,7 @@ public class IntakeTeleop extends CommandBase {
     @Override
     public void execute() {
         // intake if the button was pressed and there is no ball of the wrong color
+        // might need to be reconfigured to a toggle button or two buttons
         if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE, true) && !badBall()) {
             m_intake.lower();
             intake(true);
