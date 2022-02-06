@@ -22,14 +22,14 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new DriveDistanceAuto(driveTrain, 6, AUTO_SPEED),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
-            new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
+            new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 94, AUTO_SPEED),
             new EnableHighGear(pneumatics, true),
             new DriveDistanceAuto(driveTrain, 18, AUTO_SPEED), //top speed possible if not already enabled
             new EnableHighGear(pneumatics, false),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
-            new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_INTAKE_TIME),
+            new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 130, AUTO_SPEED),
             new EnableHighGear(pneumatics, true),
             new DriveDistanceAuto(driveTrain, 19.5, AUTO_SPEED), //top speed possible if not already enabled
