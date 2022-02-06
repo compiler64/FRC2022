@@ -21,16 +21,24 @@ public class intake extends SubsystemBase {
     public intake() {
 
     }
+    
     public void setIntakeLift(String state) {
-        if (state == "up") {
-            intakeLift.set(Value.kForward);
-        } else if (state == "down") {
-            intakeLift.set(Value.kReverse);
+        if (state.equals("up")) {
+            setIntakeLift(Value.kForward);
+        } else if (state.equals("down")) {
+            setIntakeLift(Value.kReverse);
+        } else if (state.equals("off")) {
+            setIntakeLift(Value.kOff);
         } else {
-            intakeLift.set(Value.kOff);
+            throw new IllegalArgumentException("setIntakeLift argument must be"
+                    + "\"up\", \"down\", or \"off\", but was " + state + ".");
         }
-        
     }
+
+    public void setIntakeLift(Value value) {
+        intakeLift.set(value);
+    }
+
     public void lower() {
         setIntakeLift("down");
     }
