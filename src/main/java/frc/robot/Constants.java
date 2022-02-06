@@ -27,9 +27,14 @@ public final class Constants {
     public static final double AUTO_FLYWHEEL_SPEED = 1; // TODO check this
 
     public static final boolean ENCODERS_READY = false;
-    public static final double WHEEL_DIAMETER = 6.0; // TODO check this
+    public static final double WHEEL_DIAMETER = 3.0; // TODO check this
     public static final double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
     public static final double DISTANCE_PER_PULSE = WHEEL_CIRCUMFERENCE / 256.0;
+
+    public static final double CLIMBER_EXTENDER_UPPER_LIMIT = 10; // TODO CHANGE THIS LATER!
+    public static final double CLIMBER_EXTENDER_LOWER_LIMIT = 0; // TODO CHANGE THIS LATER!
+    public static final double CLIMBER_ROTATOR_UPPER_LIMIT = 10; // TODO CHANGE THIS LATER!
+    public static final double CLIMBER_ROTATOR_LOWER_LIMIT = 0; // TODO CHANGE THIS LATER!
 
     public static final int RED_PIPELINE = 0;
     public static final int BLUE_PIPELINE = 1;

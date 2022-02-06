@@ -21,10 +21,11 @@ public class ClimberTeleop extends CommandBase {
         double leftStickY = Controllers.GetRawAxis(PortMap.XBOX_LS_Y, false);
         double rightStickX = Controllers.GetRawAxis(PortMap.XBOX_RS_X, false);
 
-        boolean extenderAtUpperLimit = false;
-        boolean rotatorAtUpperLimit = false;
-        boolean extenderAtLowerLimit = false;
-        boolean rotatorAtLowerLimit = false;
+        // TODO change this if we use switches to detect limits
+        boolean extenderAtUpperLimit = m_hanger.getExtenderPosition() >= CLIMBER_EXTENDER_UPPER_LIMIT;
+        boolean rotatorAtUpperLimit = m_hanger.getRotatorPosition() >= CLIMBER_ROTATOR_UPPER_LIMIT;
+        boolean extenderAtLowerLimit = m_hanger.getExtenderPosition() <= CLIMBER_EXTENDER_LOWER_LIMIT;
+        boolean rotatorAtLowerLimit = m_hanger.getRotatorPosition() <= CLIMBER_ROTATOR_LOWER_LIMIT;
 
         if (Math.abs(leftStickY) < JOYSTICK_BUFFER) {
             leftStickY = 0;
