@@ -7,15 +7,18 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
 public class hanger extends SubsystemBase {
-    private CANSparkMax motor1 = new CANSparkMax(PortMap.MOTOR_CLIMBER1_ID, MotorType.kBrushless);
-    private CANSparkMax motor2 = new CANSparkMax(PortMap.MOTOR_CLIMBER2_ID, MotorType.kBrushless);
+    private CANSparkMax extenderMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID, MotorType.kBrushless);
+    private CANSparkMax rotatorMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_ROTATE_ID, MotorType.kBrushless);
 
     public hanger() {
 
     }
 
-    public void setMotors(double speed) {
-        motor1.set(speed);
-        motor2.set(speed);
+    public void setExtenderSpeed(double extenderSpeed) {
+        extenderMotor.set(extenderSpeed);
+    }
+
+    public void setRotatorSpeed(double rotatorSpeed) {
+        rotatorMotor.set(rotatorSpeed);
     }
 }

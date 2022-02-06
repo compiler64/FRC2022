@@ -19,23 +19,34 @@ public class ClimberTeleop extends CommandBase {
     @Override
     public void execute() {
         double leftStickY = Controllers.GetRawAxis(PortMap.XBOX_LS_Y, false);
+        double rightStickX = Controllers.GetRawAxis(PortMap.XBOX_RS_X, false);
 
         if (Math.abs(leftStickY) < JOYSTICK_BUFFER) {
             leftStickY = 0;
         }
 
-        double power = leftStickY * MOTOR_POWER_FACTOR;
-
-        if (power > 1 || power < -1) {
-            power = 0;
+        if (Math.abs(rightStickX) < JOYSTICK_BUFFER) {
+            rightStickX = 0;
         }
 
-        m_hanger.setMotors(power);
+        double leftPower = leftStickY * MOTOR_POWER_FACTOR;
+        double rightPower = rightStickX * MOTOR_POWER_FACTOR;
+
+        if (leftPower > 1 || leftPower < -1) {
+            leftPower = 0;
+        }
+        if (rightPower > 1 || rightPower < -1) {
+            rightPower = 0;
+        }
+
+        m_hanger.setExtenderSpeed(leftPower);
+        m_hanger.setRotatorSpeed(rightPower);
     }
 
     @Override
     public void end(boolean interrupted) {
-        m_hanger.setMotors(0);
+        m_hanger.setExtenderSpeed(0);
+        m_hanger.setRotatorSpeed(0);
     }
 
     @Override
