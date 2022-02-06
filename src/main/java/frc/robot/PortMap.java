@@ -29,14 +29,14 @@ public class PortMap {
     public static final int XBOX_RS_Y = 5;
 	// Buttons
 
-	private static final int XBOX_BUTTON_A = 1;
-	private static final int XBOX_BUTTON_B = 2;
-	private static final int XBOX_BUTTON_X = 3;
-	private static final int XBOX_BUTTON__Y = 4;
-	private static final int XBOX_BUTTON_LB = 5;
-	private static final int XBOX_BUTTON_RB = 6;
-	private static final int XBOX_BUTTON_LSTICK = 9;
-	private static final int XBOX_BUTTON_RSTICK = 10;
+	public static final int XBOX_BUTTON_A = 1;
+	public static final int XBOX_BUTTON_B = 2;
+	public static final int XBOX_BUTTON_X = 3;
+	public static final int XBOX_BUTTON_Y = 4;
+	public static final int XBOX_BUTTON_LB = 5;
+	public static final int XBOX_BUTTON_RB = 6;
+	public static final int XBOX_BUTTON_LSTICK = 9;
+	public static final int XBOX_BUTTON_RSTICK = 10;
 
 
 	public static final int XBOX_BUTTON_HIGH_GEAR = XBOX_BUTTON_A;
