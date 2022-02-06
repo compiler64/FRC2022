@@ -52,9 +52,9 @@ public class AutoCommand extends CommandBase {
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
             new TurnFlywheel(shooter, AUTO_INTAKE_SPEED),
             new DriveDistanceAuto(driveTrain, 3.7, AUTO_SPEED),
-            new ShootBall(shooter),
-            new LoadBall(shooter),
-            new ShootBall(shooter),
+            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
+            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             /* 
             * if we are going for the middle ball as well do this
@@ -72,8 +72,7 @@ public class AutoCommand extends CommandBase {
             new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
             new TurnFlywheel(shooter, AUTO_INTAKE_SPEED),
             new DriveDistanceAuto(driveTrain, 3.6, AUTO_SPEED),
-            new LoadBall(shooter),
-            new ShootBall(shooter),
+            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             /* 
             * if after that we go for the balls at the terminal

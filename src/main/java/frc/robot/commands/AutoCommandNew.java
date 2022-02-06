@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+// import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
@@ -24,9 +24,9 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
                 new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
                 new DriveDistanceAuto(driveTrain, 3.7, AUTO_SPEED),
-                new ShootBall(shooter),
-                new LoadBall(shooter),
-                new ShootBall(shooter),
+                new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+                new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
+                new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
                 new TurnFlywheel(shooter, 0),
                 /*
                  * if we are going for the middle ball as well do this
@@ -43,11 +43,11 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new DriveDistanceAuto(driveTrain, 16, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
                 new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
-                new ParallelCommandGroup(
+                // new ParallelCommandGroup(
                     new DriveDistanceAuto(driveTrain, 3.6, AUTO_SPEED),
-                    new LoadBall(shooter)
-                ),
-                new ShootBall(shooter),
+                    // new LoadBall(shooter) // there is only one ball
+                // ),
+                new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
                 new TurnFlywheel(shooter, 0),
                 /* 
                  * if after that we go for the balls at the terminal

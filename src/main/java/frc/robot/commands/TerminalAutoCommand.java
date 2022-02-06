@@ -15,7 +15,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
     public TerminalAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, intake intake, Shooter shooter) {
         Command[] commands = {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
-            new ShootBall(shooter),
+            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             new TurnAngleAuto(driveTrain, gyro, 140, AUTO_SPEED),
             // new DriveDistanceAuto(driveTrain, 12, AUTO_SPEED),
@@ -37,7 +37,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new TurnAngleAuto(driveTrain, gyro, 132, AUTO_SPEED),
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, 2.4, AUTO_SPEED),
-            new ShootBall(shooter),
+            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             // TODO get out of the way
         };

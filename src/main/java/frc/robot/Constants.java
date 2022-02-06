@@ -25,6 +25,9 @@ public final class Constants {
     public static final double AUTO_BELT_SPEED = 0.25; //TODO check this
     public static final double AUTO_INTAKE_TIME = 1; // TODO check this
     public static final double AUTO_FLYWHEEL_SPEED = 1; // TODO check this
+    public static final double BALL_LOAD_TIME = 1; // TODO check this
+    public static final double BALL_SHOOT_TIME = 1; // TODO check this
+    public static final double INDEXING_WHEEL_SPEED = 0.25; // TODO check this
 
     public static final boolean ENCODERS_READY = false;
     public static final double WHEEL_DIAMETER = 3.0; // TODO check this
