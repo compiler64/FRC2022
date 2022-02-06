@@ -22,6 +22,7 @@ public final class Constants {
     public static final double AUTO_SPEED = 0.15;
     public static final double AUTO_TIME = 15;
     public static final double AUTO_INTAKE_SPEED = 0.25; // TODO check this
+    public static final double AUTO_BELT_SPEED = 0.25; //TODO check this
     public static final double AUTO_INTAKE_TIME = 1; // TODO check this
     public static final double AUTO_FLYWHEEL_SPEED = 1; // TODO check this
 

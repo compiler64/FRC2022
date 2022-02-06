@@ -50,7 +50,7 @@ public class RobotContainer {
     private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera,
             m_intake, m_shooter);
     public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
-    public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED);
+    public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED);
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
     // public final SingleSolenoid m_singleSolenoid = new
     // SingleSolenoid(m_pneumatics);

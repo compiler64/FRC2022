@@ -8,9 +8,10 @@ public class PickUpBall extends CommandBase {
     private Timer m_timer = new Timer();
     private intake m_intake;
     private double m_intakeSpeed;
+    private double m_beltSpeed;
     private double m_time;
 
-    public PickUpBall(intake intake, double intakeSpeed, double time) {
+    public PickUpBall(intake intake, double intakeSpeed, double BeltSpeed, double time) {
         m_intake = intake;
         m_intakeSpeed = intakeSpeed;
         m_time = time;
@@ -21,7 +22,8 @@ public class PickUpBall extends CommandBase {
     @Override
     public void initialize() {
         m_intake.lower();
-        m_intake.setSpeed(m_intakeSpeed);
+        m_intake.setSpeed(m_intakeSpeed, m_beltSpeed);
+        
         m_timer.reset();
     }
 
