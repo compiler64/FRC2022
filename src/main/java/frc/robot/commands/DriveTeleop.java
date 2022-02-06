@@ -1,10 +1,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.Controllers;
 import frc.robot.PortMap;
 import frc.robot.subsystems.DriveTrain;
+
+import static frc.robot.Constants.*;
 
 /**
  * Allows the driver to control the robot with an Xbox controller.
@@ -27,15 +28,15 @@ public class DriveTeleop extends CommandBase {
 
         // set the value to zero if it is close to 0
         // System.out.println("Left stick Y: " + leftStickY);
-        if (Math.abs(leftStickY) < Constants.JOYSTICK_BUFFER) {
+        if (Math.abs(leftStickY) < JOYSTICK_BUFFER) {
             leftStickY = 0;
         }
 
-        if (Math.abs(rightStickX) < Constants.JOYSTICK_BUFFER) {
+        if (Math.abs(rightStickX) < JOYSTICK_BUFFER) {
             rightStickX = 0;
         }
 
-        double power = leftStickY * Constants.MOTOR_POWER_FACTOR;
+        double power = leftStickY * MOTOR_POWER_FACTOR;
         double turningFactor = rightStickX;
 
         double leftMotorPower = 1;
@@ -56,8 +57,8 @@ public class DriveTeleop extends CommandBase {
 
         if (power == 0) {
 
-            leftMotorPower = turningFactor * Constants.MOTOR_POWER_FACTOR;
-            rightMotorPower = -turningFactor * Constants.MOTOR_POWER_FACTOR;
+            leftMotorPower = turningFactor * MOTOR_POWER_FACTOR;
+            rightMotorPower = -turningFactor * MOTOR_POWER_FACTOR;
 
         }
 
