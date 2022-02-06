@@ -30,9 +30,11 @@ public class IntakeTeleop extends CommandBase {
     public void execute() {
         // intake if the button was pressed and there is no ball of the wrong color
         if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE, true) && !badBall()) {
+            m_intake.lower();
             intake(true);
         } else if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE, true)) {
             intake(false);
+            m_intake.raise();
         }
     }
 
