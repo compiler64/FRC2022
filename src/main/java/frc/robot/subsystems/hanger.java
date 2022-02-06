@@ -7,13 +7,13 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
-public class hanger extends SubsystemBase {
+public class Hanger extends SubsystemBase {
     private CANSparkMax extenderMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID, MotorType.kBrushless);
     private RelativeEncoder extenderEncoder;
     private CANSparkMax rotatorMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_ROTATE_ID, MotorType.kBrushless);
     private RelativeEncoder rotatorEncoder;
 
-    public hanger() {
+    public Hanger() {
         extenderEncoder = extenderMotor.getEncoder();
         rotatorEncoder = rotatorMotor.getEncoder();
     }

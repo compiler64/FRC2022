@@ -2,16 +2,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.intake;
+import frc.robot.subsystems.Intake;
 
 public class PickUpBall extends CommandBase {
     private Timer m_timer = new Timer();
-    private intake m_intake;
+    private Intake m_intake;
     private double m_intakeSpeed;
     private double m_beltSpeed;
     private double m_time;
 
-    public PickUpBall(intake intake, double intakeSpeed, double BeltSpeed, double time) {
+    public PickUpBall(Intake intake, double intakeSpeed, double BeltSpeed, double time) {
         m_intake = intake;
         m_intakeSpeed = intakeSpeed;
         m_time = time;

@@ -9,14 +9,14 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
-public class intake extends SubsystemBase {
+public class Intake extends SubsystemBase {
     private TalonSRX m_motor_intake = new TalonSRX(PortMap.MOTOR_INTAKE_ID);
 
     // TODO motorType m_motor_belt = new Motor(PortMap.MOTOR_BELT_ID); // unsure on type
 
     private DoubleSolenoid intakeLift = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
-    public intake() {
+    public Intake() {
 
     }
     

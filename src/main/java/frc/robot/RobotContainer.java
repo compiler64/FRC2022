@@ -18,7 +18,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Pneumatics;
-import frc.robot.subsystems.intake;
+import frc.robot.subsystems.Intake;
 
 import static frc.robot.Constants.*;
 
@@ -37,7 +37,7 @@ public class RobotContainer {
     private final Gyro m_gyro = new Gyro();
     private final Pneumatics m_pneumatics = null;// new Pneumatics(); TODO uncomment pneumatics
     private final Camera m_camera = new Camera();
-    private final intake m_intake = new intake();
+    private final Intake m_intake = new Intake();
     private final Shooter m_shooter = new Shooter();
 
     // for testingn the spark max

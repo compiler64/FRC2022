@@ -4,15 +4,15 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Controllers;
 import frc.robot.PortMap;
 import frc.robot.subsystems.Camera;
-import frc.robot.subsystems.intake;
+import frc.robot.subsystems.Intake;
 
 public class IntakeTeleop extends CommandBase {
-    private intake m_intake;
+    private Intake m_intake;
     private Camera m_camera;
     private double m_intakeSpeed;
     private double m_beltSpeed;
 
-    public IntakeTeleop(intake intake, Camera camera, double intakeSpeed, double beltSpeed) {
+    public IntakeTeleop(Intake intake, Camera camera, double intakeSpeed, double beltSpeed) {
         m_intake = intake;
         m_camera = camera;
         m_intakeSpeed = intakeSpeed;

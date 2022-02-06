@@ -3,14 +3,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Controllers;
 import frc.robot.PortMap;
-import frc.robot.subsystems.hanger;
+import frc.robot.subsystems.Hanger;
 
 import static frc.robot.Constants.*;
 
 public class ClimberTeleop extends CommandBase {
-    private hanger m_hanger;
+    private Hanger m_hanger;
     
-    public ClimberTeleop(hanger hanger) {
+    public ClimberTeleop(Hanger hanger) {
         m_hanger = hanger;
 
         addRequirements(hanger);
