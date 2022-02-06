@@ -23,73 +23,83 @@ import frc.robot.subsystems.intake;
 import static frc.robot.Constants.*;
 
 /**
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+ * This class is where the bulk of the robot should be declared. Since
+ * Command-based is a
+ * "declarative" paradigm, very little robot logic should actually be handled in
+ * the {@link Robot}
+ * periodic methods (other than the scheduler calls). Instead, the structure of
+ * the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final DriveTrain m_driveTrain = new DriveTrain();
-  private final Gyro m_gyro = new Gyro();
-  private final Pneumatics m_pneumatics = null;//new Pneumatics(); TODO uncomment pneumatics
-  private final Camera m_camera = new Camera();
-  private final intake m_intake = new intake();
-  private final Shooter m_shooter = new Shooter();
+    // The robot's subsystems and commands are defined here...
+    private final DriveTrain m_driveTrain = new DriveTrain();
+    private final Gyro m_gyro = new Gyro();
+    private final Pneumatics m_pneumatics = null;// new Pneumatics(); TODO uncomment pneumatics
+    private final Camera m_camera = new Camera();
+    private final intake m_intake = new intake();
+    private final Shooter m_shooter = new Shooter();
 
-  // for testingn the spark max
-  private final SparkTest m_sparkTest = new SparkTest();
+    // for testingn the spark max
+    private final SparkTest m_sparkTest = new SparkTest();
 
-  public final Camera getCamera() {
-    return m_camera;
-  }
+    public final Camera getCamera() {
+        return m_camera;
+    }
 
-  private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
-  public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
-  public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED);
-  public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
- // public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
+    private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera,
+            m_intake, m_shooter);
+    public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
+    public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED);
+    public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
+    // public final SingleSolenoid m_singleSolenoid = new
+    // SingleSolenoid(m_pneumatics);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
-  public RobotContainer() {
-    // Configure the button bindings
-    configureButtonBindings();
-  }
+    /**
+     * The container for the robot. Contains subsystems, OI devices, and commands.
+     */
+    public RobotContainer() {
+        // Configure the button bindings
+        configureButtonBindings();
+    }
 
-  /**
-   * Use this method to define your button->command mappings. Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
-   * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-   */
-  private void configureButtonBindings() {}
+    /**
+     * Use this method to define your button->command mappings. Buttons can be
+     * created by
+     * instantiating a {@link GenericHID} or one of its subclasses ({@link
+     * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing
+     * it to a {@link
+     * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
+     */
+    private void configureButtonBindings() {
+    }
 
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
-  public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return m_autonomousCommand;
-  }
+    /**
+     * Use this to pass the autonomous command to the main {@link Robot} class.
+     *
+     * @return the command to run in autonomous
+     */
+    public Command getAutonomousCommand() {
+        // An ExampleCommand will run in autonomous
+        return m_autonomousCommand;
+    }
 
-  public Command getDriveCommand() {
-    return m_driveCommand;
-  }
+    public Command getDriveCommand() {
+        return m_driveCommand;
+    }
 
-  public Command getIntakeCommand() {
-    return m_intakeCommand;
-  }
+    public Command getIntakeCommand() {
+        return m_intakeCommand;
+    }
 
-  public Command getFollowBallCommand() {
-    return m_followBall;
-  }
+    public Command getFollowBallCommand() {
+        return m_followBall;
+    }
 
-  public Command getTestCommand() {
-    // return m_driveCommand;
-    // return m_followBall;
-    // testing the spark max
-    return m_sparkTest;
-  }
+    public Command getTestCommand() {
+        // return m_driveCommand;
+        // return m_followBall;
+        // testing the spark max
+        return m_sparkTest;
+    }
 }
