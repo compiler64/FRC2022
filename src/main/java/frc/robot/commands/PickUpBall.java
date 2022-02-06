@@ -20,8 +20,13 @@ public class PickUpBall extends CommandBase {
 
     @Override
     public void initialize() {
+        m_intake.lower();
         m_intake.setSpeed(m_intakeSpeed);
         m_timer.reset();
+    }
+
+    public void end() {
+        m_intake.raise();
     }
 
     @Override

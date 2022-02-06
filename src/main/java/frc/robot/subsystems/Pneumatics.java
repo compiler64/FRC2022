@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class Pneumatics extends SubsystemBase {
     Solenoid testSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, 0);
-
+    
     /**
      * Create a new Pneumatics subsystem.
      */
@@ -26,4 +26,6 @@ public class Pneumatics extends SubsystemBase {
         testSolenoid.set(value);
         System.out.println("setting the solenoid");
     }
+
+    
 }

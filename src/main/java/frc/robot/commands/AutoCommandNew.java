@@ -51,6 +51,7 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new TurnFlywheel(shooter, 0),
                 /* 
                  * if after that we go for the balls at the terminal
+                 * not finished yet
                  */
                 new DriveDistanceAuto(driveTrain, -1, AUTO_SPEED),
                 new TurnAngleAuto(driveTrain, gyro, -128, AUTO_SPEED),
