@@ -7,8 +7,10 @@ public class PortMap {
 	public static final int MOTOR_RF_ID = 6;
 	public static final int MOTOR_RM_ID = 5;
 	public static final int MOTOR_RR_ID = 4;
-	public static final int MOTOR_INTAKE_ID = 7; // TODO CHANGE THESE LATER!
-	public static final int MOTOR_FLYWHEEL_ID = 8; // TODO CHANGE THESE LATER!
+	public static final int MOTOR_INTAKE_ID = 11; // TODO CHANGE THESE LATER!
+	public static final int MOTOR_FLYWHEEL_ID = 12; // TODO CHANGE THESE LATER!
+	public static final int MOTOR_CLIMBER1_ID = 13; // TODO CHANGE THIS LATER!
+	public static final int MOTOR_CLIMBER2_ID = 14; // TODO CHANGE THIS LATER!
 
 	public static final int XBOX_DRIVER_PORT = 0;
 	public static final int XBOX_CLIMBER_PORT = 1;
