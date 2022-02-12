@@ -105,9 +105,9 @@ public class Robot extends TimedRobot {
             m_autonomousCommand.cancel();
         }
         m_driveCommand = m_robotContainer.getDriveCommand();
-        m_intakeCommand = m_robotContainer.getIntakeCommand();
+        // m_intakeCommand = m_robotContainer.getIntakeCommand();
         m_driveCommand.schedule();
-        m_intakeCommand.schedule();
+        // m_intakeCommand.schedule();
     }
 
     /** This function is called periodically during operator control. */

@@ -62,6 +62,8 @@ public class DriveDistanceAuto extends CommandBase {
     @Override
     public boolean isFinished() {
         // the command is finished if the distance is at least m_distance
+        // return m_driveTrain.getAverageEncoderDistance() >= m_distance;
+
         return m_driveTrain.getAverageEncoderDistance() >= m_distance;
     }
 

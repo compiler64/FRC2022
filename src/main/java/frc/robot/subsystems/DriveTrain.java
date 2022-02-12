@@ -35,10 +35,11 @@ public class DriveTrain extends SubsystemBase {
         Shuffleboard.getTab("main").addNumber("left encoder", () -> getLeftEncoderDistance());
         Shuffleboard.getTab("main").addNumber("right encoder", () -> getRightEncoderDistance());
 
-        motorLM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+        motorLM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); 
         motorLM.setSensorPhase(true);
         motorRM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
 
+        resetEncoders();
        
     }
 
@@ -72,7 +73,7 @@ public class DriveTrain extends SubsystemBase {
      * @return the distance of the left encoder
      */
     public double getLeftEncoderDistance() {
-        return motorLM.getSelectedSensorPosition() * 4096 * WHEEL_CIRCUMFERENCE;
+        return (motorLM.getSelectedSensorPosition() / 4096) * WHEEL_CIRCUMFERENCE;
     }
 
     /**
@@ -81,7 +82,7 @@ public class DriveTrain extends SubsystemBase {
      * @return the distance of the right encoder
      */
     public double getRightEncoderDistance() {
-        return motorRM.getSelectedSensorPosition() * 4096 * WHEEL_CIRCUMFERENCE;
+        return (motorRM.getSelectedSensorPosition() / 4096) * WHEEL_CIRCUMFERENCE;
     }
 
     /**
@@ -93,10 +94,10 @@ public class DriveTrain extends SubsystemBase {
         return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
     }
     public void resetLeftEncoder() {
-        motorLM.setSelectedSensorPosition(0);
+        motorLM.setSelectedSensorPosition(0.0);
     }
     public void resetRightEncoder() {
-        motorRM.setSelectedSensorPosition(0);
+        motorRM.setSelectedSensorPosition(0.0);
     }
     
     /**

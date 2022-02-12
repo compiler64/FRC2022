@@ -13,6 +13,7 @@ public class Hanger extends SubsystemBase {
     private CANSparkMax rotatorMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_ROTATE_ID, MotorType.kBrushless);
     private RelativeEncoder rotatorEncoder;
 
+    // most likely all of this needs to be changed
     public Hanger() {
         extenderEncoder = extenderMotor.getEncoder();
         rotatorEncoder = rotatorMotor.getEncoder();

@@ -39,7 +39,7 @@ public class RobotContainer {
     private final Gyro m_gyro = new Gyro();
     private final Pneumatics m_pneumatics = null;// new Pneumatics(); TODO uncomment pneumatics
     private final Camera m_camera = new Camera();
-    private final Intake m_intake = new Intake();
+    private final Intake m_intake = null; // new Intake();
     private final Shooter m_shooter = new Shooter();
 
     // for testinng the intake
@@ -50,9 +50,9 @@ public class RobotContainer {
         return m_camera;
     }
 
-    private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
+    // private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
     public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
-    public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED);
+    // public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED);
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
     // public final SingleSolenoid m_singleSolenoid = new
     // SingleSolenoid(m_pneumatics);
@@ -93,9 +93,9 @@ public class RobotContainer {
         return m_driveCommand;
     }
 
-    public Command getIntakeCommand() {
-        return m_intakeCommand;
-    }
+    // public Command getIntakeCommand() {
+    //     return m_intakeCommand;
+    // }
 
     public Command getFollowBallCommand() {
         return m_followBall;
