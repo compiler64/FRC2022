@@ -1,5 +1,8 @@
 package frc.robot;
 
+/**
+ * Stores constants that are information about the motor ports and Xbox controls.
+ */
 public class PortMap {
     public static final int MOTOR_LF_ID = 3;
 	public static final int MOTOR_LM_ID = 2;
