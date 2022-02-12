@@ -44,6 +44,7 @@ public class PortMap {
 
 	public static final int XBOX_BUTTON_HIGH_GEAR = XBOX_BUTTON_A;
 	public static final int XBOX_BUTTON_INTAKE = XBOX_BUTTON_B; // maybe B?
+	public static final int XBOX_BUTTON_CLIMBER_ROTATE = XBOX_BUTTON_A;
 
 	public static final int LEFT_ENCODER_PIN_1 = 0; // TODO CHANGE THESE LATER!
 	public static final int LEFT_ENCODER_PIN_2 = 1; // TODO CHANGE THESE LATER!

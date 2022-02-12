@@ -4,6 +4,8 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
@@ -13,15 +15,18 @@ import frc.robot.PortMap;
 public class Hanger extends SubsystemBase {
     private CANSparkMax extenderMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID, MotorType.kBrushless);
     private RelativeEncoder extenderEncoder;
-    private CANSparkMax rotatorMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_ROTATE_ID, MotorType.kBrushless);
-    private RelativeEncoder rotatorEncoder;
+    // private CANSparkMax rotatorMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_ROTATE_ID, MotorType.kBrushless);
+    // private RelativeEncoder rotatorEncoder;
+
+    // TODO uncomment pneumatics
+    private DoubleSolenoid rotatorSolenoid = null; // new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
     /**
      * Creates a new Hanger subsystem.
      */
     public Hanger() {
         extenderEncoder = extenderMotor.getEncoder();
-        rotatorEncoder = rotatorMotor.getEncoder();
+        // rotatorEncoder = rotatorMotor.getEncoder();
     }
 
     /**
@@ -32,12 +37,20 @@ public class Hanger extends SubsystemBase {
         extenderMotor.set(extenderSpeed);
     }
 
+    // /**
+    //  * Sets the speed of the rotator.
+    //  * @param rotatorSpeed the new rotator speed
+    //  */
+    // public void setRotatorSpeed(double rotatorSpeed) {
+    //     rotatorMotor.set(rotatorSpeed);
+    // }
+
     /**
-     * Sets the speed of the rotator.
-     * @param rotatorSpeed the new rotator speed
+     * Sets the position of the rotator.
+     * @param value the new value
      */
-    public void setRotatorSpeed(double rotatorSpeed) {
-        rotatorMotor.set(rotatorSpeed);
+    public void setRotatorValue(Value value) {
+        rotatorSolenoid.set(value);
     }
 
     /**
@@ -49,10 +62,10 @@ public class Hanger extends SubsystemBase {
     }
 
     /**
-     * Gets the position of the rotator.
-     * @return the rotator position
+     * Gets the value of the rotator.
+     * @return the rotator value
      */
-    public double getRotatorPosition() {
-        return rotatorEncoder.getPosition();
+    public Value getRotatorValue() {
+        return rotatorSolenoid.get();
     }
 }
