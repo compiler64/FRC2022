@@ -6,12 +6,24 @@ import frc.robot.PortMap;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Intake;
 
+import static frc.robot.Constants.*;
+
+/**
+ * Controls the intake with an Xbox controller.
+ */
 public class IntakeTeleop extends CommandBase {
     private Intake m_intake;
     private Camera m_camera;
     private double m_intakeSpeed;
     private double m_beltSpeed;
 
+    /**
+     * Creates a new IntakeTeleop command.
+     * @param intake the intake of the robot
+     * @param camera the camera of the robot
+     * @param intakeSpeed the speed of the intakle
+     * @param beltSpeed the speed of the conveyor belt
+     */
     public IntakeTeleop(Intake intake, Camera camera, double intakeSpeed, double beltSpeed) {
         m_intake = intake;
         m_camera = camera;
@@ -39,6 +51,10 @@ public class IntakeTeleop extends CommandBase {
         }
     }
 
+    /**
+     * Checks if there is a ball of the wrong color in front of the intake.
+     * @return {@literal true} if there is a ball of the wrong color in front of the intake
+     */
     public boolean badBall() {
         // m_camera.setPipeline();
 
@@ -48,9 +64,13 @@ public class IntakeTeleop extends CommandBase {
         //     goodBallArea = m_camera.getArea();
         // }
 
-        return m_camera.hasValidTarget();
+        return m_camera.hasValidTarget() && m_camera.getY() <= BAD_BALL_MAX_Y;
     }
 
+    /**
+     * Turns the intake on or off.
+     * @param on {@literal true} if the intake should be on.
+     */
     public void intake(boolean on) {
         m_intake.setSpeed(on ? m_intakeSpeed : 0, on ? m_beltSpeed : 0);
     }

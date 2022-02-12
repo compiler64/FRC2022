@@ -7,9 +7,16 @@ import frc.robot.subsystems.Hanger;
 
 import static frc.robot.Constants.*;
 
+/**
+ * Controls the climber with an Xbox controller.
+ */
 public class ClimberTeleop extends CommandBase {
     private Hanger m_hanger;
     
+    /**
+     * Creates a new ClimberTeleop command.
+     * @param hanger the hanger subsystem of the robot
+     */
     public ClimberTeleop(Hanger hanger) {
         m_hanger = hanger;
 
@@ -55,7 +62,7 @@ public class ClimberTeleop extends CommandBase {
         if (rotatorAtLowerLimit && rightPower < 0) {
             rightPower = 0;
         }
-        if (rotatorAtUpperLimit && rightPower >0) {
+        if (rotatorAtUpperLimit && rightPower > 0) {
             rightPower = 0;
         }
 

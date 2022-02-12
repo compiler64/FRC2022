@@ -10,6 +10,9 @@ import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import static frc.robot.Constants.*;
 
+/**
+ * Tests the encoders in the drive train subsystem.
+ */
 public class EncoderTest extends SequentialCommandGroup {
     public EncoderTest (DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         Command[] commands = {

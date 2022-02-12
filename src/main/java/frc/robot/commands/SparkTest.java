@@ -9,12 +9,19 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+/**
+ * Tests a CANSparkMax motor.
+ */
 public class SparkTest extends CommandBase {
     CANSparkMax sparkMax = new CANSparkMax(13, MotorType.kBrushless);
     SparkMaxPIDController pidController;
     RelativeEncoder encoder = sparkMax.getEncoder();
 
     public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
+
+    /**
+     * Creates a new SparkTest command.
+     */
     public SparkTest() {
         Shuffleboard.getTab("main").addNumber("spark encoder",  () -> encoder.getVelocity());
         pidController = sparkMax.getPIDController();
