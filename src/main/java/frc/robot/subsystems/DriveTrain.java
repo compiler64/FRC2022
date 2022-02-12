@@ -20,11 +20,7 @@ public class DriveTrain extends SubsystemBase {
     private TalonSRX motorRF = new TalonSRX(PortMap.MOTOR_RF_ID);
     private TalonSRX motorRM = new TalonSRX(PortMap.MOTOR_RM_ID);
     private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
-
-    // private Encoder leftEncoder = ENCODERS_READY ? new Encoder(PortMap.LEFT_ENCODER_PIN_1, PortMap.LEFT_ENCODER_PIN_2) : null;
-    // private Encoder rightEncoder = ENCODERS_READY ? new Encoder(PortMap.RIGHT_ENCODER_PIN_1, PortMap.RIGHT_ENCODER_PIN_2) : null;
-
-    
+  
 
     private double leftSpeed = 0;
     private double rightSpeed = 0;
