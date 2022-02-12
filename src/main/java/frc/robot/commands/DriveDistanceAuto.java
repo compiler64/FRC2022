@@ -17,6 +17,7 @@ public class DriveDistanceAuto extends CommandBase {
     private double m_speed;
     private Gyro m_gyro;
     private double speedBuffer;
+    private double staticSpeed;
 
     /**
      * Creates a new DriveDistanceAuto command.
@@ -43,6 +44,7 @@ public class DriveDistanceAuto extends CommandBase {
         m_driveTrain = driveTrain;
         m_distanceSupplier = distanceSupplier;
         m_speed = speed;
+        staticSpeed = speed;
         m_gyro = gyro;
 
         addRequirements(driveTrain);
@@ -77,6 +79,11 @@ public class DriveDistanceAuto extends CommandBase {
             m_driveTrain.setRightMotors(m_speed);
         } else {
             m_driveTrain.setBothMotors(m_speed);
+        }
+
+        if ((m_driveTrain.getAverageEncoderDistance() - m_distance) < 1) {
+            // reduce speed
+            m_speed = staticSpeed * .7;
         }
     }
 

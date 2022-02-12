@@ -27,7 +27,6 @@ public class Hanger extends SubsystemBase {
      */
     public Hanger() {
         extenderEncoder = extenderMotor.getEncoder();
-        // rotatorEncoder = rotatorMotor.getEncoder();
     }
 
     /**
@@ -38,14 +37,7 @@ public class Hanger extends SubsystemBase {
         extenderMotor.set(extenderSpeed);
     }
 
-    // /**
-    //  * Sets the speed of the rotator.
-    //  * @param rotatorSpeed the new rotator speed
-    //  */
-    // public void setRotatorSpeed(double rotatorSpeed) {
-    //     rotatorMotor.set(rotatorSpeed);
-    // }
-
+    
     /**
      * Sets the position of the rotator.
      * @param value the new value
