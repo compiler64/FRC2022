@@ -18,7 +18,8 @@ public class Intake extends SubsystemBase {
 
     VictorSPX m_motor_belt = new VictorSPX(PortMap.MOTOR_BELT_ID);
 
-    private DoubleSolenoid intakeLift = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+    //TODO uncomment pneumatics
+    private DoubleSolenoid intakeLift = null;// new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
     /**
      * Creates a new Intake subsystem.
