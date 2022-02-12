@@ -16,7 +16,7 @@ import static frc.robot.Constants.*;
 public class EncoderTest extends SequentialCommandGroup {
     public EncoderTest (DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         Command[] commands = {
-            new DriveDistanceAuto(driveTrain, 4, AUTO_SPEED),
+            new DriveDistanceAuto(driveTrain, 10, AUTO_SPEED),
             // new DriveDistanceAuto(driveTrain, -5, AUTO_SPEED),
         };
 
