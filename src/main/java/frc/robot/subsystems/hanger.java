@@ -5,6 +5,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
@@ -19,7 +20,7 @@ public class Hanger extends SubsystemBase {
     // private RelativeEncoder rotatorEncoder;
 
     // TODO uncomment pneumatics
-    private DoubleSolenoid rotatorSolenoid = null; // new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+    private DoubleSolenoid rotatorSolenoid = null; // new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 4);
 
     /**
      * Creates a new Hanger subsystem.
