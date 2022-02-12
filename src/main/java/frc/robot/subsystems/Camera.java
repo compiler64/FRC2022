@@ -39,6 +39,7 @@ public class Camera extends SubsystemBase {
         Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
         Shuffleboard.getTab("main").addNumber("Pipeline Number", () -> mode);
         setPipeline();
+        ledMode = table.getEntry("ledMode");
         setLED(false);
     }
 
