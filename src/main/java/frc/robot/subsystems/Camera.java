@@ -48,7 +48,7 @@ public class Camera extends SubsystemBase {
      * @param on {@literal true} if the LED should be on, {@literal false} otherwise
      */
     public void setLED(boolean on) {
-        ledMode.setBoolean(on);
+        ledMode.setNumber(on ? 3 : 1);
     }
     
     /**
