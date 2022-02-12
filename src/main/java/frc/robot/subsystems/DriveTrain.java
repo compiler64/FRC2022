@@ -74,7 +74,7 @@ public class DriveTrain extends SubsystemBase {
      * @return the distance of the left encoder
      */
     public double getLeftEncoderDistance() {
-        return (motorLM.getSelectedSensorPosition() / (4096 * 8)) * WHEEL_CIRCUMFERENCE;
+        return (motorLM.getSelectedSensorPosition() / (4096 * 7.75)) * WHEEL_CIRCUMFERENCE;
     }
 
     /**
@@ -83,7 +83,7 @@ public class DriveTrain extends SubsystemBase {
      * @return the distance of the right encoder
      */
     public double getRightEncoderDistance() {
-        return (motorRM.getSelectedSensorPosition() / (4096 * 8)) * WHEEL_CIRCUMFERENCE;
+        return (motorRM.getSelectedSensorPosition() / (4096 * 7.75)) * WHEEL_CIRCUMFERENCE;
     }
 
     /**
