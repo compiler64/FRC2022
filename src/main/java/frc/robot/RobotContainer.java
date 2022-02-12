@@ -12,6 +12,7 @@ import frc.robot.commands.DriveTeleop;
 import frc.robot.commands.FollowBall;
 import frc.robot.commands.IntakeTeleop;
 import frc.robot.commands.SparkTest;
+import frc.robot.commands.TestIntake;
 // import frc.robot.commands.SingleSolenoid; TODO uncomment pneumatics
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
@@ -40,8 +41,8 @@ public class RobotContainer {
     private final Intake m_intake = new Intake();
     private final Shooter m_shooter = new Shooter();
 
-    // for testingn the spark max
-    private final SparkTest m_sparkTest = new SparkTest();
+    // for testingn the intake
+    private final TestIntake m_testIntake = new TestIntake(m_intake);
 
     public final Camera getCamera() {
         return m_camera;
@@ -100,6 +101,6 @@ public class RobotContainer {
         // return m_driveCommand;
         // return m_followBall;
         // testing the spark max
-        return m_sparkTest;
+        return m_testIntake;
     }
 }
