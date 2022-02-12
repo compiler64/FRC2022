@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -12,7 +13,7 @@ import frc.robot.PortMap;
 public class Intake extends SubsystemBase {
     private TalonSRX m_motor_intake = new TalonSRX(PortMap.MOTOR_INTAKE_ID);
 
-    // TODO motorType m_motor_belt = new Motor(PortMap.MOTOR_BELT_ID); // unsure on type
+    VictorSPX m_motor_belt = new VictorSPX(PortMap.MOTOR_BELT_ID);
 
     private DoubleSolenoid intakeLift = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
@@ -50,7 +51,7 @@ public class Intake extends SubsystemBase {
     }
 
     public void setBeltSpeed(double beltSpeed) {
-        // TODO m_motor_belt.set(beltSpeed);
+        m_motor_belt.set(ControlMode.PercentOutput, beltSpeed);
     }
 
     public void setSpeed(double intakeSpeed, double beltSpeed) {
