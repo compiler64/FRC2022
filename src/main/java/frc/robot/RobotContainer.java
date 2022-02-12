@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.AutoCommandNew;
 import frc.robot.commands.DriveTeleop;
+import frc.robot.commands.EncoderTest;
 import frc.robot.commands.FollowBall;
 import frc.robot.commands.IntakeTeleop;
 import frc.robot.commands.SparkTest;
@@ -41,15 +42,15 @@ public class RobotContainer {
     private final Intake m_intake = new Intake();
     private final Shooter m_shooter = new Shooter();
 
-    // for testingn the intake
-    private final TestIntake m_testIntake = new TestIntake(m_intake);
+    // for testinng the intake
+    //private final TestIntake m_testIntake = new TestIntake(m_intake);
+    private final EncoderTest m_encoderTest = new EncoderTest(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
 
     public final Camera getCamera() {
         return m_camera;
     }
 
-    private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera,
-            m_intake, m_shooter);
+    private final AutoCommandNew m_autonomousCommand = new AutoCommandNew(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
     public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
     public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED);
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
@@ -82,7 +83,10 @@ public class RobotContainer {
      */
     public Command getAutonomousCommand() {
         // An ExampleCommand will run in autonomous
-        return m_autonomousCommand;
+        // return m_autonomousCommand;
+
+        //for testing the encoders
+        return m_encoderTest;
     }
 
     public Command getDriveCommand() {
@@ -101,6 +105,7 @@ public class RobotContainer {
         // return m_driveCommand;
         // return m_followBall;
         // testing the spark max
-        return m_testIntake;
+        // return m_testIntake;
+        return null;
     }
 }

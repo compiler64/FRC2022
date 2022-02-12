@@ -12,7 +12,19 @@ import frc.robot.subsystems.Shooter;
 
 import static frc.robot.Constants.*;
 
+/**
+ * Runs the autonomous commands in order.
+ */
 public class AutoCommandNew extends SequentialCommandGroup {
+    /**
+     * Creates a new AutoCommand command.
+     * @param driveTrain the drive train of the robot
+     * @param gyro the gyro of the robot
+     * @param pneumatics the pneumatics of the robot
+     * @param camera the camera of the robot
+     * @param intake the intake of the robot
+     * @param shooter the shooter of the robot
+     */
     public AutoCommandNew(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         Command[] commands = {
                 new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),

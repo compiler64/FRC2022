@@ -30,7 +30,7 @@ public final class Constants {
     public static final double INDEXING_WHEEL_SPEED = 0.25; // TODO check this
 
     public static final boolean ENCODERS_READY = false;
-    public static final double WHEEL_DIAMETER = 3.0; // TODO check this
+    public static final double WHEEL_DIAMETER = 6.0; // TODO check this
     public static final double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
     public static final double DISTANCE_PER_PULSE = WHEEL_CIRCUMFERENCE / 256.0;
 

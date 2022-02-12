@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
@@ -21,11 +22,10 @@ public class DriveTrain extends SubsystemBase {
     private TalonSRX motorRM = new TalonSRX(PortMap.MOTOR_RM_ID);
     private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
 
-    private Encoder leftEncoder = ENCODERS_READY ? new Encoder(PortMap.LEFT_ENCODER_PIN_1, PortMap.LEFT_ENCODER_PIN_2)
-            : null;
-    private Encoder rightEncoder = ENCODERS_READY
-            ? new Encoder(PortMap.RIGHT_ENCODER_PIN_1, PortMap.RIGHT_ENCODER_PIN_2)
-            : null;
+    // private Encoder leftEncoder = ENCODERS_READY ? new Encoder(PortMap.LEFT_ENCODER_PIN_1, PortMap.LEFT_ENCODER_PIN_2) : null;
+    // private Encoder rightEncoder = ENCODERS_READY ? new Encoder(PortMap.RIGHT_ENCODER_PIN_1, PortMap.RIGHT_ENCODER_PIN_2) : null;
+
+    
 
     private double leftSpeed = 0;
     private double rightSpeed = 0;
@@ -37,11 +37,16 @@ public class DriveTrain extends SubsystemBase {
         Shuffleboard.getTab("main").addNumber("Left Speed", () -> leftSpeed);
         Shuffleboard.getTab("main").addNumber("Right Speed", () -> rightSpeed);
 
-        if (ENCODERS_READY) {
-            leftEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
-            rightEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
-        }
+        Shuffleboard.getTab("main").addNumber("left encoder", () -> getLeftEncoderDistance());
+        Shuffleboard.getTab("main").addNumber("right encoder", () -> getRightEncoderDistance());
+
+        motorLM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+        motorLM.setSensorPhase(true);
+        motorRM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+
+       
     }
+
 
     // set the speed of the left motors
     public void setLeftMotors(double speed) {
@@ -72,7 +77,7 @@ public class DriveTrain extends SubsystemBase {
      * @return the distance of the left encoder
      */
     public double getLeftEncoderDistance() {
-        return leftEncoder.getDistance();
+        return motorLM.getSelectedSensorPosition() * 4096 * WHEEL_CIRCUMFERENCE;
     }
 
     /**
@@ -81,7 +86,7 @@ public class DriveTrain extends SubsystemBase {
      * @return the distance of the right encoder
      */
     public double getRightEncoderDistance() {
-        return rightEncoder.getDistance();
+        return motorRM.getSelectedSensorPosition() * 4096 * WHEEL_CIRCUMFERENCE;
     }
 
     /**
@@ -92,12 +97,18 @@ public class DriveTrain extends SubsystemBase {
     public double getAverageEncoderDistance() {
         return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
     }
-
+    public void resetLeftEncoder() {
+        motorLM.setSelectedSensorPosition(0);
+    }
+    public void resetRightEncoder() {
+        motorRM.setSelectedSensorPosition(0);
+    }
+    
     /**
      * Resets the encoders.
      */
     public void resetEncoders() {
-        leftEncoder.reset();
-        rightEncoder.reset();
+        resetLeftEncoder();
+        resetRightEncoder();
     }
 }
