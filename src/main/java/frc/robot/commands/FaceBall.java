@@ -34,11 +34,14 @@ public class FaceBall extends CommandBase {
 
         m_driveTrain.setLeftMotors(m_sign * m_speed);
         m_driveTrain.setRightMotors(-m_sign * m_speed);
+
+        m_camera.setLED(true);
     }
 
     @Override
     public void end(boolean interrupted) {
         m_driveTrain.setBothMotors(0);
+        m_camera.setLED(false);
     }
 
     @Override

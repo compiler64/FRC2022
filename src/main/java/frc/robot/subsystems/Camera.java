@@ -20,6 +20,7 @@ public class Camera extends SubsystemBase {
     private NetworkTableEntry ty;
     private NetworkTableEntry ta;
     private NetworkTableEntry pipeline;
+    private NetworkTableEntry ledMode;
     private boolean validTarget;
     private double x;
     private double y;
@@ -38,6 +39,15 @@ public class Camera extends SubsystemBase {
         Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
         Shuffleboard.getTab("main").addNumber("Pipeline Number", () -> mode);
         setPipeline();
+        setLED(false);
+    }
+
+    /**
+     * Turn the camera LED on or off.
+     * @param on {@literal true} if the LED should be on, {@literal false} otherwise
+     */
+    public void setLED(boolean on) {
+        ledMode.setBoolean(on);
     }
     
     /**
@@ -49,6 +59,7 @@ public class Camera extends SubsystemBase {
         tx = table.getEntry("tx");
         ty = table.getEntry("ty");
         ta = table.getEntry("ta");
+        ledMode = table.getEntry("ledMode");
         pipeline = table.getEntry("getpipe");
 
         //read values periodically

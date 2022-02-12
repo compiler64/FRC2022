@@ -36,6 +36,7 @@ public class IntakeTeleop extends CommandBase {
     @Override
     public void initialize() {
         m_camera.setPipelineTo(Camera.getNonAlliancePipeline());
+        m_camera.setLED(true);
     }
 
     @Override
@@ -73,5 +74,10 @@ public class IntakeTeleop extends CommandBase {
      */
     public void intake(boolean on) {
         m_intake.setSpeed(on ? m_intakeSpeed : 0, on ? m_beltSpeed : 0);
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+        m_camera.setLED(false);
     }
 }

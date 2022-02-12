@@ -27,6 +27,11 @@ public class FollowBall extends CommandBase {
     }
 
     @Override
+    public void initialize() {
+        m_camera.setLED(true);
+    }
+
+    @Override
     public void execute() {
         System.out.println("Executing FollowBall");
         // get the x-coordinate of the ball
@@ -43,6 +48,7 @@ public class FollowBall extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         m_driveTrain.setBothMotors(0);
+        m_camera.setLED(false);
     }
 
     @Override
