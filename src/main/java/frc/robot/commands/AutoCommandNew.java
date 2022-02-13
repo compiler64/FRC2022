@@ -32,10 +32,10 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new DriveToBall(driveTrain, camera, AUTO_SPEED),
                 new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
                 new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
-                new DriveDistanceAuto(driveTrain, gyro, 16.3, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, gyro, 16.3, AUTO_SPEED, true),
                 new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
                 new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
-                new DriveDistanceAuto(driveTrain, gyro, 3.7, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, gyro, 3.7, AUTO_SPEED, true),
                 new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
                 new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
                 new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
@@ -44,19 +44,19 @@ public class AutoCommandNew extends SequentialCommandGroup {
                  * if we are going for the middle ball as well do this
                  * later put in if statement
                  */
-                new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED, true),
                 new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
-                new DriveDistanceAuto(driveTrain, gyro, 2.6, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, gyro, 2.6, AUTO_SPEED, true),
                 new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
                 new FaceBall(driveTrain, camera, AUTO_SPEED),
                 new DriveToBall(driveTrain, camera, AUTO_SPEED),
                 new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
                 new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
-                new DriveDistanceAuto(driveTrain, gyro, 16, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, gyro, 16, AUTO_SPEED, true),
                 new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),
                 new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
                 // new ParallelCommandGroup(
-                    new DriveDistanceAuto(driveTrain, gyro, 3.6, AUTO_SPEED),
+                    new DriveDistanceAuto(driveTrain, gyro, 3.6, AUTO_SPEED, true),
                     // new LoadBall(shooter) // there is only one ball
                 // ),
                 new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
@@ -65,9 +65,9 @@ public class AutoCommandNew extends SequentialCommandGroup {
                  * if after that we go for the balls at the terminal
                  * not finished yet
                  */
-                new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED, true),
                 new TurnAngleAuto(driveTrain, gyro, -128, AUTO_SPEED),
-                new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED),
+                new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED, true),
         };
 
         addCommands(commands);

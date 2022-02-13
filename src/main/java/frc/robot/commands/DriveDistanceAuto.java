@@ -20,34 +20,42 @@ public class DriveDistanceAuto extends CommandBase {
     private double speedBuffer;
     private double staticSpeed;
     private boolean atEnd = false;
+    private boolean m_breakAtEnd;
 
     /**
      * Creates a new DriveDistanceAuto command.
      * @param driveTrain the DriveTrain subsystem
+     * @param gyro the Gyro subsystem
      * @param distance the distance to travel
      * @param speed the speed to travel at
+     * @param breakAtEnd whether or not to stop driving once the command is finished
      */
-    public DriveDistanceAuto(DriveTrain driveTrain, Gyro gyro, double distance, double speed) {
+    public DriveDistanceAuto(DriveTrain driveTrain, Gyro gyro, double distance, double speed, boolean breakAtEnd) {
         m_driveTrain = driveTrain;
         m_distance = distance;
         m_speed = speed;
         m_gyro = gyro;
         staticSpeed = speed;
+        m_breakAtEnd = breakAtEnd;
+
         addRequirements(driveTrain);
     }
 
     /**
      * Creates a new DriveDistanceAuto command, with the distance being calculated during initialization.
      * @param driveTrain the DriveTrain subsystem
+     * @param gyro the Gyro subsystem
      * @param distanceSupplier a function that returns the distance to travel
      * @param speed the speed to travel at
+     * @param breakAtEnd whether or not to stop driving once the command is finished
      */
-    public DriveDistanceAuto(DriveTrain driveTrain, Gyro gyro, DoubleSupplier distanceSupplier, double speed) {
+    public DriveDistanceAuto(DriveTrain driveTrain, Gyro gyro, DoubleSupplier distanceSupplier, double speed, boolean breakAtEnd) {
         m_driveTrain = driveTrain;
         m_distanceSupplier = distanceSupplier;
         m_speed = speed;
         staticSpeed = speed;
         m_gyro = gyro;
+        m_breakAtEnd = breakAtEnd;
 
         
 
@@ -116,6 +124,8 @@ public class DriveDistanceAuto extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         // if the command ends, stop both motors
-        m_driveTrain.setBothMotors(0);
+        if (m_breakAtEnd) {
+            m_driveTrain.setBothMotors(0);
+        }
     }
 }
