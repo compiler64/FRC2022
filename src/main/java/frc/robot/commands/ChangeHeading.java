@@ -2,6 +2,8 @@ package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
 
+import org.opencv.core.Mat;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
@@ -49,16 +51,29 @@ public class ChangeHeading extends CommandBase {
     @Override
     public void execute() {
 
-        speedBuffer = Math.abs(m_speed * .5);
-        double newSpeed = m_speed + speedBuffer;
-        double newRealSpeed = Math.max(newSpeed, 1.0);
+        speedBuffer = Math.abs(m_speed * 0.75);
+        
+        if (Math.abs(m_gyro.getAngle() - m_angle) < 10) {
+            speedBuffer = Math.abs(m_speed * 0.45);
+        }
 
         if (m_gyro.getAngle() > m_angle) {
-            m_driveTrain.setRightMotors(newRealSpeed);
-            m_driveTrain.setLeftMotors(m_speed - (newSpeed - newRealSpeed));
+            if (m_speed + speedBuffer > 1) {
+                m_driveTrain.setRightMotors(m_speed);
+                m_driveTrain.setLeftMotors(m_speed - speedBuffer);
+            } else {
+                m_driveTrain.setRightMotors(m_speed + speedBuffer);
+                m_driveTrain.setLeftMotors(m_speed);
+            }
+            
         } else if (m_gyro.getAngle() < m_angle) {
-            m_driveTrain.setLeftMotors(newRealSpeed);
-            m_driveTrain.setRightMotors(m_speed - (newSpeed - newRealSpeed));
+            if (m_speed + speedBuffer > 1) {
+                m_driveTrain.setLeftMotors(m_speed);
+                m_driveTrain.setRightMotors(m_speed - speedBuffer);
+            } else {
+                m_driveTrain.setLeftMotors(m_speed + speedBuffer);
+                m_driveTrain.setRightMotors(m_speed);
+            }
         } else {
             m_driveTrain.setBothMotors(m_speed);
         }

@@ -85,10 +85,10 @@ public class DriveDistanceAuto extends CommandBase {
     @Override
     public void execute() {
         speedBuffer = Math.abs(m_gyro.getAngle() * m_speed / 5);
-        if (m_gyro.getAngle() > 1) {
+        if (m_gyro.getAngle() > 0.5) {
             m_driveTrain.setRightMotors(m_speed + speedBuffer);
             m_driveTrain.setLeftMotors(m_speed);
-        } else if (m_gyro.getAngle() < -1) {
+        } else if (m_gyro.getAngle() < -0.5) {
             m_driveTrain.setLeftMotors(m_speed + speedBuffer);
             m_driveTrain.setRightMotors(m_speed);
         } else {
