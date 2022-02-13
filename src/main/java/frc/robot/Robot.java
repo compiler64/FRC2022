@@ -21,7 +21,7 @@ public class Robot extends TimedRobot {
     private Command m_autonomousCommand;
     private Command m_testCommand;
     private Command m_driveCommand;
-    private Command m_intakeCommand;
+    // private Command m_intakeCommand;
 
     private RobotContainer m_robotContainer;
 

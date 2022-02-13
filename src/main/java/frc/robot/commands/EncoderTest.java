@@ -20,7 +20,7 @@ public class EncoderTest extends SequentialCommandGroup {
             new ChangeHeading(driveTrain, gyro, -90, AUTO_SPEED, true),
         };
 
-    addCommands(commands);
+        addCommands(commands);
     }
     
 }

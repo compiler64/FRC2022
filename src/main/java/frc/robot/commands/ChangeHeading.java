@@ -2,8 +2,6 @@ package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
 
-import org.opencv.core.Mat;
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
@@ -14,17 +12,17 @@ public class ChangeHeading extends CommandBase {
     private double m_angle;
     private DoubleSupplier m_angleSupplier;
     private double m_speed;
-    private double staticSpeed;
+    // private double staticSpeed;
     private boolean m_breakAtEnd;
     private double speedBuffer;
-    private double turnRate;
+    // private double turnRate;
 
     public ChangeHeading(DriveTrain driveTrain, Gyro gyro, double angle, double speed, boolean breakAtEnd) {
         m_driveTrain = driveTrain;
         m_angle = angle;
         m_speed = speed;
         m_gyro = gyro;
-        staticSpeed = speed;
+        // staticSpeed = speed;
         m_breakAtEnd = breakAtEnd;
 
         addRequirements(driveTrain);
@@ -34,7 +32,7 @@ public class ChangeHeading extends CommandBase {
         m_angleSupplier = angleSupplier;
         m_speed = speed;
         m_gyro = gyro;
-        staticSpeed = speed;
+        // staticSpeed = speed;
         m_breakAtEnd = breakAtEnd;
 
         addRequirements(driveTrain);
