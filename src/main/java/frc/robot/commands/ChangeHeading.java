@@ -49,12 +49,14 @@ public class ChangeHeading extends CommandBase {
     @Override
     public void execute() {
         speedBuffer = Math.abs((m_angle - m_gyro.getAngle()) / 100);
+        double newSpeed = m_speed + speedBuffer;
+        double newRealSpeed = Math.max(newSpeed, 1.0);
         if (m_gyro.getAngle() > m_angle) {
-            m_driveTrain.setRightMotors(m_speed + speedBuffer);
-            m_driveTrain.setLeftMotors(m_speed);
+            m_driveTrain.setRightMotors(newRealSpeed);
+            m_driveTrain.setLeftMotors(m_speed - (newSpeed - newRealSpeed));
         } else if (m_gyro.getAngle() < m_angle) {
-            m_driveTrain.setLeftMotors(m_speed + speedBuffer);
-            m_driveTrain.setRightMotors(m_speed);
+            m_driveTrain.setLeftMotors(newRealSpeed);
+            m_driveTrain.setRightMotors(m_speed - (newSpeed - newRealSpeed));
         } else {
             m_driveTrain.setBothMotors(m_speed);
         }
