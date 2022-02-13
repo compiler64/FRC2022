@@ -93,19 +93,19 @@ public class DriveDistanceAuto extends CommandBase {
             m_driveTrain.setBothMotors(m_speed);
         }
 
-        // if (m_breakAtEnd) {
-        //     if (m_distance > 0) {
-        //         if ((m_distance - m_driveTrain.getAverageEncoderDistance()) < 1) {
-        //             // reduce speed
-        //             m_speed = staticSpeed * .7;
-        //         }
-        //     } else {
-        //         if ((m_distance + Math.abs(m_driveTrain.getAverageEncoderDistance())) > -1) {
-        //             // reduce speed
-        //             m_speed = -staticSpeed * .7;
-        //         }
-        //     }
-        // }
+        if (m_breakAtEnd) {
+            if (m_distance > 0) {
+                if ((m_distance - m_driveTrain.getAverageEncoderDistance()) < 1) {
+                    // reduce speed
+                    m_speed = staticSpeed * .7;
+                }
+            } else {
+                if ((m_distance + Math.abs(m_driveTrain.getAverageEncoderDistance())) > -1) {
+                    // reduce speed
+                    m_speed = -staticSpeed * .7;
+                }
+            }
+        }
         
         
     }
