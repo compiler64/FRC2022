@@ -3,6 +3,7 @@ package frc.robot.commands;
 import java.util.function.DoubleSupplier;
 
 import frc.robot.subsystems.Gyro;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
@@ -18,6 +19,7 @@ public class DriveDistanceAuto extends CommandBase {
     private Gyro m_gyro;
     private double speedBuffer;
     private double staticSpeed;
+    private boolean atEnd = false;
 
     /**
      * Creates a new DriveDistanceAuto command.
@@ -30,7 +32,7 @@ public class DriveDistanceAuto extends CommandBase {
         m_distance = distance;
         m_speed = speed;
         m_gyro = gyro;
-
+        staticSpeed = speed;
         addRequirements(driveTrain);
     }
 
@@ -47,6 +49,8 @@ public class DriveDistanceAuto extends CommandBase {
         staticSpeed = speed;
         m_gyro = gyro;
 
+        
+
         addRequirements(driveTrain);
     }
 
@@ -57,16 +61,18 @@ public class DriveDistanceAuto extends CommandBase {
             m_distance = m_distanceSupplier.getAsDouble();
         }
         
+        
         m_gyro.reset();
+        m_speed = staticSpeed;
         // make the speed negative if the distance is negative
         m_speed *= Math.signum(m_distance);
         
+        // reset the encoders
+        m_driveTrain.resetEncoders();
         // set the speed of both motors to m_speed
         m_driveTrain.setBothMotors(m_speed);
-        // reset the encoders
-        if (Constants.ENCODERS_READY) {
-            m_driveTrain.resetEncoders();
-        }
+        
+        
     }
     @Override
     public void execute() {
@@ -81,18 +87,30 @@ public class DriveDistanceAuto extends CommandBase {
             m_driveTrain.setBothMotors(m_speed);
         }
 
-        if ((m_driveTrain.getAverageEncoderDistance() - m_distance) < 1) {
-            // reduce speed
-            m_speed = staticSpeed * .7;
+        if (m_distance > 0) {
+            if ((m_distance - m_driveTrain.getAverageEncoderDistance()) < 1) {
+                // reduce speed
+                m_speed = staticSpeed * .7;
+            }
+        } else {
+            if ((m_distance + Math.abs(m_driveTrain.getAverageEncoderDistance())) > -1) {
+                // reduce speed
+                m_speed = -staticSpeed * .7;
+            }
         }
+        
     }
 
     @Override
     public boolean isFinished() {
         // the command is finished if the distance is at least m_distance
         // return m_driveTrain.getAverageEncoderDistance() >= m_distance;
-
-        return m_driveTrain.getAverageEncoderDistance() >= m_distance;
+        if (m_distance > 0) {
+            atEnd = m_driveTrain.getAverageEncoderDistance() >= m_distance;
+        } else {
+            atEnd = m_driveTrain.getAverageEncoderDistance() <= m_distance;
+        }
+        return atEnd;
     }
 
     @Override

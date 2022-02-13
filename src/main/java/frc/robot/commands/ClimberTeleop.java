@@ -7,7 +7,7 @@ import frc.robot.PortMap;
 import frc.robot.subsystems.Hanger;
 
 import static frc.robot.Constants.*;
-
+// TODO remove old motor control
 /**
  * Controls the climber with an Xbox controller.
  */

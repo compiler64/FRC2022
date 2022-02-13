@@ -14,8 +14,8 @@ public class PortMap {
 	public static final int MOTOR_INTAKE_ID = 11; // TODO CHANGE THESE LATER!
 	public static final int MOTOR_FLYWHEEL_ID = 12; // TODO CHANGE THESE LATER!
 	public static final int MOTOR_INDEXING_WHEEL_ID = 13; // TODO CHANGE THESE LATER!
-	public static final int MOTOR_CLIMBER_EXTEND_ID = 14; // TODO CHANGE THIS LATER!
-	public static final int MOTOR_CLIMBER_ROTATE_ID = 15; // TODO CHANGE THIS LATER!
+	public static final int MOTOR_CLIMBER_EXTEND_ID_1 = 14; // TODO CHANGE THIS LATER!
+	public static final int MOTOR_CLIMBER_EXTEND_ID_2 = 15; // TODO CHANGE THIS LATER!
 
 	public static final int XBOX_DRIVER_PORT = 0;
 	public static final int XBOX_CLIMBER_PORT = 1;

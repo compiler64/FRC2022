@@ -14,7 +14,8 @@ import frc.robot.PortMap;
  * Controls the climbing.
  */
 public class Hanger extends SubsystemBase {
-    private CANSparkMax extenderMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID, MotorType.kBrushless);
+    private CANSparkMax extenderMotor1 = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID_1, MotorType.kBrushless);
+    private CANSparkMax extenderMotor2 = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID_2, MotorType.kBrushless);
     private RelativeEncoder extenderEncoder;
     // private CANSparkMax rotatorMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_ROTATE_ID, MotorType.kBrushless);
     // private RelativeEncoder rotatorEncoder;
@@ -26,7 +27,8 @@ public class Hanger extends SubsystemBase {
      * Creates a new Hanger subsystem.
      */
     public Hanger() {
-        extenderEncoder = extenderMotor.getEncoder();
+        extenderEncoder = extenderMotor1.getEncoder();
+
     }
 
     /**
@@ -34,7 +36,8 @@ public class Hanger extends SubsystemBase {
      * @param extenderSpeed the new extender speed
      */
     public void setExtenderSpeed(double extenderSpeed) {
-        extenderMotor.set(extenderSpeed);
+        extenderMotor1.set(extenderSpeed);
+        extenderMotor2.set(extenderSpeed);
     }
 
     

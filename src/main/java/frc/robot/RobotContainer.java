@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.AutoCommandNew;
+import frc.robot.commands.ClimberTeleop;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.commands.EncoderTest;
 import frc.robot.commands.FollowBall;
@@ -19,6 +20,7 @@ import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Gyro;
+import frc.robot.subsystems.Hanger;
 import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Intake;
 
@@ -41,6 +43,7 @@ public class RobotContainer {
     private final Camera m_camera = new Camera();
     private final Intake m_intake = null; // new Intake();
     private final Shooter m_shooter = new Shooter();
+    private final Hanger m_hanger = new Hanger();
 
     // for testinng the intake
     //private final TestIntake m_testIntake = new TestIntake(m_intake);
@@ -56,6 +59,7 @@ public class RobotContainer {
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
     // public final SingleSolenoid m_singleSolenoid = new
     // SingleSolenoid(m_pneumatics);
+    public final ClimberTeleop m_climberCommand = new ClimberTeleop(m_hanger);
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
