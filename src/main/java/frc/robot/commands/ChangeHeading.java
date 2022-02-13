@@ -48,7 +48,7 @@ public class ChangeHeading extends CommandBase {
     }
     @Override
     public void execute() {
-        speedBuffer = Math.abs((m_angle - m_gyro.getAngle()) / 100);
+        speedBuffer = Math.abs(m_speed * .5);
         if (m_gyro.getAngle() > m_angle) {
             m_driveTrain.setRightMotors(m_speed + speedBuffer);
             m_driveTrain.setLeftMotors(m_speed);
