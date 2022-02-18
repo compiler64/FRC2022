@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 // import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -18,8 +19,8 @@ public class Intake extends SubsystemBase {
 
     VictorSPX m_motor_belt = new VictorSPX(PortMap.MOTOR_BELT_ID);
 
-    //TODO uncomment pneumatics
-    private DoubleSolenoid intakeLift = null;// new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+    
+    private DoubleSolenoid intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
     /**
      * Creates a new Intake subsystem.

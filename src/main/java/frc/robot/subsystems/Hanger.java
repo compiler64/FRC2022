@@ -5,6 +5,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 // import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -17,11 +18,9 @@ public class Hanger extends SubsystemBase {
     private CANSparkMax extenderMotor1 = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID_1, MotorType.kBrushless);
     private CANSparkMax extenderMotor2 = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID_2, MotorType.kBrushless);
     private RelativeEncoder extenderEncoder;
-    // private CANSparkMax rotatorMotor = new CANSparkMax(PortMap.MOTOR_CLIMBER_ROTATE_ID, MotorType.kBrushless);
-    // private RelativeEncoder rotatorEncoder;
-
-    // TODO uncomment pneumatics
-    private DoubleSolenoid rotatorSolenoid = null; // new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 4);
+    
+    
+    private DoubleSolenoid rotatorSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 4);
 
     /**
      * Creates a new Hanger subsystem.
