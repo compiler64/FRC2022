@@ -58,7 +58,7 @@ public class RobotContainer {
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
     public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
     public final ClimberTeleop m_climberCommand = new ClimberTeleop(m_hanger);
-    public final ShootTeleop m_ShootTeleop = new ShootTeleop(m_shooter, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED);
+    public final ShootTeleop m_ShootTeleop = new ShootTeleop(m_shooter, m_intake, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED, AUTO_BELT_SPEED);
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
