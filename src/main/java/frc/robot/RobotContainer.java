@@ -12,6 +12,7 @@ import frc.robot.commands.ClimberTeleop;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.commands.FollowBall;
 import frc.robot.commands.IntakeTeleop;
+import frc.robot.commands.ShootTeleop;
 import frc.robot.commands.SingleSolenoid;
 import frc.robot.commands.TriangleAutoCommand;
 import frc.robot.subsystems.Camera;
@@ -57,6 +58,7 @@ public class RobotContainer {
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
     public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
     public final ClimberTeleop m_climberCommand = new ClimberTeleop(m_hanger);
+    public final ShootTeleop m_ShootTeleop = new ShootTeleop(m_shooter, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED);
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -93,6 +95,10 @@ public class RobotContainer {
 
     public Command getIntakeCommand() {
         return m_intakeCommand;
+    }
+
+    public Command getShooterCommand() {
+        return m_ShootTeleop;
     }
 
     public Command getFollowBallCommand() {

@@ -10,12 +10,12 @@ public class PortMap {
 	public static final int MOTOR_RF_ID = 6;
 	public static final int MOTOR_RM_ID = 5;
 	public static final int MOTOR_RR_ID = 4;
-	public static final int MOTOR_BELT_ID = 10; // TODO CHANGE THESE LATER!
-	public static final int MOTOR_INTAKE_ID = 11; // TODO CHANGE THESE LATER!
-	public static final int MOTOR_FLYWHEEL_ID = 12; // TODO CHANGE THESE LATER!
-	public static final int MOTOR_INDEXING_WHEEL_ID = 13; // TODO CHANGE THESE LATER!
-	public static final int MOTOR_CLIMBER_EXTEND_ID_1 = 14; // TODO CHANGE THIS LATER!
-	public static final int MOTOR_CLIMBER_EXTEND_ID_2 = 15; // TODO CHANGE THIS LATER!
+	public static final int MOTOR_INTAKE_ID = 7;
+	public static final int MOTOR_TRANSFER_ID = 8;
+	public static final int MOTOR_INDEXING_WHEEL_ID = 9;
+	public static final int MOTOR_FLYWHEEL_ID = 11;
+	public static final int MOTOR_CLIMBER_EXTEND_ID_1 = 12;
+	public static final int MOTOR_CLIMBER_EXTEND_ID_2 = 13;
 
 	public static final int XBOX_DRIVER_PORT = 0;
 	public static final int XBOX_CLIMBER_PORT = 1;
@@ -43,11 +43,8 @@ public class PortMap {
 
 
 	public static final int XBOX_BUTTON_HIGH_GEAR = XBOX_BUTTON_A;
-	public static final int XBOX_BUTTON_INTAKE = XBOX_BUTTON_B; // maybe B?
+	public static final int XBOX_BUTTON_INTAKE = XBOX_BUTTON_B;
 	public static final int XBOX_BUTTON_CLIMBER_ROTATE = XBOX_BUTTON_A;
-
-	public static final int LEFT_ENCODER_PIN_1 = 0; // TODO CHANGE THESE LATER!
-	public static final int LEFT_ENCODER_PIN_2 = 1; // TODO CHANGE THESE LATER!
-	public static final int RIGHT_ENCODER_PIN_1 = 0; // TODO CHANGE THESE LATER!
-	public static final int RIGHT_ENCODER_PIN_2 = 1; // TODO CHANGE THESE LATER!
+	public static final int XBOX_BUTTON_START_FLYWHEEL = XBOX_BUTTON_X;
+	public static final int XBOX_BUTTON_SHOOT_BALLS = XBOX_BUTTON_Y;
 }

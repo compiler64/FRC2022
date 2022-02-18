@@ -6,7 +6,6 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
-// import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
@@ -17,7 +16,7 @@ import frc.robot.PortMap;
 public class Intake extends SubsystemBase {
     private TalonSRX m_motor_intake = new TalonSRX(PortMap.MOTOR_INTAKE_ID);
 
-    VictorSPX m_motor_belt = new VictorSPX(PortMap.MOTOR_BELT_ID);
+    VictorSPX m_motor_belt = new VictorSPX(PortMap.MOTOR_TRANSFER_ID);
 
     
     private DoubleSolenoid intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
