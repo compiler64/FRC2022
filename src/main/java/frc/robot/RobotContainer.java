@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.FollowBall;
 // import frc.robot.commands.IntakeTeleop;
 // import frc.robot.commands.ShootTeleop;
-import frc.robot.commands.SingleSolenoid;
+// import frc.robot.commands.SingleSolenoid;
 import frc.robot.commands.TeleopCommand;
 import frc.robot.commands.TriangleAutoCommand;
 import frc.robot.subsystems.Camera;
@@ -56,7 +56,6 @@ public class RobotContainer {
     private final TriangleAutoCommand m_autonomousCommand = new TriangleAutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
     private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter, m_hanger);
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
-    public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
