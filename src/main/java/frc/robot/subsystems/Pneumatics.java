@@ -24,8 +24,5 @@ public class Pneumatics extends SubsystemBase {
      */
     public void setSingle(int port, Boolean value) {
         testSolenoid.set(value);
-        System.out.println("setting the solenoid");
     }
-
-    
 }
