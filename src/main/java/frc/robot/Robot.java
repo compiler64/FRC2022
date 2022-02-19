@@ -113,7 +113,6 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         m_teleopCommand.execute();
-        m_robotContainer.m_singleSolenoid.control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0);
     }
 
     @Override
@@ -127,7 +126,6 @@ public class Robot extends TimedRobot {
     /** This function is called periodically during test mode. */
     @Override
     public void testPeriodic() {
-        m_robotContainer.m_singleSolenoid.control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0);
         m_testCommand.execute();
     }
 }

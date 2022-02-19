@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Controllers;
+import frc.robot.PortMap;
 import frc.robot.subsystems.Pneumatics;
 
 /**
@@ -39,6 +40,10 @@ public class SingleSolenoid extends CommandBase {
             highGear = false;
 
         }
+    }
+
+    public void execute() {
+        control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0);
     }
 
     /**
