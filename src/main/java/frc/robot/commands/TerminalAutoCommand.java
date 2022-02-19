@@ -17,7 +17,7 @@ import frc.robot.subsystems.Intake;
  */
 public class TerminalAutoCommand  extends SequentialCommandGroup {
     public TerminalAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
-        // TODO reorder this
+        
         Command[] commands = {
             new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
@@ -49,6 +49,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 2.4, AUTO_SPEED, true),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
             new TurnFlywheel(shooter, 0),
             // TODO get out of the way
         };

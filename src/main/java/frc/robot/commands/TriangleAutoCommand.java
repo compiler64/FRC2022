@@ -40,6 +40,7 @@ public class TriangleAutoCommand extends SequentialCommandGroup {
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            new TurnFlywheel(shooter, 0),
         };
         addCommands(commands);
     }

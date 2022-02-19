@@ -11,6 +11,10 @@ import frc.robot.subsystems.Shooter;
 
 import static frc.robot.Constants.*;
 
+/**
+ * Runs the autonomous commands in order.
+ * Makes the robot drive back, pick up the leftmost ball, and shoot the two balls.
+ */
 public class TwoBallAuto extends SequentialCommandGroup {
     public TwoBallAuto(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         Command[] commands = {
@@ -27,6 +31,9 @@ public class TwoBallAuto extends SequentialCommandGroup {
             new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
 
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
+            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            new TurnFlywheel(shooter, 0)
         };
         addCommands(commands);
     }
