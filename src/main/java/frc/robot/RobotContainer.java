@@ -8,12 +8,13 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 // import frc.robot.commands.AutoCommandNew;
-import frc.robot.commands.ClimberTeleop;
-import frc.robot.commands.DriveTeleop;
+// import frc.robot.commands.ClimberTeleop;
+// import frc.robot.commands.DriveTeleop;
 import frc.robot.commands.FollowBall;
-import frc.robot.commands.IntakeTeleop;
-import frc.robot.commands.ShootTeleop;
+// import frc.robot.commands.IntakeTeleop;
+// import frc.robot.commands.ShootTeleop;
 import frc.robot.commands.SingleSolenoid;
+import frc.robot.commands.TeleopCommand;
 import frc.robot.commands.TriangleAutoCommand;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
@@ -53,12 +54,9 @@ public class RobotContainer {
     }
 
     private final TriangleAutoCommand m_autonomousCommand = new TriangleAutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
-    public final DriveTeleop m_driveCommand = new DriveTeleop(m_driveTrain);
-    public final IntakeTeleop m_intakeCommand = new IntakeTeleop(m_intake, m_camera, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED);
+    private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter, m_hanger);
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
     public final SingleSolenoid m_singleSolenoid = new SingleSolenoid(m_pneumatics);
-    public final ClimberTeleop m_climberCommand = new ClimberTeleop(m_hanger);
-    public final ShootTeleop m_ShootTeleop = new ShootTeleop(m_shooter, m_intake, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED, AUTO_BELT_SPEED);
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -89,16 +87,8 @@ public class RobotContainer {
         return m_autonomousCommand;
     }
 
-    public Command getDriveCommand() {
-        return m_driveCommand;
-    }
-
-    public Command getIntakeCommand() {
-        return m_intakeCommand;
-    }
-
-    public Command getShooterCommand() {
-        return m_ShootTeleop;
+    public Command getTeleopCommand() {
+        return m_teleopCommand;
     }
 
     public Command getFollowBallCommand() {
