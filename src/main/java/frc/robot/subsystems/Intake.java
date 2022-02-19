@@ -14,12 +14,9 @@ import frc.robot.PortMap;
  * Controls the intake, the intake lift, and the conveyor belt.
  */
 public class Intake extends SubsystemBase {
-    private TalonSRX m_motor_intake = new TalonSRX(PortMap.MOTOR_INTAKE_ID);
-
-    VictorSPX m_motor_belt = new VictorSPX(PortMap.MOTOR_TRANSFER_ID);
-
-    
-    private DoubleSolenoid intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+    private TalonSRX m_motorIntake = new TalonSRX(PortMap.MOTOR_INTAKE_ID);
+    private VictorSPX m_motorBelt = new VictorSPX(PortMap.MOTOR_TRANSFER_ID);
+    private DoubleSolenoid m_intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
     /**
      * Creates a new Intake subsystem.
@@ -50,7 +47,7 @@ public class Intake extends SubsystemBase {
      * @param value the new {@link Value} of the lift
      */
     public void setIntakeLift(Value value) {
-        intakeLift.set(value);
+        m_intakeLift.set(value);
     }
 
     /**
@@ -72,7 +69,7 @@ public class Intake extends SubsystemBase {
      * @param intakeSpeed the new intake speed
      */
     public void setIntakeSpeed(double intakeSpeed) {
-        m_motor_intake.set(ControlMode.PercentOutput, intakeSpeed);
+        m_motorIntake.set(ControlMode.PercentOutput, intakeSpeed);
     }
 
     /**
@@ -80,7 +77,7 @@ public class Intake extends SubsystemBase {
      * @param beltSpeed the new belt speed
      */
     public void setBeltSpeed(double beltSpeed) {
-        m_motor_belt.set(ControlMode.PercentOutput, beltSpeed);
+        m_motorBelt.set(ControlMode.PercentOutput, beltSpeed);
     }
 
     /**
