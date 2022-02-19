@@ -11,6 +11,10 @@ import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
 
+/**
+ * Runs the autonomous commands in order.
+ * Makes the robot drive back, pick up a ball, shoot two balls, get two balls from the terminal, and shoot those balls.
+ */
 public class TerminalAutoCommand  extends SequentialCommandGroup {
     public TerminalAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         // TODO reorder this

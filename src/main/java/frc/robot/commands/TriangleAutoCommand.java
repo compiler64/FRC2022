@@ -11,6 +11,10 @@ import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
 
+/**
+ * Runs the autonomous commands in order.
+ * Makes the robot shoot one ball, drive in a triangle, pick up two balls, and shoot two balls.
+ */
 public class TriangleAutoCommand extends SequentialCommandGroup {
     public TriangleAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         Command[] commands = {
