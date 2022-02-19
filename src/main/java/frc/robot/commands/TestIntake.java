@@ -18,6 +18,8 @@ public class TestIntake extends CommandBase {
      */
     public TestIntake(Intake intake) {
         m_intake = intake;
+
+        addRequirements(intake);
     }
 
     @Override

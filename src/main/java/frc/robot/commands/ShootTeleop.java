@@ -23,6 +23,8 @@ public class ShootTeleop extends CommandBase {
         m_beltSpeed = beltSpeed;
         m_flywheel_on = false;
 
+        addRequirements(shooter, intake);
+
         Shuffleboard.getTab("main").addBoolean("Flywheel On", () -> m_flywheel_on);
     }
 
