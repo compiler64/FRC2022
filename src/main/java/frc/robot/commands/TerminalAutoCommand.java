@@ -15,19 +15,25 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
     public TerminalAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         // TODO reorder this
         Command[] commands = {
-            
-            new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
-            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
-            new TurnFlywheel(shooter, 0),
-            new TurnAngleAuto(driveTrain, gyro, 140, AUTO_SPEED),
-            // new DriveDistanceAuto(driveTrain, 12, AUTO_SPEED),
-            new DriveDistanceAuto(driveTrain, gyro, 6, AUTO_SPEED, true),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
-            new TurnAngleAuto(driveTrain, gyro, 94, AUTO_SPEED),
+            new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
+            // if low goal
+            new DriveDistanceAuto(driveTrain, gyro, 6, AUTO_SPEED, false),
+            new ChangeHeading(driveTrain, gyro, 22, AUTO_SPEED, false),
+
+            new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
+
+            // if low goal
+            new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
+
+            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            new DriveDistanceAuto(driveTrain, gyro, -3, AUTO_SPEED, false),
+            new TurnAngleAuto(driveTrain, gyro, 132, AUTO_SPEED),
+
             new EnableHighGear(pneumatics, true),
-            new DriveDistanceAuto(driveTrain, gyro, 18, AUTO_SPEED, true), //top speed possible if not already enabled
+            new DriveDistanceAuto(driveTrain, gyro, 15, AUTO_SPEED, true), //top speed possible if not already enabled
             new EnableHighGear(pneumatics, false),
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
@@ -35,9 +41,9 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             
             new TurnAngleAuto(driveTrain, gyro, 130, AUTO_SPEED),
             new EnableHighGear(pneumatics, true),
-            new DriveDistanceAuto(driveTrain, gyro, 19.5, AUTO_SPEED, true), //top speed possible if not already enabled
+            new DriveDistanceAuto(driveTrain, gyro, 19, AUTO_SPEED, false), //top speed possible if not already enabled
             new EnableHighGear(pneumatics, false),
-            new TurnAngleAuto(driveTrain, gyro, 132, AUTO_SPEED),
+            new ChangeHeading(driveTrain, gyro, 132, AUTO_SPEED, false),
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 2.4, AUTO_SPEED, true),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),

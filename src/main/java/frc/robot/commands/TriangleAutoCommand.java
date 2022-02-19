@@ -15,10 +15,12 @@ public class TriangleAutoCommand extends SequentialCommandGroup {
     public TriangleAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         Command[] commands = {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
-            new DriveDistanceAuto(driveTrain, gyro, 1, AUTO_SPEED, true),
+            // new DriveDistanceAuto(driveTrain, gyro, 1, AUTO_SPEED, true),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED, true),
             new TurnAngleAuto(driveTrain, gyro, 140, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 12, AUTO_SPEED, true),
+            // faceball might not be nessecary
             new FaceBall(driveTrain, camera, AUTO_SPEED),
             new DriveToBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
