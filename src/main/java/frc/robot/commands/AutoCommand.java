@@ -10,6 +10,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Transport;
 import frc.robot.subsystems.Intake;
 
 /**
@@ -40,19 +41,19 @@ public class AutoCommand extends CommandBase {
      * @param intake the intake of the robot
      * @param shooter the shooter of the robot
      */
-    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
+    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         commands = new Command[] {
             // the lower left ball
             new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
             new FollowBall(driveTrain, camera, AUTO_SPEED),
-            new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
+            new PickUpBall(intake, transport, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 16.3, AUTO_SPEED, true),
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
             new TurnFlywheel(shooter, AUTO_INTAKE_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 3.7, AUTO_SPEED, true),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
-            new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
+            new LoadBall(transport, AUTO_BELT_SPEED, BALL_LOAD_TIME),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             /* 
@@ -64,7 +65,7 @@ public class AutoCommand extends CommandBase {
             new DriveDistanceAuto(driveTrain, gyro, 2.6, AUTO_SPEED, true),
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
             new FollowBall(driveTrain, camera, AUTO_SPEED),
-            new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
+            new PickUpBall(intake, transport, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 16, AUTO_SPEED, true),
             new TurnAngleAuto(driveTrain, gyro, -135, AUTO_SPEED),

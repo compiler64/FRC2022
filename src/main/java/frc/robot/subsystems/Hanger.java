@@ -25,7 +25,6 @@ public class Hanger extends SubsystemBase {
      */
     public Hanger() {
         extenderEncoder = extenderMotor1.getEncoder();
-        extenderEncoder.setInverted(false);
         Shuffleboard.getTab("main").addNumber("extender height", () -> ((extenderEncoder.getPosition() / 5.3333) * (.005 * Math.PI)));
     }
 

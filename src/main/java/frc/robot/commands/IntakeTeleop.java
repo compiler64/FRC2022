@@ -15,7 +15,6 @@ public class IntakeTeleop extends CommandBase {
     private Intake m_intake;
     private Camera m_camera;
     private double m_intakeSpeed;
-    private double m_beltSpeed;
 
     /**
      * Creates a new IntakeTeleop command.
@@ -28,7 +27,7 @@ public class IntakeTeleop extends CommandBase {
         m_intake = intake;
         m_camera = camera;
         m_intakeSpeed = intakeSpeed;
-        m_beltSpeed = beltSpeed;
+        
 
         addRequirements(intake, camera);
     }
@@ -73,7 +72,7 @@ public class IntakeTeleop extends CommandBase {
      * @param on {@literal true} if the intake should be on.
      */
     public void intake(boolean on) {
-        m_intake.setSpeed(on ? m_intakeSpeed : 0, on ? m_beltSpeed : 0);
+        m_intake.setSpeed(on ? m_intakeSpeed : 0);
     }
 
     @Override

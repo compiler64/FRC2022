@@ -2,7 +2,6 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -15,7 +14,7 @@ import frc.robot.PortMap;
  */
 public class Intake extends SubsystemBase {
     private TalonSRX m_motorIntake = new TalonSRX(PortMap.MOTOR_INTAKE_ID);
-    private VictorSPX m_motorBelt = new VictorSPX(PortMap.MOTOR_TRANSFER_ID);
+    
     private DoubleSolenoid m_intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
     /**
@@ -71,22 +70,14 @@ public class Intake extends SubsystemBase {
     public void setIntakeSpeed(double intakeSpeed) {
         m_motorIntake.set(ControlMode.PercentOutput, intakeSpeed);
     }
-
-    /**
-     * Sets the speed of the conveyor belt.
-     * @param beltSpeed the new belt speed
-     */
-    public void setBeltSpeed(double beltSpeed) {
-        m_motorBelt.set(ControlMode.PercentOutput, beltSpeed);
-    }
+ 
 
     /**
      * Sets the speed of both the intake and the conveyor belt.
      * @param intakeSpeed the new intake speed
      * @param beltSpeed the new belt speed
      */
-    public void setSpeed(double intakeSpeed, double beltSpeed) {
+    public void setSpeed(double intakeSpeed) {
         setIntakeSpeed(intakeSpeed);
-        setBeltSpeed(beltSpeed);
     }
 }

@@ -19,6 +19,7 @@ import frc.robot.commands.TriangleAutoCommand;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Transport;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Hanger;
 import frc.robot.subsystems.Pneumatics;
@@ -44,6 +45,7 @@ public class RobotContainer {
     private final Intake m_intake = new Intake();
     private final Shooter m_shooter = new Shooter();
     private final Hanger m_hanger = new Hanger();
+    private final Transport m_transport = new Transport();
 
     // for testinng the intake
     //private final TestIntake m_testIntake = new TestIntake(m_intake);
@@ -53,8 +55,8 @@ public class RobotContainer {
         return m_camera;
     }
 
-    private final TriangleAutoCommand m_autonomousCommand = new TriangleAutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
-    private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter, m_hanger);
+    private final TriangleAutoCommand m_autonomousCommand = new TriangleAutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_transport, m_shooter);
+    private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter, m_transport, m_hanger);
     public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
 
     /**
