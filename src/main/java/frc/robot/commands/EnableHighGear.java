@@ -19,6 +19,8 @@ public class EnableHighGear extends CommandBase {
     public EnableHighGear(Pneumatics pneumatics, boolean enable) {
         m_pneumatics = pneumatics;
         m_enable = enable;
+
+        addRequirements(pneumatics);
     }
 
     @Override
