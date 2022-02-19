@@ -22,7 +22,7 @@ public class TriangleAutoCommand extends SequentialCommandGroup {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new WaitCommand(1),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
-            new DriveDistanceAuto(driveTrain, gyro, -1, AUTO_SPEED, true),
+            new DriveDistanceAuto(driveTrain, gyro, -1.5, AUTO_SPEED, true),
             new TurnAngleAuto(driveTrain, gyro, 140, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 6.5, AUTO_SPEED, false),
            
@@ -41,6 +41,10 @@ public class TriangleAutoCommand extends SequentialCommandGroup {
             new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
+            // get out of the way
+            new DriveDistanceAuto(driveTrain, gyro, -1.5, AUTO_SPEED, false),
+            new TurnAngleAuto(driveTrain, gyro, 160, AUTO_SPEED),
+            new DriveDistanceAuto(driveTrain, gyro, 7, AUTO_SPEED, true),
         };
         addCommands(commands);
     }

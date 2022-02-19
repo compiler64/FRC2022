@@ -33,7 +33,11 @@ public class TwoBallAuto extends SequentialCommandGroup {
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new LoadBall(intake, AUTO_BELT_SPEED, BALL_LOAD_TIME),
             new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
-            new TurnFlywheel(shooter, 0)
+            new TurnFlywheel(shooter, 0),
+            //get out of the way
+            new DriveDistanceAuto(driveTrain, gyro, -1.5, AUTO_SPEED, false),
+            new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
+            new DriveDistanceAuto(driveTrain, gyro, 8, AUTO_SPEED, true),
         };
         addCommands(commands);
     }

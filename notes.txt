@@ -1,1 +1,6 @@
 speedBuffer = .65
+
+
+if helpful, the diagonal of the robot is approx. 42 inches (48 with bumpers)
+
+need at least 12 inches of clearence to turn
