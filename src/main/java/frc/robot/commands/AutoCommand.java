@@ -44,8 +44,7 @@ public class AutoCommand extends CommandBase {
         commands = new Command[] {
             // the lower left ball
             new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
-            new FaceBall(driveTrain, camera, AUTO_SPEED),
-            new DriveToBall(driveTrain, camera, AUTO_SPEED),
+            new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnToAngle(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 16.3, AUTO_SPEED, true),
@@ -64,8 +63,7 @@ public class AutoCommand extends CommandBase {
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 2.6, AUTO_SPEED, true),
             new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
-            new FaceBall(driveTrain, camera, AUTO_SPEED),
-            new DriveToBall(driveTrain, camera, AUTO_SPEED),
+            new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 16, AUTO_SPEED, true),
