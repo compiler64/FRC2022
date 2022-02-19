@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 
+import static frc.robot.Constants.*;
+
 /**
  * A command to make the robot follow a ball of the alliance color.
  */
@@ -53,6 +55,6 @@ public class FollowBall extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return false;
+        return m_camera.getY() >= CAMERA_Y_OF_BALL_AT_INTAKE;
     }
 }

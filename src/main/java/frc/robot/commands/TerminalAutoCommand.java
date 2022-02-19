@@ -15,8 +15,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
     public TerminalAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter) {
         // TODO reorder this
         Command[] commands = {
-            new FaceBall(driveTrain, camera, AUTO_SPEED),
-            new DriveToBall(driveTrain, camera, AUTO_SPEED),
+            new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
             // if low goal
@@ -35,8 +34,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new EnableHighGear(pneumatics, true),
             new DriveDistanceAuto(driveTrain, gyro, 15, AUTO_SPEED, true), //top speed possible if not already enabled
             new EnableHighGear(pneumatics, false),
-            new FaceBall(driveTrain, camera, AUTO_SPEED),
-            new DriveToBall(driveTrain, camera, AUTO_SPEED),
+            new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             
             new TurnAngleAuto(driveTrain, gyro, 130, AUTO_SPEED),
