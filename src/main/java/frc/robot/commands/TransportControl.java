@@ -26,12 +26,21 @@ public class TransportControl extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_SHOOT_BALLS, true) || Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE, true)) {
-      m_transport.run(m_indexerSpeed);
+    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)) {
+      m_transport.run(-m_indexerSpeed);
     }
-    if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_SHOOT_BALLS, true) || Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE, true)) {
+    if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)) {
       m_transport.run(0);
     }
+
+    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_SHOOT_BALLS, true)) {
+      m_transport.run(-m_indexerSpeed);
+      
+  }
+  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_SHOOT_BALLS, true)) {
+      m_transport.run(0);
+      
+  }
 
   }
 

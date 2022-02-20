@@ -68,7 +68,7 @@ public class DriveDistanceAuto extends CommandBase {
         }
         
         
-        m_gyro.reset();
+        //m_gyro.reset();
         m_speed = staticSpeed;
         // make the speed negative if the distance is negative
         m_speed *= Math.signum(m_distance);
@@ -82,16 +82,16 @@ public class DriveDistanceAuto extends CommandBase {
     }
     @Override
     public void execute() {
-        speedBuffer = Math.abs(m_gyro.getAngle() * m_speed / 5);
-        if (m_gyro.getAngle() > 0.5) {
-            m_driveTrain.setRightMotors(m_speed + speedBuffer);
-            m_driveTrain.setLeftMotors(m_speed);
-        } else if (m_gyro.getAngle() < -0.5) {
-            m_driveTrain.setLeftMotors(m_speed + speedBuffer);
-            m_driveTrain.setRightMotors(m_speed);
-        } else {
-            m_driveTrain.setBothMotors(m_speed);
-        }
+        // speedBuffer = Math.abs(m_gyro.getAngle() * m_speed / 10);
+        // if (m_gyro.getAngle() > 3) {
+        //     m_driveTrain.setRightMotors(m_speed + speedBuffer);
+        //     m_driveTrain.setLeftMotors(m_speed);
+        // } else if (m_gyro.getAngle() < -3) {
+        //     m_driveTrain.setLeftMotors(m_speed + speedBuffer);
+        //     m_driveTrain.setRightMotors(m_speed);
+        // } else {
+        //     m_driveTrain.setBothMotors(m_speed);
+        // }
 
         if (m_breakAtEnd) {
             if (m_distance > 0) {

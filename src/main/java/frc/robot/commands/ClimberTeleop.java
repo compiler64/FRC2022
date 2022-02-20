@@ -44,16 +44,16 @@ public class ClimberTeleop extends CommandBase {
         }
         
 
-        if (extenderAtLowerLimit && leftPower < 0) {
-            leftPower = 0;
-        }
-        if (extenderAtUpperLimit && leftPower > 0) {
-            leftPower = 0;
-        }
+        // if (extenderAtLowerLimit && leftPower < 0) {
+        //     leftPower = 0;
+        // }
+        // if (extenderAtUpperLimit && leftPower > 0) {
+        //     leftPower = 0;
+        // }
 
         
 
-        m_hanger.setExtenderSpeed(leftPower);
+        m_hanger.setExtenderSpeed(leftPower * .5);
         
         if (aButton) {
             Value value = m_hanger.getRotatorValue();

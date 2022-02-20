@@ -42,8 +42,9 @@ public class PortMap {
 	public static final int XBOX_BUTTON_RSTICK = 10;
 
 
-	public static final int XBOX_BUTTON_HIGH_GEAR = XBOX_BUTTON_A;
-	public static final int XBOX_BUTTON_INTAKE = XBOX_BUTTON_B;
+	public static final int XBOX_BUTTON_HIGH_GEAR = XBOX_BUTTON_RB;
+	public static final int XBOX_BUTTON_INTAKE_WHEELS = XBOX_BUTTON_B;
+	public static final int XBOX_BUTTON_INTAKE_LIFT = XBOX_BUTTON_A;
 	public static final int XBOX_BUTTON_CLIMBER_ROTATE = XBOX_BUTTON_A;
 	public static final int XBOX_BUTTON_START_FLYWHEEL = XBOX_BUTTON_X;
 	public static final int XBOX_BUTTON_SHOOT_BALLS = XBOX_BUTTON_Y;
