@@ -32,13 +32,8 @@ public class SingleSolenoid extends CommandBase {
      */
     public void control(int button, int solenoid) {
         if (Controllers.isButtonPressed(button, true)) {
-            m_pneumatics.setSingle(solenoid, true);
-            highGear = true;
-        }
-        if (Controllers.isButtonReleased(button, true)) {
-            m_pneumatics.setSingle(solenoid, false);
-            highGear = false;
-
+            m_pneumatics.setSingle(solenoid, !highGear);
+            highGear = !highGear;
         }
     }
 

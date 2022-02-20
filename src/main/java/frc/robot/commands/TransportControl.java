@@ -12,6 +12,8 @@ import frc.robot.subsystems.Transport;
 public class TransportControl extends CommandBase {
   private Transport m_transport;
   private double m_indexerSpeed;
+  private boolean transportOn = false;
+
   /** Creates a new TransportControl. */
   public TransportControl(Transport transport, double indexerSpeed) {
     m_transport = transport;
@@ -26,22 +28,24 @@ public class TransportControl extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+
     if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)) {
-      m_transport.run(-m_indexerSpeed);
-    }
-    if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)) {
-      m_transport.run(0);
+      if (transportOn) {
+        m_transport.run(-m_indexerSpeed);
+      } else {
+        m_transport.run(0);
+      }
+      transportOn = !transportOn;
     }
 
     if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_SHOOT_BALLS, true)) {
-      m_transport.run(-m_indexerSpeed);
-      
-  }
-  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_SHOOT_BALLS, true)) {
-      m_transport.run(0);
-      
-  }
-
+      if (transportOn) {
+        m_transport.run(-m_indexerSpeed);
+      } else {
+        m_transport.run(0);
+      }
+      transportOn = !transportOn;
+    }
   }
 
   // Called once the command ends or is interrupted.

@@ -16,6 +16,7 @@ public class IntakeTeleop extends CommandBase {
     private Camera m_camera;
     private double m_intakeSpeed;
     private boolean isDown = false;
+    private boolean wheelsOn = false;
 
     /**
      * Creates a new IntakeTeleop command.
@@ -44,7 +45,8 @@ public class IntakeTeleop extends CommandBase {
         // intake if the button was pressed and there is no ball of the wrong color
         // might need to be reconfigured to a toggle button or two buttons
         if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true) && !badBall()) {
-            intake(true);
+            intake(!wheelsOn);
+            wheelsOn = !wheelsOn;
         } else if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)) {
             intake(false);
         }
