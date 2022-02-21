@@ -1,7 +1,7 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -13,7 +13,7 @@ import frc.robot.PortMap;
  * Controls the intake, the intake lift, and the conveyor belt.
  */
 public class Intake extends SubsystemBase {
-    private CANSparkMax m_motorIntake = new CANSparkMax(PortMap.MOTOR_INTAKE_ID, MotorType.kBrushless);
+    private TalonSRX m_motorIntake = new TalonSRX(PortMap.MOTOR_INTAKE_ID);
     
     private DoubleSolenoid m_intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
 
@@ -68,7 +68,7 @@ public class Intake extends SubsystemBase {
      * @param intakeSpeed the new intake speed
      */
     public void setIntakeSpeed(double intakeSpeed) {
-        m_motorIntake.set(intakeSpeed);
+        m_motorIntake.set(ControlMode.PercentOutput, intakeSpeed);
     }
  
 

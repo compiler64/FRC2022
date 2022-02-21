@@ -11,13 +11,13 @@ import frc.robot.subsystems.Transport;
 
 public class TransportControl extends CommandBase {
   private Transport m_transport;
-  private double m_indexerSpeed;
+  private double m_transportSpeed;
   private boolean transportOn = false;
 
   /** Creates a new TransportControl. */
-  public TransportControl(Transport transport, double indexerSpeed) {
+  public TransportControl(Transport transport, double speed) {
     m_transport = transport;
-    m_indexerSpeed = indexerSpeed;
+    m_transportSpeed = speed;
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -29,18 +29,9 @@ public class TransportControl extends CommandBase {
   @Override
   public void execute() {
 
-    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)) {
-      if (transportOn) {
-        m_transport.run(-m_indexerSpeed);
-      } else {
-        m_transport.run(0);
-      }
-      transportOn = !transportOn;
-    }
-
-    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_SHOOT_BALLS, true)) {
-      if (transportOn) {
-        m_transport.run(-m_indexerSpeed);
+    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_TRANSFER, true)) {
+      if (!transportOn) {
+        m_transport.run(m_transportSpeed);
       } else {
         m_transport.run(0);
       }

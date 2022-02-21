@@ -25,13 +25,14 @@ public final class Constants {
     public static final double MOTOR_POWER_FACTOR = 1;
     public static final double AUTO_SPEED = 0.3;
     public static final double AUTO_TIME = 15;
-    public static final double AUTO_INTAKE_SPEED = -.50; // TODO check this
+    public static final double AUTO_INTAKE_SPEED = -.80; // TODO check this
     public static final double AUTO_BELT_SPEED = -1; //TODO check this
     public static final double AUTO_INTAKE_TIME = 1; // TODO check this
-    public static final double AUTO_FLYWHEEL_SPEED = 1; // TODO check this
+    public static final double AUTO_FLYWHEEL_SPEED = -.8; // TODO check this
     public static final double BALL_LOAD_TIME = 1; // TODO check this
     public static final double BALL_SHOOT_TIME = 1; // TODO check this
-    public static final double INDEXING_WHEEL_SPEED = .25; // TODO check this
+    public static final double INDEXING_WHEEL_SPEED = .5; // TODO check this
+    public static final double TRANSFER_SPEED = -.5;
 
     public static final double WHEEL_DIAMETER = 6.0 / 12.0;
     public static final double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;

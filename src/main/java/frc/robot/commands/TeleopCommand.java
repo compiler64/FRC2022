@@ -19,7 +19,7 @@ public class TeleopCommand extends ParallelCommandGroup {
             new DriveTeleop(driveTrain),
             new IntakeTeleop(intake, camera, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED),
             new ShootTeleop(shooter, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED),
-            new TransportControl(transport, INDEXING_WHEEL_SPEED),
+            new TransportControl(transport, TRANSFER_SPEED),
             new SingleSolenoid(pneumatics),
             new ClimberTeleop(hanger),
         };

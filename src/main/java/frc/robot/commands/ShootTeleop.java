@@ -30,13 +30,14 @@ public class ShootTeleop extends CommandBase {
             m_flywheel_on = !m_flywheel_on;
             m_shooter.setFlywheelSpeed(m_flywheel_on ? m_flywheelSpeed : 0);
         }
+        
 
         // the indexer and transfer
-        if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_SHOOT_BALLS, true)) {
+        if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, true) > .50) {
             m_shooter.setIndexingWheelSpeed(m_indexerSpeed);
             
         }
-        if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_SHOOT_BALLS, true)) {
+        if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, true) < .50) {
             m_shooter.setIndexingWheelSpeed(0);
             
         }
