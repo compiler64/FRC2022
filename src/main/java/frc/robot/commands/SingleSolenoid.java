@@ -41,6 +41,7 @@ public class SingleSolenoid extends CommandBase {
 
     public void execute() {
         control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0);
+        // control(PortMap.XBOX_BUTTON_HIGH_GEAR_2, 0);
     }
 
     /**
