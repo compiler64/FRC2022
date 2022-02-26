@@ -10,7 +10,7 @@ public class PortMap {
 	public static final int MOTOR_RF_ID = 6;
 	public static final int MOTOR_RM_ID = 5;
 	public static final int MOTOR_RR_ID = 4;
-	public static final int MOTOR_INTAKE_ID = 7;
+	public static final int MOTOR_INTAKE_ID = 11;
 	public static final int MOTOR_TRANSFER_ID = 8;
 	public static final int MOTOR_INDEXING_WHEEL_ID = 9;
 	public static final int MOTOR_FLYWHEEL_ID = 11;
@@ -27,11 +27,12 @@ public class PortMap {
 	// triggers
 	public static final int XBOX_L_TRIGGER = 2;
 	public static final int XBOX_R_TRIGGER = 3;
-    //Right Stick
+    
+	//Right Stick
 	public static final int XBOX_RS_X = 4;
     public static final int XBOX_RS_Y = 5;
+	
 	// Buttons
-
 	public static final int XBOX_BUTTON_A = 1;
 	public static final int XBOX_BUTTON_B = 2;
 	public static final int XBOX_BUTTON_X = 3;
@@ -41,7 +42,7 @@ public class PortMap {
 	public static final int XBOX_BUTTON_LSTICK = 9;
 	public static final int XBOX_BUTTON_RSTICK = 10;
 
-
+	// assignments
 	public static final int XBOX_BUTTON_HIGH_GEAR = XBOX_BUTTON_RB;
 	public static final int XBOX_BUTTON_INTAKE_WHEELS = XBOX_BUTTON_B;
 	public static final int XBOX_BUTTON_INTAKE_LIFT = XBOX_BUTTON_A;
