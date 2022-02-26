@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Controllers;
 import frc.robot.PortMap;
@@ -34,6 +35,10 @@ public class IntakeShooterTeleop extends CommandBase {
     m_intakeSpeed = intakeSpeed;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(shooter, transport, intake);
+
+    Shuffleboard.getTab("main").addBoolean("Flywheel On", () -> flywheelOn);
+    Shuffleboard.getTab("main").addBoolean("intake on", () -> intakeOn);
+    Shuffleboard.getTab("main").addBoolean("intake down", () -> isDown);
   }
 
   // Called when the command is initially scheduled.

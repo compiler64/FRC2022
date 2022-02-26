@@ -12,3 +12,8 @@ transfer id # 8
 indexing wheel id # 9
 shooter # 11
 lift # 12 & 13
+
+
+shuffleboard needs:
+    highGear indicator;
+    
