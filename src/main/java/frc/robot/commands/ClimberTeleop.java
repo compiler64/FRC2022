@@ -35,13 +35,11 @@ public class ClimberTeleop extends CommandBase {
             leftStickY = 0;
         }
 
-        
         double leftPower = leftStickY * MOTOR_POWER_FACTOR;
         
         if (leftPower > 1 || leftPower < -1) {
             leftPower = 0;
         }
-        
 
         
         if (extenderAtUpperLimit && leftPower > 0) {
