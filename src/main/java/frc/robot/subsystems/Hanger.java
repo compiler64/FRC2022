@@ -51,7 +51,7 @@ public class Hanger extends SubsystemBase {
      * @return the extender position
      */
     public double getExtenderPosition() {
-        return extenderEncoder.getPosition();
+        return ((extenderEncoder.getPosition() / 5.3333) * (.005 * Math.PI));
     }
 
     /**

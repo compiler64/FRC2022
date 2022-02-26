@@ -11,7 +11,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 
-/** controls both the intake and hte shooter. */
+/** controls both the intake and the shooter. */
 public class IntakeShooterTeleop extends CommandBase {
   private Shooter m_shooter;
   private Transport m_transport;
@@ -77,10 +77,6 @@ public class IntakeShooterTeleop extends CommandBase {
   }
 }
 
-// public void intake(boolean on) {
-//   m_intake.setSpeed(on ? m_intakeSpeed : 0);
-//   m_transport.run(on ? m_transferSpeed : 0);
-// }
 
   // Called once the command ends or is interrupted.
   @Override
