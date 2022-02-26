@@ -11,7 +11,8 @@ import frc.robot.subsystems.Hanger;
  */
 public class ClimberTeleop extends CommandBase {
     private Hanger m_hanger;
-    
+    private boolean rotatorOut = false;
+
     /**
      * Creates a new ClimberTeleop command.
      * @param hanger the hanger subsystem of the robot
@@ -20,6 +21,8 @@ public class ClimberTeleop extends CommandBase {
         m_hanger = hanger;
 
         addRequirements(hanger);
+
+        
     }
 
     @Override
@@ -51,11 +54,11 @@ public class ClimberTeleop extends CommandBase {
         m_hanger.setExtenderSpeed(leftPower * .5);
         
         if (aButton) {
-            Value value = m_hanger.getRotatorValue();
-            if (value == Value.kForward) {
-                m_hanger.setRotatorValue(Value.kReverse);
-            } else if (value == Value.kReverse) {
+            rotatorOut = !rotatorOut;
+            if (rotatorOut == true) {
                 m_hanger.setRotatorValue(Value.kForward);
+            } else if (rotatorOut == false) {
+                m_hanger.setRotatorValue(Value.kReverse);
             }
         }
     }
