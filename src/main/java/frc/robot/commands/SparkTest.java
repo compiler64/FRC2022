@@ -52,8 +52,6 @@ public class SparkTest extends CommandBase {
 
     @Override
     public void execute() {
-
-
         double p = SmartDashboard.getNumber("P Gain", 0);
         double i = SmartDashboard.getNumber("I Gain", 0);
         double d = SmartDashboard.getNumber("D Gain", 0);

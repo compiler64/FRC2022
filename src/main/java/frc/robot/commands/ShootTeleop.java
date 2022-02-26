@@ -39,7 +39,6 @@ public class ShootTeleop extends CommandBase {
         }
         if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, true) < .50) {
             m_shooter.setIndexingWheelSpeed(0);
-            
         }
     }
 }

@@ -36,7 +36,7 @@ public class DriveDistanceAuto extends CommandBase {
         staticSpeed = speed;
         m_breakAtEnd = breakAtEnd;
 
-        addRequirements(driveTrain);
+        addRequirements(driveTrain, gyro);
     }
 
     /**
@@ -55,9 +55,7 @@ public class DriveDistanceAuto extends CommandBase {
         m_gyro = gyro;
         m_breakAtEnd = breakAtEnd;
 
-        
-
-        addRequirements(driveTrain);
+        addRequirements(driveTrain, gyro);
     }
 
     @Override
@@ -66,8 +64,7 @@ public class DriveDistanceAuto extends CommandBase {
         if (m_distanceSupplier != null) {
             m_distance = m_distanceSupplier.getAsDouble();
         }
-        
-        
+
         //m_gyro.reset();
         m_speed = staticSpeed;
         // make the speed negative if the distance is negative
@@ -77,8 +74,6 @@ public class DriveDistanceAuto extends CommandBase {
         m_driveTrain.resetEncoders();
         // set the speed of both motors to m_speed
         m_driveTrain.setBothMotors(m_speed);
-        
-        
     }
     @Override
     public void execute() {
@@ -106,8 +101,6 @@ public class DriveDistanceAuto extends CommandBase {
                 }
             }
         }
-        
-        
     }
 
     @Override
