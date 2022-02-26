@@ -18,6 +18,7 @@ public class DriveTeleop extends CommandBase {
     // initialize
     public DriveTeleop(DriveTrain driveTrain) {
         m_driveTrain = driveTrain;
+        
         addRequirements(driveTrain);
     }
 

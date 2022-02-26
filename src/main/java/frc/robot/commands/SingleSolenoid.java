@@ -21,7 +21,9 @@ public class SingleSolenoid extends CommandBase {
     public SingleSolenoid(Pneumatics pneumatics) {
         Shuffleboard.getTab("main").add(pneumatics);
         Shuffleboard.getTab("main").addBoolean("high gear", () -> highGear);
+        
         m_pneumatics = pneumatics;
+
         addRequirements(pneumatics);
     }
 
@@ -39,6 +41,7 @@ public class SingleSolenoid extends CommandBase {
 
     public void execute() {
         control(PortMap.XBOX_BUTTON_HIGH_GEAR, 0);
+        // control(PortMap.XBOX_BUTTON_HIGH_GEAR_2, 0);
     }
 
     /**

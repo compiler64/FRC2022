@@ -27,6 +27,7 @@ public class ChangeHeading extends CommandBase {
 
         addRequirements(driveTrain);
     }
+
     public ChangeHeading(DriveTrain driveTrain, Gyro gyro, DoubleSupplier angleSupplier, double speed, boolean breakAtEnd) {
         m_driveTrain = driveTrain;
         m_angleSupplier = angleSupplier;
@@ -38,7 +39,6 @@ public class ChangeHeading extends CommandBase {
         addRequirements(driveTrain);
     }
 
-
     @Override
     public void initialize() {
         if (m_angleSupplier != null) {
@@ -46,6 +46,7 @@ public class ChangeHeading extends CommandBase {
         }
         m_gyro.reset();
     }
+    
     @Override
     public void execute() {
 
