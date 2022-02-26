@@ -44,7 +44,7 @@ public class IntakeShooterTeleop extends CommandBase {
   @Override
   public void execute() {
     // raise and lower the intake
-    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_LIFT, true)) {
+    if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_LIFT, false)) {
       if (isDown ) {
           m_intake.raise();
       } else {
@@ -54,24 +54,24 @@ public class IntakeShooterTeleop extends CommandBase {
   }
 
   // turn the intake on
-  if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)){
+  if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, false)){
     intakeOn = !intakeOn;
     m_intake.setSpeed(intakeOn ? m_intakeSpeed : 0);
     m_transport.run(intakeOn ? m_transferSpeed : 0);
   }
 
   // the flywheel
-  if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_START_FLYWHEEL, true)) {
+  if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_START_FLYWHEEL, false)) {
     flywheelOn = !flywheelOn;
     m_shooter.setFlywheelSpeed(flywheelOn ? m_flywheelSpeed : 0);
   }
 
   // shoot all balls
-  if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, true) > .50) {
+  if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, false) > .50) {
     m_shooter.setIndexingWheelSpeed(m_indexingWheelSpeed);
     m_transport.run(m_transferSpeed);
   }
-  if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, true) < .50) {
+  if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, false) < .50) {
     m_shooter.setIndexingWheelSpeed(0);
     m_transport.run(0);
   }
