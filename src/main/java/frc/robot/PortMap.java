@@ -10,7 +10,7 @@ public class PortMap {
 	public static final int MOTOR_RF_ID = 6;
 	public static final int MOTOR_RM_ID = 5;
 	public static final int MOTOR_RR_ID = 4;
-	public static final int MOTOR_INTAKE_ID = 11;
+	public static final int MOTOR_INTAKE_ID = 11; // will be 7
 	public static final int MOTOR_TRANSFER_ID = 8;
 	public static final int MOTOR_INDEXING_WHEEL_ID = 9;
 	public static final int MOTOR_FLYWHEEL_ID = 11;
@@ -47,7 +47,7 @@ public class PortMap {
 	public static final int XBOX_BUTTON_INTAKE_WHEELS = XBOX_BUTTON_B;
 	public static final int XBOX_BUTTON_INTAKE_LIFT = XBOX_BUTTON_A;
 	public static final int XBOX_BUTTON_TRANSFER = XBOX_BUTTON_Y;
-	public static final int XBOX_BUTTON_CLIMBER_ROTATE = XBOX_BUTTON_A;
+	public static final int XBOX_BUTTON_CLIMBER_ROTATE = XBOX_BUTTON_Y;
 	public static final int XBOX_BUTTON_START_FLYWHEEL = XBOX_BUTTON_LB;
 	
 }

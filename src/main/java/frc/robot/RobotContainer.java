@@ -47,9 +47,6 @@ public class RobotContainer {
     private final Hanger m_hanger = new Hanger();
     private final Transport m_transport = new Transport();
 
-    // for testinng the intake
-    //private final TestIntake m_testIntake = new TestIntake(m_intake);
-    // private final EncoderTest m_encoderTest = new EncoderTest(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter);
 
     public final Camera getCamera() {
         return m_camera;
@@ -57,8 +54,7 @@ public class RobotContainer {
 
     private final TriangleAutoCommand m_autonomousCommand = new TriangleAutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_transport, m_shooter);
     private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter, m_transport, m_hanger);
-    public final FollowBall m_followBall = new FollowBall(m_driveTrain, m_camera, AUTO_SPEED);
-
+    
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
      */
@@ -92,15 +88,8 @@ public class RobotContainer {
         return m_teleopCommand;
     }
 
-    public Command getFollowBallCommand() {
-        return m_followBall;
-    }
 
     public Command getTestCommand() {
-        // return m_driveCommand;
-        // return m_followBall;
-        // testing the spark max
-        // return m_testIntake;
         return null;
     }
 }

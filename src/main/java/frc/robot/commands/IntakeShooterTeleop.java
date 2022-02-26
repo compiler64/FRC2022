@@ -11,6 +11,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 
+/** controls both the intake and hte shooter. */
 public class IntakeShooterTeleop extends CommandBase {
   private Shooter m_shooter;
   private Transport m_transport;
@@ -54,8 +55,9 @@ public class IntakeShooterTeleop extends CommandBase {
 
   // turn the intake on
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, true)){
-    intake(!intakeOn);
     intakeOn = !intakeOn;
+    m_intake.setSpeed(intakeOn ? m_intakeSpeed : 0);
+    m_transport.run(intakeOn ? m_transferSpeed : 0);
   }
 
   // the flywheel
@@ -68,7 +70,6 @@ public class IntakeShooterTeleop extends CommandBase {
   if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, true) > .50) {
     m_shooter.setIndexingWheelSpeed(m_indexingWheelSpeed);
     m_transport.run(m_transferSpeed);
-    
   }
   if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, true) < .50) {
     m_shooter.setIndexingWheelSpeed(0);
@@ -76,10 +77,10 @@ public class IntakeShooterTeleop extends CommandBase {
   }
 }
 
-public void intake(boolean on) {
-  m_intake.setSpeed(on ? m_intakeSpeed : 0);
-  m_transport.run(on ? m_transferSpeed : 0);
-}
+// public void intake(boolean on) {
+//   m_intake.setSpeed(on ? m_intakeSpeed : 0);
+//   m_transport.run(on ? m_transferSpeed : 0);
+// }
 
   // Called once the command ends or is interrupted.
   @Override
