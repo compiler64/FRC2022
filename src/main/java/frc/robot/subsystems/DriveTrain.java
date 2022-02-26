@@ -34,7 +34,7 @@ public class DriveTrain extends SubsystemBase {
 
         Shuffleboard.getTab("main").addNumber("left encoder", () -> getLeftEncoderDistance());
         Shuffleboard.getTab("main").addNumber("right encoder", () -> getRightEncoderDistance());
-        Shuffleboard.getTab("main").addNumber("average encoder speed", () -> getAverageEncoderDistance());
+        Shuffleboard.getTab("main").addNumber("average encoder distance", () -> getAverageEncoderDistance());
 
         motorLM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); 
         motorLM.setSensorPhase(true);
