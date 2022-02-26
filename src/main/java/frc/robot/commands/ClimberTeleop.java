@@ -26,9 +26,10 @@ public class ClimberTeleop extends CommandBase {
     public void execute() {
         double leftStickY = Controllers.GetRawAxis(PortMap.XBOX_LS_Y, false);
         boolean aButton = Controllers.isButtonPressed(PortMap.XBOX_BUTTON_CLIMBER_ROTATE, false);
-
+        
+        
         boolean extenderAtUpperLimit = m_hanger.getExtenderPosition() >= CLIMBER_EXTENDER_UPPER_LIMIT;
-        // boolean extenderAtLowerLimit = m_hanger.getExtenderPosition() <= CLIMBER_EXTENDER_LOWER_LIMIT;
+        
 
         if (Math.abs(leftStickY) < JOYSTICK_BUFFER) {
             leftStickY = 0;
@@ -40,12 +41,12 @@ public class ClimberTeleop extends CommandBase {
             leftPower = 0;
         }
 
-        // if (extenderAtLowerLimit && leftPower < 0) {
-        //     leftPower = 0;
-        // }
+        
         if (extenderAtUpperLimit && leftPower > 0) {
             leftPower = 0;
         }
+
+        
 
         m_hanger.setExtenderSpeed(leftPower * .5);
         
