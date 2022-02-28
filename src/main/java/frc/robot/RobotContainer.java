@@ -38,8 +38,8 @@ import static frc.robot.Constants.*;
  */
 public class RobotContainer {
     // The robot's subsystems and commands are defined here...
-    private final DriveTrain m_driveTrain = new DriveTrain();
     private final Gyro m_gyro = new Gyro();
+    private final DriveTrain m_driveTrain = new DriveTrain(m_gyro);
     private final Pneumatics m_pneumatics = new Pneumatics();
     private final Camera m_camera = new Camera();
     private final Intake m_intake = new Intake();
