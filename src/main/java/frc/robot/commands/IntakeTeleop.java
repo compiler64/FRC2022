@@ -49,13 +49,18 @@ public class IntakeTeleop extends CommandBase {
             wheelsOn = !wheelsOn;
         }
 
-        if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_LIFT, true)) {
+        if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_LIFT, false)) {
             if (isDown ) {
                 m_intake.raise();
             } else {
                 m_intake.lower();
             }
             isDown = !isDown;
+        }
+        
+
+        if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_LIFT, false)) {
+            m_intake.nutral();
         }
     }
 

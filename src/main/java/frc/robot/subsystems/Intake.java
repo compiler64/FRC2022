@@ -63,6 +63,9 @@ public class Intake extends SubsystemBase {
     public void raise() {
         setIntakeLift("up");
     }
+    public void nutral() {
+        setIntakeLift("off");
+    }
 
     /**
      * Sets the speed of the intake.

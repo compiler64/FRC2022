@@ -60,6 +60,10 @@ public class IntakeShooterTeleop extends CommandBase {
       isDown = !isDown;
   }
 
+  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_LIFT, false)) {
+    m_intake.nutral();
+  }
+
   // turn the intake on
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, false)){
     intakeOn = !intakeOn;
