@@ -23,11 +23,9 @@ public class DriveTrain extends SubsystemBase {
     private TalonSRX motorRM = new TalonSRX(PortMap.MOTOR_RM_ID);
     private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
     private DoubleSolenoid shifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
-    
 
     private double leftSpeed = 0;
     private double rightSpeed = 0;
-
 
     private boolean highGearOn = false;
     /**
@@ -41,7 +39,6 @@ public class DriveTrain extends SubsystemBase {
         Shuffleboard.getTab("main").addNumber("right encoder", () -> getRightEncoderDistance());
         Shuffleboard.getTab("main").addNumber("average encoder distance", () -> getAverageEncoderDistance());
         Shuffleboard.getTab("main").addBoolean("highGearOn", () -> highGearOn);
-        
 
         motorLM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); 
         motorLM.setSensorPhase(true);
@@ -52,16 +49,21 @@ public class DriveTrain extends SubsystemBase {
     }
 
 
-    // set the speed of the left motors
+    /**
+     * Set the speed of the left motors.
+     * @param speed the motor speed, as a fraction of the maximum
+     */
     public void setLeftMotors(double speed) {
-        // System.out.println("Setting left motor speed to " + speed);
         motorLF.set(ControlMode.PercentOutput, -speed);
         motorLM.set(ControlMode.PercentOutput, -speed);
         motorLR.set(ControlMode.PercentOutput, -speed);
         leftSpeed = speed;
     }
 
-    // set the speed of the right motors
+    /**
+     * Set the speed of the right motors.
+     * @param speed the motor speed, as a fraction of the maximum
+     */
     public void setRightMotors(double speed) {
         motorRF.set(ControlMode.PercentOutput, speed);
         motorRM.set(ControlMode.PercentOutput, speed);
@@ -69,7 +71,10 @@ public class DriveTrain extends SubsystemBase {
         rightSpeed = speed;
     }
 
-    // set both motors
+    /**
+     * Set both motors to the same speed.
+     * @param speed the motor speed, as a fraction of the maximum
+     */
     public void setBothMotors(double speed) {
         setRightMotors(speed);
         setLeftMotors(speed);
@@ -101,29 +106,45 @@ public class DriveTrain extends SubsystemBase {
     public double getAverageEncoderDistance() {
         return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
     }
+
+    /**
+     * Resets the left encoder.
+     */
     public void resetLeftEncoder() {
         motorLM.setSelectedSensorPosition(0.0);
     }
+
+    /**
+     * Resets the right encoder.
+     */
     public void resetRightEncoder() {
         motorRM.setSelectedSensorPosition(0.0);
     }
     
     /**
-     * Resets the encoders.
+     * Resets both encoders.
      */
     public void resetEncoders() {
         resetLeftEncoder();
         resetRightEncoder();
     }
+
+    /**
+     * Sets the state of the high gear.
+     * @param value the new state of the high gear (up, off, or centered)
+     */
     public void setHighGear(String value) {
-        if (value == "on") {
+        if (value.equals("on")) {
             shifter.set(Value.kForward);
             highGearOn = true;
-        } else if (value == "of") {
+        } else if (value.equals("off")) {
             shifter.set(Value.kReverse);
             highGearOn = false;
-        } else {
+        } else if (value.equals("centered")) {
             shifter.set(Value.kOff);
+        } else {
+            throw new IllegalArgumentException("setHighGear argument must be"
+            + "\"up\", \"off\", or \"centered\", but was " + value + ".");
         }
     }
 }
