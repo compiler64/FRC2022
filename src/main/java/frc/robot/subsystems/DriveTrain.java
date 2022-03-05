@@ -2,18 +2,12 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.TalonSRXSimCollection;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
-import edu.wpi.first.math.system.plant.DCMotor;
-import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.RobotController;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.simulation.DifferentialDrivetrainSim;
-import edu.wpi.first.wpilibj.smartdashboard.Field2d;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 import static frc.robot.Constants.*;
@@ -28,33 +22,14 @@ public class DriveTrain extends SubsystemBase {
     private TalonSRX motorRF = new TalonSRX(PortMap.MOTOR_RF_ID);
     private TalonSRX motorRM = new TalonSRX(PortMap.MOTOR_RM_ID);
     private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
-
-    private AHRS m_gyro;
+    private DoubleSolenoid shifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
     
-    
-
-    // simulation
-    TalonSRXSimCollection m_leftDriveSim = motorLM.getSimCollection();
-    TalonSRXSimCollection m_rightDriveSim = motorRM.getSimCollection();
-
-    
-    // These classes help us simulate our drivetrain
-    public DifferentialDrivetrainSim m_drivetrainSimulator;
-    // The Field2d class shows the field in the sim GUI
-    private Field2d m_fieldSim = new Field2d();
-
-    DifferentialDrivetrainSim m_driveSim = new DifferentialDrivetrainSim(DCMotor.getMiniCIM(3), 5, 5, Units.lbsToKilograms(150), Units.inchesToMeters(3), Units.inchesToMeters(25), null);
-    final int kCountsPerRev = 4096;  //Encoder counts per revolution of the motor shaft.
-    final double kSensorGearRatio = 1; //Gear ratio is the ratio between the *encoder* and the wheels.  On the AndyMark drivetrain, encoders mount 1:1 with the gearbox shaft.
-    final double kGearRatio = 10.71; //Switch kSensorGearRatio to this gear ratio if encoder is on the motor instead of on the gearbox.
-    final double kWheelRadiusInches = 3;
-    final int k100msPerSecond = 10;
-
-    DifferentialDriveOdometry m_odometry; 
 
     private double leftSpeed = 0;
     private double rightSpeed = 0;
 
+
+    private boolean highGearOn = false;
     /**
      * Creates a new DriveTrain subsystem.
      */
@@ -65,10 +40,8 @@ public class DriveTrain extends SubsystemBase {
         Shuffleboard.getTab("main").addNumber("left encoder", () -> getLeftEncoderDistance());
         Shuffleboard.getTab("main").addNumber("right encoder", () -> getRightEncoderDistance());
         Shuffleboard.getTab("main").addNumber("average encoder distance", () -> getAverageEncoderDistance());
-        SmartDashboard.putData(m_fieldSim);
-
-        m_gyro = gyro.gyroscope;
-        m_odometry = new DifferentialDriveOdometry(m_gyro.getRotation2d());
+        Shuffleboard.getTab("main").addBoolean("highGearOn", () -> highGearOn);
+        
 
         motorLM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); 
         motorLM.setSensorPhase(true);
@@ -142,47 +115,15 @@ public class DriveTrain extends SubsystemBase {
         resetLeftEncoder();
         resetRightEncoder();
     }
-
-    // simulation
-    public void periodic() {
-        m_odometry.update(m_gyro.getRotation2d(),
-            nativeUnitsToDistanceMeters(motorLM.getSelectedSensorPosition()),
-            nativeUnitsToDistanceMeters(motorRM.getSelectedSensorPosition()));
-        m_fieldSim.setRobotPose(m_odometry.getPoseMeters());
+    public void setHighGear(String value) {
+        if (value == "on") {
+            shifter.set(Value.kForward);
+            highGearOn = true;
+        } else if (value == "of") {
+            shifter.set(Value.kReverse);
+            highGearOn = false;
+        } else {
+            shifter.set(Value.kOff);
+        }
     }
-    public void simulationPeriodic() {
-        m_leftDriveSim.setBusVoltage(RobotController.getBatteryVoltage());
-        m_rightDriveSim.setBusVoltage(RobotController.getBatteryVoltage());
-        m_driveSim.setInputs(motorLM.getMotorOutputVoltage(), motorRM.getMotorOutputVoltage());
-        m_driveSim.update(0.02);
-
-        m_leftDriveSim.setQuadratureRawPosition(
-            distanceToNativeUnits(m_driveSim.getLeftPositionMeters()));
-        m_leftDriveSim.setQuadratureVelocity(
-            velocityToNativeUnits(m_driveSim.getLeftVelocityMetersPerSecond()));
-        m_rightDriveSim.setQuadratureRawPosition(
-            distanceToNativeUnits(-m_driveSim.getRightPositionMeters()));
-        m_rightDriveSim.setQuadratureVelocity(
-            velocityToNativeUnits(-m_driveSim.getRightVelocityMetersPerSecond()));
-
-    }
-    private int distanceToNativeUnits(double positionMeters){
-        double wheelRotations = positionMeters/(2 * Math.PI * Units.inchesToMeters(kWheelRadiusInches));
-        double motorRotations = wheelRotations * kSensorGearRatio;
-        int sensorCounts = (int)(motorRotations * kCountsPerRev);
-        return sensorCounts;
-    }
-    private int velocityToNativeUnits(double velocityMetersPerSecond){
-        double wheelRotationsPerSecond = velocityMetersPerSecond/(2 * Math.PI * Units.inchesToMeters(kWheelRadiusInches));
-        double motorRotationsPerSecond = wheelRotationsPerSecond * kSensorGearRatio;
-        double motorRotationsPer100ms = motorRotationsPerSecond / k100msPerSecond;
-        int sensorCountsPer100ms = (int)(motorRotationsPer100ms * kCountsPerRev);
-        return sensorCountsPer100ms;
-    }
-    private double nativeUnitsToDistanceMeters(double sensorCounts){
-        double motorRotations = (double)sensorCounts / kCountsPerRev;
-        double wheelRotations = motorRotations / kSensorGearRatio;
-        double positionMeters = wheelRotations * (2 * Math.PI * Units.inchesToMeters(kWheelRadiusInches));
-        return positionMeters;
-      }
 }

@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
-import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 import frc.robot.subsystems.Intake;
@@ -18,7 +17,7 @@ import frc.robot.subsystems.Intake;
  * Makes the robot shoot one ball, drive in a triangle, pick up two balls, and shoot two balls.
  */
 public class TriangleAutoCommand extends SequentialCommandGroup {
-    public TriangleAutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Transport transport, Shooter shooter) {
+    public TriangleAutoCommand(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         Command[] commands = {
             // new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             // new WaitCommand(1),

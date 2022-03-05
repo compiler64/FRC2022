@@ -7,21 +7,19 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Hanger;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 
 import static frc.robot.Constants.*;
 
 public class TeleopCommand extends ParallelCommandGroup {
-    public TeleopCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Shooter shooter, Transport transport, Hanger hanger) {
+    public TeleopCommand(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Shooter shooter, Transport transport, Hanger hanger) {
         Command[] commands = {
             new DriveTeleop(driveTrain),
             // new IntakeTeleop(intake, camera, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED),
             // new ShootTeleop(shooter, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED),
             // new TransportControl(transport, TRANSFER_SPEED),
             new IntakeShooterTeleop(shooter, transport, intake, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, AUTO_INTAKE_SPEED),
-            new SingleSolenoid(pneumatics),
             new ClimberTeleop(hanger),
         };
 

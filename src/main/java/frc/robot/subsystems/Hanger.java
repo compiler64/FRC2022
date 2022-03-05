@@ -18,7 +18,7 @@ public class Hanger extends SubsystemBase {
     private CANSparkMax extenderMotor2 = new CANSparkMax(PortMap.MOTOR_CLIMBER_EXTEND_ID_2, MotorType.kBrushless);
     private RelativeEncoder extenderEncoder;
 
-    private DoubleSolenoid rotatorSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 3, 4);
+    private DoubleSolenoid rotatorSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 4, 5);
 
     /**
      * Creates a new Hanger subsystem.

@@ -16,7 +16,7 @@ import frc.robot.PortMap;
 public class Intake extends SubsystemBase {
     private CANSparkMax m_motorIntake = new CANSparkMax(PortMap.MOTOR_INTAKE_ID, MotorType.kBrushless);
     
-    private DoubleSolenoid m_intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+    private DoubleSolenoid m_intakeLift =  new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
 
     /**
      * Creates a new Intake subsystem.

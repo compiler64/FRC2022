@@ -7,7 +7,6 @@ import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Gyro;
-import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 
@@ -26,7 +25,7 @@ public class AutoCommandNew extends SequentialCommandGroup {
      * @param intake the intake of the robot
      * @param shooter the shooter of the robot
      */
-    public AutoCommandNew(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Transport transport, Shooter shooter) {
+    public AutoCommandNew(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         Command[] commands = {
                 new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
                 new FaceBall(driveTrain, camera, AUTO_SPEED),

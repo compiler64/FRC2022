@@ -22,7 +22,6 @@ import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Hanger;
-import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Intake;
 
 import static frc.robot.Constants.*;
@@ -40,7 +39,6 @@ public class RobotContainer {
     // The robot's subsystems and commands are defined here...
     private final Gyro m_gyro = new Gyro();
     private final DriveTrain m_driveTrain = new DriveTrain(m_gyro);
-    private final Pneumatics m_pneumatics = new Pneumatics();
     private final Camera m_camera = new Camera();
     private final Intake m_intake = new Intake();
     private final Shooter m_shooter = new Shooter();
@@ -52,8 +50,8 @@ public class RobotContainer {
         return m_camera;
     }
 
-    private final TriangleAutoCommand m_autonomousCommand = new TriangleAutoCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_transport, m_shooter);
-    private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_pneumatics, m_camera, m_intake, m_shooter, m_transport, m_hanger);
+    private final TriangleAutoCommand m_autonomousCommand = new TriangleAutoCommand(m_driveTrain, m_gyro, m_camera, m_intake, m_transport, m_shooter);
+    private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_camera, m_intake, m_shooter, m_transport, m_hanger);
     
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.

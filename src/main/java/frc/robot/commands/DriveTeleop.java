@@ -15,6 +15,8 @@ import static frc.robot.Constants.*;
 public class DriveTeleop extends CommandBase {
     private DriveTrain m_driveTrain;
 
+    private boolean highGearOn = false;
+
     // initialize
     public DriveTeleop(DriveTrain driveTrain) {
         m_driveTrain = driveTrain;
@@ -24,6 +26,21 @@ public class DriveTeleop extends CommandBase {
 
     @Override
     public void execute() {
+        
+        if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_HIGH_GEAR, true)) {
+            if (!highGearOn) {
+                m_driveTrain.setHighGear("on");
+            } else {
+                m_driveTrain.setHighGear("off");
+            } 
+            highGearOn = !highGearOn;
+        }
+
+        if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_HIGH_GEAR, true)) {
+            m_driveTrain.setHighGear("centered");
+        }
+
+
         double leftStickY = -Controllers.GetRawAxis(PortMap.XBOX_LS_Y, true);
         double rightStickX = Controllers.GetRawAxis(PortMap.XBOX_RS_X, true);
 

@@ -6,7 +6,6 @@ import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 
@@ -17,7 +16,7 @@ import static frc.robot.Constants.*;
  * Makes the robot drive back, pick up the leftmost ball, and shoot the two balls.
  */
 public class TwoBallAuto extends SequentialCommandGroup {
-    public TwoBallAuto(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Transport transport, Shooter shooter) {
+    public TwoBallAuto(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         Command[] commands = {
             new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, transport, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),

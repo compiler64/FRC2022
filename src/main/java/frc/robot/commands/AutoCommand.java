@@ -8,7 +8,6 @@ import static frc.robot.Constants.*;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
-import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transport;
 import frc.robot.subsystems.Intake;
@@ -41,7 +40,7 @@ public class AutoCommand extends CommandBase {
      * @param intake the intake of the robot
      * @param shooter the shooter of the robot
      */
-    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Pneumatics pneumatics, Camera camera, Intake intake, Transport transport, Shooter shooter) {
+    public AutoCommand(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         commands = new Command[] {
             // the lower left ball
             new TurnAngleAuto(driveTrain, gyro, 20, AUTO_SPEED),
