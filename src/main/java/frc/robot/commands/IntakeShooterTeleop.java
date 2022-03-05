@@ -24,6 +24,7 @@ public class IntakeShooterTeleop extends CommandBase {
   private boolean isDown = false;
   private boolean intakeOn = false;
   private boolean flywheelOn = false;
+  private boolean indexingWheelOn = false;
   /** Creates a new IntakeShooterTeleop. */
   public IntakeShooterTeleop(Shooter shooter, Transport transport, Intake intake, double flywheelSpeed, double indexingWheelSpeed, double transferSpeed, double intakeSpeed) {
     m_shooter = shooter;
@@ -37,6 +38,7 @@ public class IntakeShooterTeleop extends CommandBase {
     addRequirements(shooter, transport, intake);
 
     Shuffleboard.getTab("main").addBoolean("Flywheel On", () -> flywheelOn);
+    Shuffleboard.getTab("main").addBoolean("Indexing Wheel On", () -> indexingWheelOn);
     Shuffleboard.getTab("main").addBoolean("intake on", () -> intakeOn);
     Shuffleboard.getTab("main").addBoolean("intake down", () -> isDown);
   }
@@ -72,13 +74,15 @@ public class IntakeShooterTeleop extends CommandBase {
   }
 
   // shoot all balls
-  if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, false) > .50) {
+  if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INDEXING_WHEEL, false)) {
     m_shooter.setIndexingWheelSpeed(m_indexingWheelSpeed);
     m_transport.run(m_transferSpeed);
+    indexingWheelOn = true;
   }
-  if (Controllers.GetRawAxis(PortMap.XBOX_R_TRIGGER, false) < .50) {
+  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_WHEELS, false)) {
     m_shooter.setIndexingWheelSpeed(0);
     m_transport.run(0);
+    indexingWheelOn = false;
   }
 }
 

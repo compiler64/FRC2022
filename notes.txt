@@ -16,4 +16,10 @@ lift # 12 & 13
 
 shuffleboard needs:
     highGear indicator;
+    intake lift
+    intake wheels
+    shooter
+    indexing wheel
+    hanger rotator
+    
     

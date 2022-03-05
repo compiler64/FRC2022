@@ -50,5 +50,6 @@ public class PortMap {
 	public static final int XBOX_BUTTON_TRANSFER = XBOX_BUTTON_Y;
 	public static final int XBOX_BUTTON_CLIMBER_ROTATE = XBOX_BUTTON_Y;
 	public static final int XBOX_BUTTON_START_FLYWHEEL = XBOX_BUTTON_LB;
+	public static final int XBOX_BUTTON_INDEXING_WHEEL = XBOX_BUTTON_RB;
 	
 }
