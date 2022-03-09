@@ -31,24 +31,24 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             // if low goal
             new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
 
-            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new DriveDistanceAuto(driveTrain, gyro, -3, AUTO_SPEED, false),
             new TurnAngleAuto(driveTrain, gyro, 132, AUTO_SPEED),
 
-            new EnableHighGear(driveTrain, true),
+            // new EnableHighGear(driveTrain, true),
             new DriveDistanceAuto(driveTrain, gyro, 15, AUTO_SPEED, true), //top speed possible if not already enabled
-            new EnableHighGear(driveTrain, false),
+            // new EnableHighGear(driveTrain, false),
             new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, transport, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             
             new TurnAngleAuto(driveTrain, gyro, 130, AUTO_SPEED),
-            new EnableHighGear(driveTrain, true),
+            // new EnableHighGear(driveTrain, true),
             new DriveDistanceAuto(driveTrain, gyro, 19, AUTO_SPEED, false), //top speed possible if not already enabled
-            new EnableHighGear(driveTrain, false),
+            // new EnableHighGear(driveTrain, false),
             new ChangeHeading(driveTrain, gyro, 132, AUTO_SPEED, false),
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 2.4, AUTO_SPEED, true),
-            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new LoadBall(transport, AUTO_BELT_SPEED, BALL_LOAD_TIME),
             new TurnFlywheel(shooter, 0),
             // get out of the way

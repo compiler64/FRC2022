@@ -1,0 +1,68 @@
+﻿﻿﻿
+೿﻿﻿﻿
+﻿﻿﻿﻿﻿﻿ Error at frc.robot.Main.main(Main.java:27): CAN: Message not found ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.hal.CTREPCMJNI.getSolenoids(Native Method) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.PneumaticsControlModule.getSolenoids(PneumaticsControlModule.java:135) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.DoubleSolenoid.get(DoubleSolenoid.java:150) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.DoubleSolenoid.lambda$initSendable$1(DoubleSolenoid.java:222) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.smartdashboard.SendableBuilderImpl.lambda$addStringProperty$8(SendableBuilderImpl.java:289) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.smartdashboard.SendableBuilderImpl.update(SendableBuilderImpl.java:104) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.livewindow.LiveWindow.lambda$updateValues$3(LiveWindow.java:191) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.util.sendable.SendableRegistry.foreachLiveWindow(SendableRegistry.java:491) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.livewindow.LiveWindow.updateValues(LiveWindow.java:147) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.IterativeRobotBase.loopFunc(IterativeRobotBase.java:333) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:131) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:373) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:463) ﻿
+﻿﻿﻿﻿﻿﻿ frc.robot.Main.main(Main.java:27) ﻿
+﻿﻿﻿﻿﻿﻿  ﻿
+﻿﻿﻿﻿﻿﻿﻿﻿Warning ﻿﻿ 1 ﻿﻿ Loop time of 0.02s overrun
+ ﻿﻿ edu.wpi.first.wpilibj.IterativeRobotBase.printLoopOverrunMessage(IterativeRobotBase.java:359) ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿ ﻿Warning﻿ at edu.wpi.first.wpilibj.IterativeRobotBase.printLoopOverrunMessage(IterativeRobotBase.java:359): Loop time of 0.02s overrun ﻿
+﻿﻿﻿﻿﻿﻿  ﻿
+﻿﻿﻿﻿﻿﻿﻿﻿Warning ﻿﻿ 1 ﻿﻿ 	SmartDashboard.updateValues(): 0.000016s
+	robotPeriodic(): 0.002783s
+	LiveWindow.updateValues(): 0.012045s
+	Shuffleboard.update(): 0.019891s
+	disabledPeriodic(): 0.000356s
+ ﻿﻿ edu.wpi.first.wpilibj.Tracer.lambda$printEpochs$0(Tracer.java:63) ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿ ﻿Warning﻿ at edu.wpi.first.wpilibj.Tracer.lambda$printEpochs$0(Tracer.java:63): 	SmartDashboard.updateValues(): 0.000016s ﻿
+﻿﻿﻿﻿﻿﻿ 	robotPeriodic(): 0.002783s ﻿
+﻿﻿﻿﻿﻿﻿ 	LiveWindow.updateValues(): 0.012045s ﻿
+﻿﻿﻿﻿﻿﻿ 	Shuffleboard.update(): 0.019891s ﻿
+﻿﻿﻿﻿﻿﻿ 	disabledPeriodic(): 0.000356s ﻿
+﻿﻿﻿﻿﻿﻿  ﻿
+﻿﻿﻿﻿﻿﻿﻿﻿ERROR ﻿﻿ 4 ﻿﻿ [CAN SPARK MAX] IDs: 12, WPILib or External HAL Error: CAN: Message not found Periodic Status 2 ﻿﻿  ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿﻿﻿ERROR ﻿﻿ -44087 ﻿﻿ CAN: Message not found ﻿﻿ frc.robot.Main.main(Main.java:27) ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿ Error at frc.robot.Main.main(Main.java:27): CAN: Message not found ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.hal.CTREPCMJNI.getSolenoids(Native Method) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.PneumaticsControlModule.getSolenoids(PneumaticsControlModule.java:135) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.DoubleSolenoid.get(DoubleSolenoid.java:150) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.DoubleSolenoid.lambda$initSendable$1(DoubleSolenoid.java:222) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.smartdashboard.SendableBuilderImpl.lambda$addStringProperty$8(SendableBuilderImpl.java:289) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.smartdashboard.SendableBuilderImpl.update(SendableBuilderImpl.java:104) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.livewindow.LiveWindow.lambda$updateValues$3(LiveWindow.java:191) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.util.sendable.SendableRegistry.foreachLiveWindow(SendableRegistry.java:491) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.livewindow.LiveWindow.updateValues(LiveWindow.java:147) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.IterativeRobotBase.loopFunc(IterativeRobotBase.java:333) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:131) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:373) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:463) ﻿
+﻿﻿﻿﻿﻿﻿ frc.robot.Main.main(Main.java:27) ﻿
+﻿﻿﻿﻿﻿﻿  ﻿
+﻿﻿﻿﻿﻿﻿﻿﻿ERROR ﻿﻿ -3 ﻿﻿ CTR: CAN frame not received/too-stale. ﻿﻿ Talon SRX 2 GetSelectedSensorPosition ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿﻿﻿ERROR ﻿﻿ -3 ﻿﻿ CTR: CAN frame not received/too-stale. ﻿﻿ Talon SRX 2 GetSelectedSensorPosition ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿﻿﻿ERROR ﻿﻿ -3 ﻿﻿ CTR: CAN frame not received/too-stale. ﻿﻿ Talon SRX 5 GetSelectedSensorPosition ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿﻿﻿ERROR ﻿﻿ -3 ﻿﻿ CTR: CAN frame not received/too-stale. ﻿﻿ Talon SRX 5 GetSelectedSensorPosition ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿﻿﻿ERROR ﻿﻿ -44087 ﻿﻿ CAN: Message not found ﻿﻿ frc.robot.Main.main(Main.java:27) ﻿﻿﻿
+﻿﻿﻿﻿﻿﻿ Error at frc.robot.Main.main(Main.java:27): CAN: Message not found ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.hal.CTREPCMJNI.getSolenoids(Native Method) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.PneumaticsControlModule.getSolenoids(PneumaticsControlModule.java:135) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.DoubleSolenoid.get(DoubleSolenoid.java:150) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.DoubleSolenoid.lambda$initSendable$1(DoubleSolenoid.java:222) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.smartdashboard.SendableBuilderImpl.lambda$addStringProperty$8(SendableBuilderImpl.java:289) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.smartdashboard.SendableBuilderImpl.update(SendableBuilderImpl.java:104) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.wpilibj.livewindow.LiveWindow.lambda$updateValues$3(LiveWindow.java:191) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.first.util.sendable.SendableRegistry.foreachLiveWindow(SendableRegistry.java:491) ﻿
+﻿﻿﻿﻿﻿﻿ edu.wpi.firs
++   

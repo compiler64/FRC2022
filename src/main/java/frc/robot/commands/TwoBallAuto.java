@@ -30,9 +30,9 @@ public class TwoBallAuto extends SequentialCommandGroup {
             // if low goal
             new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
 
-            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new LoadBall(transport, AUTO_BELT_SPEED, BALL_LOAD_TIME),
-            new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+            // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             //get out of the way
             new DriveDistanceAuto(driveTrain, gyro, -1.5, AUTO_SPEED, false),

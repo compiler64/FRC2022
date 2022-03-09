@@ -108,9 +108,9 @@ public class DriveDistanceAuto extends CommandBase {
         // the command is finished if the distance is at least m_distance
         // return m_driveTrain.getAverageEncoderDistance() >= m_distance;
         if (m_distance > 0) {
-            atEnd = m_driveTrain.getAverageEncoderDistance() >= m_distance;
+            atEnd = m_driveTrain.getLeftEncoderDistance() >= m_distance;
         } else {
-            atEnd = m_driveTrain.getAverageEncoderDistance() <= m_distance;
+            atEnd = m_driveTrain.getLeftEncoderDistance() <= m_distance;
         }
         return atEnd;
     }

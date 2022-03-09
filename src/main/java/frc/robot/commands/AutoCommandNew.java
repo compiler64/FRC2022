@@ -36,9 +36,9 @@ public class AutoCommandNew extends SequentialCommandGroup {
                 new TurnAngleAuto(driveTrain, gyro, 135, AUTO_SPEED),
                 new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
                 new DriveDistanceAuto(driveTrain, gyro, 3.7, AUTO_SPEED, true),
-                new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+                // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
                 new LoadBall(transport, AUTO_BELT_SPEED, BALL_LOAD_TIME),
-                new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+                // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
                 new TurnFlywheel(shooter, 0),
                 /*
                  * if we are going for the middle ball as well do this
@@ -59,7 +59,7 @@ public class AutoCommandNew extends SequentialCommandGroup {
                     new DriveDistanceAuto(driveTrain, gyro, 3.6, AUTO_SPEED, true),
                     // new LoadBall(shooter) // there is only one ball
                 // ),
-                new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
+                // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
                 new TurnFlywheel(shooter, 0),
                 /* 
                  * if after that we go for the balls at the terminal

@@ -9,6 +9,7 @@ import frc.robot.subsystems.Shooter;
 public class TurnFlywheel extends CommandBase {
     private Shooter m_shooter;
     private double m_speed;
+    boolean oneround = false;
 
     /**
      * Creates a new TurnFlywheel command.
@@ -28,7 +29,12 @@ public class TurnFlywheel extends CommandBase {
     }
 
     @Override
+    public void execute() {
+        oneround = true;
+    }
+
+    @Override
     public boolean isFinished() {
-        return true;
+        return oneround;
     }
 }
