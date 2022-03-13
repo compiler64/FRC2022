@@ -3,7 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+// import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -19,13 +19,13 @@ public class Camera extends SubsystemBase {
     private NetworkTableEntry tx;
     private NetworkTableEntry ty;
     private NetworkTableEntry ta;
-    private NetworkTableEntry pipeline;
+    // private NetworkTableEntry pipeline;
     private NetworkTableEntry ledMode;
     private boolean validTarget;
     private double x;
     private double y;
     private double area;
-    private double mode;
+    // private double mode;
 
     /**
      * Creates a new Camera subsystem.
@@ -33,11 +33,11 @@ public class Camera extends SubsystemBase {
     public Camera() {
         //post to shuffleboard periodically
         table = NetworkTableInstance.getDefault().getTable("limelight");
-        Shuffleboard.getTab("main").addBoolean("Limelight Valid Target", () -> validTarget);
-        Shuffleboard.getTab("main").addNumber("Limelight X", () -> x);
-        Shuffleboard.getTab("main").addNumber("Limelight Y", () -> y);
-        Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
-        Shuffleboard.getTab("main").addNumber("Pipeline Number", () -> mode);
+        // Shuffleboard.getTab("main").addBoolean("Limelight Valid Target", () -> validTarget);
+        // Shuffleboard.getTab("main").addNumber("Limelight X", () -> x);
+        // Shuffleboard.getTab("main").addNumber("Limelight Y", () -> y);
+        // Shuffleboard.getTab("main").addNumber("Limelight Area", () -> area);
+        // Shuffleboard.getTab("main").addNumber("Pipeline Number", () -> mode);
         setPipeline();
         ledMode = table.getEntry("ledMode");
         setLED(false);
@@ -61,14 +61,14 @@ public class Camera extends SubsystemBase {
         ty = table.getEntry("ty");
         ta = table.getEntry("ta");
         ledMode = table.getEntry("ledMode");
-        pipeline = table.getEntry("getpipe");
+        // pipeline = table.getEntry("getpipe");
 
         //read values periodically
         validTarget = tv.getDouble(0.0) == 1;  // true if value=1, false if value=0
         x = tx.getDouble(0.0);
         y = ty.getDouble(0.0);
         area = ta.getDouble(0.0);
-        mode = pipeline.getDouble(0);
+        // mode = pipeline.getDouble(0);
     }
 
     /**

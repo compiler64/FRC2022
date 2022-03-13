@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import static frc.robot.Constants.*;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Controllers;
 import frc.robot.PortMap;
@@ -19,10 +20,9 @@ public class ClimberTeleop extends CommandBase {
      */
     public ClimberTeleop(Hanger hanger) {
         m_hanger = hanger;
-
         addRequirements(hanger);
-
         
+        Shuffleboard.getTab("main").addBoolean("Arms Out", () -> rotatorOut);
     }
 
     @Override

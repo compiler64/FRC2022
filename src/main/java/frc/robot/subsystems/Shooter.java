@@ -13,12 +13,12 @@ import frc.robot.PortMap;
 public class Shooter extends SubsystemBase {
     private CANSparkMax m_motorFlywheel = new CANSparkMax(PortMap.MOTOR_FLYWHEEL_ID, MotorType.kBrushless);
     private CANSparkMax m_motorIndexingWheel = new CANSparkMax(PortMap.MOTOR_INDEXING_WHEEL_ID, MotorType.kBrushless);
-    public double flywheelOn;
+    public double flywheelSpeed;
     /**
      * Creates a new Shooter subsystem.
      */
     public Shooter() {
-        Shuffleboard.getTab("main").addNumber("flywheel speed", () -> flywheelOn);
+        Shuffleboard.getTab("main").addNumber("flywheel speed", () -> flywheelSpeed);
     }
 
     /**
@@ -26,7 +26,7 @@ public class Shooter extends SubsystemBase {
      * @param speed the new flywheel speed
      */
     public void setFlywheelSpeed(double speed) {
-        flywheelOn = speed;
+        flywheelSpeed = speed;
         m_motorFlywheel.set(speed);
     }
 
