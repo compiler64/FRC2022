@@ -29,6 +29,7 @@ public final class Constants {
     public static final double BALL_SHOOT_TIME = 5; // TODO check this
     public static final double INDEXING_WHEEL_SPEED = -0.5; // TODO check this
     public static final double TRANSFER_SPEED = -.5;
+    public static final double REDUCED_SPEED_FACTOR = 0.25;
 
     public static final double WHEEL_DIAMETER = 6.0 / 12.0;
     public static final double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
