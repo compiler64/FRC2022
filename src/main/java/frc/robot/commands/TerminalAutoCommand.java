@@ -20,7 +20,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
         
         Command[] commands = {
             new FollowBall(driveTrain, camera, AUTO_SPEED),
-            new PickUpBall(intake, transport, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
+            
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 6, AUTO_SPEED, false),
             new ChangeHeading(driveTrain, gyro, 22, AUTO_SPEED, false),
@@ -38,7 +38,7 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new DriveDistanceAuto(driveTrain, gyro, 15, AUTO_SPEED, true), //top speed possible if not already enabled
             // new EnableHighGear(driveTrain, false),
             new FollowBall(driveTrain, camera, AUTO_SPEED),
-            new PickUpBall(intake, transport, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
+            
             
             new TurnAngleAuto(driveTrain, gyro, 130, AUTO_SPEED),
             // new EnableHighGear(driveTrain, true),
