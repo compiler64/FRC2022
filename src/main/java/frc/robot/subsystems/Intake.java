@@ -22,7 +22,6 @@ public class Intake extends SubsystemBase {
      * Creates a new Intake subsystem.
      */
     public Intake() {
-
     }
     
     /**
