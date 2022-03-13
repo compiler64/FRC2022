@@ -28,7 +28,6 @@ public class PickUpBall extends CommandBase {
         m_transport = transport;
         m_intakeSpeed = intakeSpeed;
         m_time = time;
-
         addRequirements(intake);
     }
 

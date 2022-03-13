@@ -17,9 +17,7 @@ public class OneBallAuto extends SequentialCommandGroup {
         Command[] commands = {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new WaitCommand(0.5),
-            //new LoadBall(transport, TRANSFER_SPEED, BALL_LOAD_TIME),
-            new ShootBall(shooter, transport, INDEXING_WHEEL_SPEED, TRANSFER_SPEED,
-             BALL_SHOOT_TIME),
+            new ShootBall(shooter, transport, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             new DriveDistanceAuto(driveTrain, gyro, -7, AUTO_SPEED, true),
         };
