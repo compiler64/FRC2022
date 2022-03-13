@@ -35,8 +35,8 @@ public final class Constants {
     public static final double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
     public static final double DISTANCE_PER_PULSE = (1 / 4096) / (8.2) * WHEEL_CIRCUMFERENCE;
 
-    public static final double CLIMBER_EXTENDER_UPPER_LIMIT = 2.083333; // TODO CHANGE THIS LATER!
-    public static final double CLIMBER_EXTENDER_LOWER_LIMIT = 0; // TODO CHANGE THIS LATER!
+    public static final double CLIMBER_EXTENDER_UPPER_LIMIT = 2.083333;
+    public static final double CLIMBER_EXTENDER_LOWER_LIMIT = 0;
 
     public static final int RED_PIPELINE = 0;
     public static final int BLUE_PIPELINE = 1;

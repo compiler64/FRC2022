@@ -22,7 +22,6 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new FollowBall(driveTrain, camera, AUTO_SPEED),
             new PickUpBall(intake, transport, AUTO_INTAKE_SPEED, AUTO_BELT_SPEED, AUTO_INTAKE_TIME),
             new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
-            // if low goal
             new DriveDistanceAuto(driveTrain, gyro, 6, AUTO_SPEED, false),
             new ChangeHeading(driveTrain, gyro, 22, AUTO_SPEED, false),
 
@@ -49,7 +48,6 @@ public class TerminalAutoCommand  extends SequentialCommandGroup {
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 2.4, AUTO_SPEED, true),
             // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
-            new LoadBall(transport, AUTO_BELT_SPEED, BALL_LOAD_TIME),
             new TurnFlywheel(shooter, 0),
             // get out of the way
             new DriveDistanceAuto(driveTrain, gyro, -1.5, AUTO_SPEED, false),
