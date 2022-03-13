@@ -16,6 +16,7 @@ public class DriveTeleop extends CommandBase {
     private DriveTrain m_driveTrain;
 
     private boolean highGearOn = false;
+    private boolean reducedSpeed = false;
 
     // initialize
     public DriveTeleop(DriveTrain driveTrain) {
@@ -27,6 +28,11 @@ public class DriveTeleop extends CommandBase {
     @Override
     public void execute() {
         
+        if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_REDUCE_SPEEED, true)) {
+            reducedSpeed = !reducedSpeed;
+        }
+
+
         if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_HIGH_GEAR, true)) {
             if (!highGearOn) {
                 m_driveTrain.setHighGear("on");
@@ -83,6 +89,11 @@ public class DriveTeleop extends CommandBase {
         if (leftMotorPower > 1 || leftMotorPower < -1 || rightMotorPower > 1 || rightMotorPower < -1) {
             leftMotorPower = 0;
             rightMotorPower = 0;
+        }
+
+        if (reducedSpeed) {
+            leftMotorPower *= REDUCED_SPEED_FACTOR;
+            rightMotorPower *= REDUCED_SPEED_FACTOR;
         }
 
         // Sets the motors to the speed
