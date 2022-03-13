@@ -39,8 +39,6 @@ public class Robot extends TimedRobot {
         System.out.println("Initializing robot...");
         m_robotContainer = new RobotContainer();
         // SmartDashboard.putData(CommandScheduler.getInstance());
-        
-
     }
 
     /**
@@ -94,7 +92,6 @@ public class Robot extends TimedRobot {
     /** This function is called periodically during autonomous. */
     @Override
     public void autonomousPeriodic() {
-
     }
 
     @Override

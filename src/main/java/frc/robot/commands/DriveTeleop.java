@@ -18,7 +18,10 @@ public class DriveTeleop extends CommandBase {
     private boolean highGearOn = false;
     private boolean reducedSpeed = false;
 
-    // initialize
+    /**
+     * Creates a new DriveTeleop command.
+     * @param driveTrain the drive train of the robot
+     */
     public DriveTeleop(DriveTrain driveTrain) {
         m_driveTrain = driveTrain;
         

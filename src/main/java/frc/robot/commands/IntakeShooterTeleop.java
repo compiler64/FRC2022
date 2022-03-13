@@ -25,7 +25,17 @@ public class IntakeShooterTeleop extends CommandBase {
   private boolean intakeOn = false;
   private boolean flywheelOn = false;
   private boolean indexingWheelOn = false;
-  /** Creates a new IntakeShooterTeleop. */
+
+  /**
+   * Creates a new IntakeShooterTeleop.
+   * @param shooter the shooter of the robot
+   * @param transport the transport of the robot
+   * @param intake the intake of the robot
+   * @param flywheelSpeed the speed to turn the flywheel
+   * @param indexingWheelSpeed the speed to turn the indexing wheel
+   * @param transferSpeed the transfer speed
+   * @param intakeSpeed the intake speed
+   */
   public IntakeShooterTeleop(Shooter shooter, Transport transport, Intake intake, double flywheelSpeed, double indexingWheelSpeed, double transferSpeed, double intakeSpeed) {
     m_shooter = shooter;
     m_transport = transport;
@@ -37,6 +47,7 @@ public class IntakeShooterTeleop extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(shooter, transport, intake);
 
+    // add booleans to shuffleboard
     Shuffleboard.getTab("main").addBoolean("Flywheel On", () -> flywheelOn);
     Shuffleboard.getTab("main").addBoolean("Indexing Wheel On", () -> indexingWheelOn);
     Shuffleboard.getTab("main").addBoolean("intake on", () -> intakeOn);

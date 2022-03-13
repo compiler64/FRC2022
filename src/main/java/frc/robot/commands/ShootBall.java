@@ -17,7 +17,6 @@ public class ShootBall extends CommandBase {
     private Transport m_transport;
     private double m_transferSpeed;
 
-
     /**
      * Creates a new ShootBall command.
      * @param shooter the shooter subsystem of the robot

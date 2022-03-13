@@ -6,6 +6,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
 
+/**
+ * A command that changes the heading of the robot by a fixed angle.
+ */
 public class ChangeHeading extends CommandBase {
     private DriveTrain m_driveTrain;
     private Gyro m_gyro;
@@ -17,6 +20,14 @@ public class ChangeHeading extends CommandBase {
     private double speedBuffer;
     // private double turnRate;
 
+    /**
+     * Creates a new ChangeHeading command.
+     * @param driveTrain the drive train of the robot
+     * @param gyro the gyro of the robot
+     * @param angle the angle to turn by
+     * @param speed the speed of the robot
+     * @param breakAtEnd if the robot should break when the command is finished
+     */
     public ChangeHeading(DriveTrain driveTrain, Gyro gyro, double angle, double speed, boolean breakAtEnd) {
         m_driveTrain = driveTrain;
         m_angle = angle;
@@ -28,6 +39,14 @@ public class ChangeHeading extends CommandBase {
         addRequirements(driveTrain);
     }
 
+    /**
+     * Creates a new ChangeHeading command.
+     * @param driveTrain the drive train of the robot
+     * @param gyro the gyro of the robot
+     * @param angleSupplier a function that returns the angle to turn by
+     * @param speed the speed of the robot
+     * @param breakAtEnd if the robot should break when the command is finished
+     */
     public ChangeHeading(DriveTrain driveTrain, Gyro gyro, DoubleSupplier angleSupplier, double speed, boolean breakAtEnd) {
         m_driveTrain = driveTrain;
         m_angleSupplier = angleSupplier;

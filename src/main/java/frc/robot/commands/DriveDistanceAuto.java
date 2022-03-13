@@ -75,6 +75,7 @@ public class DriveDistanceAuto extends CommandBase {
         // set the speed of both motors to m_speed
         m_driveTrain.setBothMotors(m_speed);
     }
+    
     @Override
     public void execute() {
         // speedBuffer = Math.abs(m_gyro.getAngle() * m_speed / 10);

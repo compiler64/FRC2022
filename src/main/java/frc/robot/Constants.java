@@ -16,7 +16,6 @@ package frc.robot;
  * wherever the
  * constants are needed, to reduce verbosity.
  */
-
 public final class Constants {
     public static final double JOYSTICK_BUFFER = 0.1;
     public static final double MOTOR_POWER_FACTOR = 1;
