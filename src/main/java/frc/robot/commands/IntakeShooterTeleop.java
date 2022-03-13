@@ -77,17 +77,25 @@ public class IntakeShooterTeleop extends CommandBase {
 
   // turn the intake on
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, false)){
-    intakeOn = !intakeOn;
-    m_intake.setSpeed(intakeOn ? m_intakeSpeed : 0);
-    System.out.println(intakeOn);
-    m_transport.run(intakeOn ? m_transferSpeed : 0);
+    intakeOn = true;
+    m_intake.setSpeed(m_intakeSpeed);
+    m_transport.run(m_transferSpeed);
+  }
+  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_WHEELS, false)) {
+    intakeOn = false;
+    m_intake.setSpeed(0);
+    m_transport.run(0);
   }
 
   // the flywheel
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_START_FLYWHEEL, false)) {
-    flywheelOn = !flywheelOn;
-    m_shooter.setFlywheelSpeed(flywheelOn ? m_flywheelSpeed : 0);
-}
+    flywheelOn = true;
+    m_shooter.setFlywheelSpeed(m_flywheelSpeed);
+  }
+  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_START_FLYWHEEL, false)) {
+    flywheelOn = false;
+    m_shooter.setFlywheelSpeed(0);
+  }
 
   // shoot all balls
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INDEXING_WHEEL, false)) {
