@@ -1,0 +1,25 @@
+speedBuffer = .65
+
+
+if helpful, the diagonal of the robot is approx. 42 inches (48 with bumpers)
+
+need at least 12 inches of clearence to turn
+
+left drive gearbox id # 1, 2, & 3
+right drive gearbox id # 4, 5, & 6
+intake id # 7
+transfer id # 8
+indexing wheel id # 9
+shooter # 11
+lift # 12 & 13
+
+
+shuffleboard needs:
+    highGear indicator;
+    intake lift
+    intake wheels
+    shooter
+    indexing wheel
+    hanger rotator
+    
+    
