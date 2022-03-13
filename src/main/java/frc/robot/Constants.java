@@ -19,12 +19,12 @@ package frc.robot;
 public final class Constants {
     public static final double JOYSTICK_BUFFER = 0.1;
     public static final double MOTOR_POWER_FACTOR = 1;
-    public static final double AUTO_SPEED = 0.3; // TODO raise speed
+    public static final double AUTO_SPEED = 0.3;
     public static final double AUTO_TIME = 15;
     public static final double AUTO_INTAKE_SPEED = .80;
     public static final double AUTO_BELT_SPEED = -1;
     public static final double AUTO_FLYWHEEL_SPEED = -0.55;
-    public static final double BALL_SHOOT_TIME = 3; // TODO make shoot time shorter
+    public static final double BALL_SHOOT_TIME = 1;
     public static final double INDEXING_WHEEL_SPEED = -0.5;
     public static final double TRANSFER_SPEED = -.5;
     public static final double REDUCED_SPEED_FACTOR = 0.40;
