@@ -12,7 +12,21 @@ import frc.robot.subsystems.Transport;
 
 import static frc.robot.Constants.*;
 
+/**
+ * Runs all of the teleop commands at the same time:
+ * DriveTeleop, IntakeShooterTeleop, ClimberTeleop.
+ */
 public class TeleopCommand extends ParallelCommandGroup {
+    /**
+     * Creates a new TeleopCommand.
+     * @param driveTrain the drive train subsystem
+     * @param gyro the gyro subsystem
+     * @param camera the camera subsystem
+     * @param intake the intake subsystem
+     * @param shooter the shooter subsystem
+     * @param transport the transport subsystem
+     * @param hanger the hanger subsystem
+     */
     public TeleopCommand(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Shooter shooter, Transport transport, Hanger hanger) {
         Command[] commands = {
             new DriveTeleop(driveTrain),

@@ -5,11 +5,13 @@ import frc.robot.subsystems.DriveTrain;
 
 /**
  * Enables or disables high gear for the robot.
+ * Sets the high gear solenoid to "on"/"off" for 100ms and then sets it to "centered".
  */
 public class EnableHighGear extends CommandBase {
     private DriveTrain m_driveTrain;
     private boolean m_enable;
     private int timePassed;
+
     /**
      * Creates a new EnableHighGear command.
      * @param pneumatics the pneumatics of the robot
@@ -33,16 +35,18 @@ public class EnableHighGear extends CommandBase {
         timePassed = 0;
     }
 
+    @Override
     public void execute() {
         timePassed++;
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         m_driveTrain.setHighGear("centered");
     }
 
     @Override
     public boolean isFinished() {
-        return (timePassed >= 5);
+        return (timePassed >= 5); // finishes after 100ms
     }
 }

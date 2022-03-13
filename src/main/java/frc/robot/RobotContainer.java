@@ -46,7 +46,11 @@ public class RobotContainer {
     private final Hanger m_hanger = new Hanger();
     private final Transport m_transport = new Transport();
 
-
+    /**
+     * Returns the camera subsystem of the robot.
+     * Getter for private final field m_camera.
+     * @return the camera subsystem
+     */
     public final Camera getCamera() {
         return m_camera;
     }
@@ -75,7 +79,6 @@ public class RobotContainer {
 
     /**
      * Use this to pass the autonomous command to the main {@link Robot} class.
-     *
      * @return the command to run in autonomous
      */
     public Command getAutonomousCommand() {
@@ -83,11 +86,18 @@ public class RobotContainer {
         return m_autonomousCommand;
     }
 
+    /**
+     * Returns the command that will run during teleop mode.
+     * @return the teleop command
+     */
     public Command getTeleopCommand() {
         return m_teleopCommand;
     }
 
-
+    /**
+     * Returns the command that will run during test mode.
+     * @return the test command
+     */
     public Command getTestCommand() {
         return null;
     }

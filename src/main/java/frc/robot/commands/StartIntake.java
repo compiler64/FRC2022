@@ -9,7 +9,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Transport;
 
 /**
- * starts the intake
+ * Starts the intake.
  */
 public class StartIntake extends CommandBase {
   private Intake m_intake;
@@ -18,7 +18,7 @@ public class StartIntake extends CommandBase {
   private double m_transportSpeed;
 
   /**
-   * starts the intake
+   * Starts the intake.
    * @param intake the intake subsystem
    * @param transport the transport subsystem
    * @param intakeSpeed the speed to run the intake at

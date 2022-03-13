@@ -10,8 +10,12 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
+/**
+ * Controls the transport belt.
+ */
 public class Transport extends SubsystemBase {
   private VictorSPX m_motorBelt = new VictorSPX(PortMap.MOTOR_TRANSFER_ID);
+  
   /** Creates a new Transport. */
   public Transport() {}
 
