@@ -20,7 +20,7 @@ public class TriangleAutoCommand extends SequentialCommandGroup {
     public TriangleAutoCommand(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         Command[] commands = {
             // new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
-            // new WaitCommand(1), // Just long enough to get the flywheel to speed, may need to be changed
+            new WaitCommand(1), // Just long enough to get the flywheel to speed, may need to be changed
             // new ShootBall(shooter, INDEXING_WHEEL_SPEED, BALL_SHOOT_TIME),
             new DriveDistanceAuto(driveTrain, gyro, -1.5, AUTO_SPEED, true),
             new TurnAngleAuto(driveTrain, gyro, -100, AUTO_SPEED),

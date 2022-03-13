@@ -8,14 +8,22 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Transport;
 
-
+/**
+ * starts the intake
+ */
 public class StartIntake extends CommandBase {
-  Intake m_intake;
-  Transport m_transport;
-  double m_intakeSpeed;
-  double m_transportSpeed;
+  private Intake m_intake;
+  private Transport m_transport;
+  private double m_intakeSpeed;
+  private double m_transportSpeed;
 
-  /** Creates a new StartIntake. */
+  /**
+   * starts the intake
+   * @param intake the intake subsystem
+   * @param transport the transport subsystem
+   * @param intakeSpeed the speed to run the intake at
+   * @param transportSpeed the speed to run the transport at.
+   */
   public StartIntake(Intake intake, Transport transport, double intakeSpeed, double transportSpeed) {
     m_intake = intake;
     m_transport = transport;
@@ -23,7 +31,7 @@ public class StartIntake extends CommandBase {
     m_transportSpeed = transportSpeed;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intake);
+    addRequirements(intake, transport);
   }
 
   // Called when the command is initially scheduled.

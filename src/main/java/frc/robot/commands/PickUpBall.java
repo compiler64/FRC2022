@@ -37,7 +37,7 @@ public class PickUpBall extends CommandBase {
         m_intake.setSpeed(m_intakeSpeed);
         m_transport.run(m_beltSpeed);
 
-        
+        m_timer.start();
         m_timer.reset();
     }
 

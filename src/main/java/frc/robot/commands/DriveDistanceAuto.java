@@ -14,8 +14,8 @@ public class DriveDistanceAuto extends CommandBase {
     private DoubleSupplier m_distanceSupplier;
     private double m_distance;
     private double m_speed;
-    private Gyro m_gyro;
-    private double speedBuffer;
+    // private Gyro m_gyro;
+    // private double speedBuffer;
     private double staticSpeed;
     private boolean atEnd = false;
     private boolean m_breakAtEnd;
@@ -32,7 +32,7 @@ public class DriveDistanceAuto extends CommandBase {
         m_driveTrain = driveTrain;
         m_distance = distance;
         m_speed = speed;
-        m_gyro = gyro;
+        // m_gyro = gyro;
         staticSpeed = speed;
         m_breakAtEnd = breakAtEnd;
 
@@ -52,7 +52,7 @@ public class DriveDistanceAuto extends CommandBase {
         m_distanceSupplier = distanceSupplier;
         m_speed = speed;
         staticSpeed = speed;
-        m_gyro = gyro;
+        // m_gyro = gyro;
         m_breakAtEnd = breakAtEnd;
 
         addRequirements(driveTrain, gyro);

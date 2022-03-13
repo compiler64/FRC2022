@@ -29,6 +29,7 @@ public class LoadBall extends CommandBase {
 
     @Override
     public void initialize() {
+        m_timer.start();
         m_timer.reset();
         m_transport.run(m_beltSpeed);
     }

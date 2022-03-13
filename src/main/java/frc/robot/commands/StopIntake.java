@@ -5,15 +5,26 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Transport;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Transport;
 
+/**
+ * stops the intake;
+ */
 public class StopIntake extends CommandBase {
-  Intake m_intake;
-  Transport m_transport;
-    /** Creates a new StopIntake. */
+  
+  private Intake m_intake;
+  private Transport m_transport;
+  /**
+   * Stops the intake.
+   * @param intake the intake subsystem
+   * @param transport the transport subsystem
+   */
   public StopIntake(Intake intake, Transport transport) {
+    m_intake = intake;
+    m_transport = transport;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(intake, transport);
   }
 
   // Called when the command is initially scheduled.
@@ -35,6 +46,6 @@ public class StopIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    return false;
   }
 }
