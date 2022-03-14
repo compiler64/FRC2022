@@ -21,7 +21,7 @@ public class TwoBallAuto extends SequentialCommandGroup {
             new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 3, AUTO_SPEED, true),
             new StopIntake(intake, transport),
-            new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
+            new TurnAngleAuto(driveTrain, gyro, 180, 0.2),
             new DriveDistanceAuto(driveTrain, gyro, 6, AUTO_SPEED, false),
             new ChangeHeading(driveTrain, gyro, 22, AUTO_SPEED, false),
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
