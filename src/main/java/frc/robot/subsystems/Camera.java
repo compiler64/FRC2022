@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 // import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -120,15 +119,29 @@ public class Camera extends SubsystemBase {
         return area;
     }
 
+    /**
+     * Returns the pipeline to detect the opposite ball color.
+     * @param pipeline the pipeline to take the opposite of
+     * @return the opposite pipeline number
+     */
     public static int getOppositePipeline(int pipeline) {
         return 1 - pipeline;
     }
 
+    /**
+     * Returns the pipeline to detect the current alliance's color.
+     * @return the alliance pipeline number
+     */
     public static int getAlliancePipeline() {
         // set number to BLUE_PIPELINE if the alliance is blue, else RED_PIPELINE
         return (DriverStation.getAlliance() == Alliance.Blue) ? BLUE_PIPELINE : RED_PIPELINE;
     }
 
+    /**
+     * Returns the opposite of the current alliance's pipeline.
+     * Equivalent to {@link Camera#getOppositePipeline}({@link Camera#getAlliancePipeline}()).
+     * @return
+     */
     public static int getNonAlliancePipeline() {
         return getOppositePipeline(getAlliancePipeline());
     }
