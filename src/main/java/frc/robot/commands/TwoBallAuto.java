@@ -18,14 +18,15 @@ import static frc.robot.Constants.*;
 public class TwoBallAuto extends SequentialCommandGroup {
     public TwoBallAuto(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         Command[] commands = {
-            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED),
+            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED, INTAKE_LOWER_TIME),
             new DriveDistanceAuto(driveTrain, gyro, 3, AUTO_SPEED, true),
             new StopIntake(intake, transport),
-            new TurnAngleAuto(driveTrain, gyro, 180, 0.2),
-            new DriveDistanceAuto(driveTrain, gyro, 6, AUTO_SPEED, false),
-            new ChangeHeading(driveTrain, gyro, 22, AUTO_SPEED, false),
+            new TurnAngleAuto(driveTrain, gyro, 170, 0.4),
             new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
-            new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
+            new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, false),
+            // new ChangeHeading(driveTrain, gyro, 22, AUTO_SPEED, false),
+            // new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
+            new ShootBall(shooter, transport, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, BALL_SHOOT_TIME),
             new ShootBall(shooter, transport, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             //get out of the way
