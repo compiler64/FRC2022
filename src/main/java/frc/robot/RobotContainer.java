@@ -5,7 +5,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.PneumaticsControlModule;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.OneBallAuto;
 // import frc.robot.commands.AutoCommandNew;
@@ -47,9 +49,23 @@ public class RobotContainer {
     private final Hanger m_hanger = new Hanger();
     private final Transport m_transport = new Transport();
 
+    private final PneumaticsControlModule m_pneumaticsModule = new PneumaticsControlModule();
 
+    /**
+     * Returns the camera subsystem of the robot.
+     * Getter for private final field m_camera.
+     * @return the camera subsystem
+     */
     public final Camera getCamera() {
         return m_camera;
+    }
+
+    /**
+     * Returns the pneumatics control module.
+     * @return the pneumatics control module
+     */
+    public final PneumaticsControlModule getPneumaticsModule() {
+        return m_pneumaticsModule;
     }
 
     // private final OneBallAuto m_autonomousCommand = new OneBallAuto(m_driveTrain, m_gyro, m_camera, m_intake, m_transport, m_shooter);
@@ -62,6 +78,7 @@ public class RobotContainer {
     public RobotContainer() {
         // Configure the button bindings
         configureButtonBindings();
+        Shuffleboard.getTab("main").addBoolean("Compressor On", m_pneumaticsModule::getCompressor);
     }
 
     /**
@@ -77,7 +94,6 @@ public class RobotContainer {
 
     /**
      * Use this to pass the autonomous command to the main {@link Robot} class.
-     *
      * @return the command to run in autonomous
      */
     public Command getAutonomousCommand() {
@@ -85,11 +101,18 @@ public class RobotContainer {
         return m_autonomousCommand;
     }
 
+    /**
+     * Returns the command that will run during teleop mode.
+     * @return the teleop command
+     */
     public Command getTeleopCommand() {
         return m_teleopCommand;
     }
 
-
+    /**
+     * Returns the command that will run during test mode.
+     * @return the test command
+     */
     public Command getTestCommand() {
         return null;
     }

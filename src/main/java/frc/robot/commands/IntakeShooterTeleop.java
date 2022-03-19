@@ -25,7 +25,17 @@ public class IntakeShooterTeleop extends CommandBase {
   private boolean intakeOn = false;
   private boolean flywheelOn = false;
   private boolean indexingWheelOn = false;
-  /** Creates a new IntakeShooterTeleop. */
+
+  /**
+   * Creates a new IntakeShooterTeleop.
+   * @param shooter the shooter of the robot
+   * @param transport the transport of the robot
+   * @param intake the intake of the robot
+   * @param flywheelSpeed the speed to turn the flywheel
+   * @param indexingWheelSpeed the speed to turn the indexing wheel
+   * @param transferSpeed the transfer speed
+   * @param intakeSpeed the intake speed
+   */
   public IntakeShooterTeleop(Shooter shooter, Transport transport, Intake intake, double flywheelSpeed, double indexingWheelSpeed, double transferSpeed, double intakeSpeed) {
     m_shooter = shooter;
     m_transport = transport;
@@ -37,6 +47,7 @@ public class IntakeShooterTeleop extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(shooter, transport, intake);
 
+    // add booleans to shuffleboard
     Shuffleboard.getTab("main").addBoolean("Flywheel On", () -> flywheelOn);
     Shuffleboard.getTab("main").addBoolean("Indexing Wheel On", () -> indexingWheelOn);
     Shuffleboard.getTab("main").addBoolean("intake on", () -> intakeOn);
@@ -66,17 +77,25 @@ public class IntakeShooterTeleop extends CommandBase {
 
   // turn the intake on
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INTAKE_WHEELS, false)){
-    intakeOn = !intakeOn;
-    m_intake.setSpeed(intakeOn ? m_intakeSpeed : 0);
-    System.out.println(intakeOn);
-    m_transport.run(intakeOn ? m_transferSpeed : 0);
+    intakeOn = true;
+    m_intake.setSpeed(m_intakeSpeed);
+    m_transport.run(m_transferSpeed);
+  }
+  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_INTAKE_WHEELS, false)) {
+    intakeOn = false;
+    m_intake.setSpeed(0);
+    m_transport.run(0);
   }
 
   // the flywheel
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_START_FLYWHEEL, false)) {
-    flywheelOn = !flywheelOn;
-    m_shooter.setFlywheelSpeed(flywheelOn ? m_flywheelSpeed : 0);
-}
+    flywheelOn = true;
+    m_shooter.setFlywheelSpeed(m_flywheelSpeed);
+  }
+  if (Controllers.isButtonReleased(PortMap.XBOX_BUTTON_START_FLYWHEEL, false)) {
+    flywheelOn = false;
+    m_shooter.setFlywheelSpeed(0);
+  }
 
   // shoot all balls
   if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_INDEXING_WHEEL, false)) {

@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Controllers;
 import frc.robot.PortMap;
@@ -16,17 +17,28 @@ public class DriveTeleop extends CommandBase {
     private DriveTrain m_driveTrain;
 
     private boolean highGearOn = false;
+    private boolean reducedSpeed = false;
 
-    // initialize
+    /**
+     * Creates a new DriveTeleop command.
+     * @param driveTrain the drive train of the robot
+     */
     public DriveTeleop(DriveTrain driveTrain) {
         m_driveTrain = driveTrain;
         
         addRequirements(driveTrain);
+
+        Shuffleboard.getTab("main").addBoolean("reduced speed", () -> reducedSpeed);
     }
 
     @Override
     public void execute() {
         
+        if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_REDUCE_SPEEED, true)) {
+            reducedSpeed = !reducedSpeed;
+        }
+
+
         if (Controllers.isButtonPressed(PortMap.XBOX_BUTTON_HIGH_GEAR, true)) {
             if (!highGearOn) {
                 m_driveTrain.setHighGear("on");
@@ -83,6 +95,11 @@ public class DriveTeleop extends CommandBase {
         if (leftMotorPower > 1 || leftMotorPower < -1 || rightMotorPower > 1 || rightMotorPower < -1) {
             leftMotorPower = 0;
             rightMotorPower = 0;
+        }
+
+        if (reducedSpeed) {
+            leftMotorPower *= REDUCED_SPEED_FACTOR;
+            rightMotorPower *= REDUCED_SPEED_FACTOR;
         }
 
         // Sets the motors to the speed

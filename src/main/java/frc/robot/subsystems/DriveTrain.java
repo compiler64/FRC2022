@@ -13,7 +13,7 @@ import frc.robot.PortMap;
 import static frc.robot.Constants.*;
 
 /**
- * The drive train subsystem. Controls the motors.
+ * The drive train subsystem. Controls the motors and shifters.
  */
 public class DriveTrain extends SubsystemBase {
     private TalonSRX motorLF = new TalonSRX(PortMap.MOTOR_LF_ID);

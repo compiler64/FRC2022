@@ -26,13 +26,13 @@ public class TriangleAutoCommand extends SequentialCommandGroup {
             new TurnAngleAuto(driveTrain, gyro, -100, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 6.2, AUTO_SPEED, false),
             new DriveDistanceAuto(driveTrain, gyro, 5, AUTO_SPEED, false),
-            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED),
+            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED, INTAKE_LOWER_TIME),
             new DriveDistanceAuto(driveTrain, gyro, 1.5, AUTO_SPEED, true),
             new StopIntake(intake, transport),
 
             new TurnAngleAuto(driveTrain, gyro, -1.65, AUTO_SPEED),
             new DriveDistanceAuto(driveTrain, gyro, 4.1, AUTO_SPEED, false),
-            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED),
+            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED, INTAKE_LOWER_TIME),
             new DriveDistanceAuto(driveTrain, gyro, 1, AUTO_SPEED, true),
             new StopIntake(intake, transport),
 

@@ -9,7 +9,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Transport;
 
 /**
- * stops the intake;
+ * Stops the intake.
  */
 public class StopIntake extends CommandBase {
   

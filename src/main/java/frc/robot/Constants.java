@@ -16,7 +16,6 @@ package frc.robot;
  * wherever the
  * constants are needed, to reduce verbosity.
  */
-
 public final class Constants {
     public static final double JOYSTICK_BUFFER = 0.1;
     public static final double MOTOR_POWER_FACTOR = 1;
@@ -30,6 +29,8 @@ public final class Constants {
     public static final double BALL_SHOOT_TIME = 5; // TODO check this
     public static final double INDEXING_WHEEL_SPEED = -0.5; // TODO check this
     public static final double TRANSFER_SPEED = -.5;
+    public static final double REDUCED_SPEED_FACTOR = 0.40;
+    public static final double INTAKE_LOWER_TIME = 0.01
 
     public static final double WHEEL_DIAMETER = 6.0 / 12.0;
     public static final double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;

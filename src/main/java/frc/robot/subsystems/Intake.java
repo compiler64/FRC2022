@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 
 /**
- * Controls the intake, the intake lift, and the conveyor belt.
+ * Controls the intake and the intake lift.
  */
 public class Intake extends SubsystemBase {
     private CANSparkMax m_motorIntake = new CANSparkMax(PortMap.MOTOR_INTAKE_ID, MotorType.kBrushless);
@@ -22,7 +22,6 @@ public class Intake extends SubsystemBase {
      * Creates a new Intake subsystem.
      */
     public Intake() {
-
     }
     
     /**
