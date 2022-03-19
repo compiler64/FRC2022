@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Gyro;
@@ -19,17 +20,20 @@ public class TwoBallAuto extends SequentialCommandGroup {
     public TwoBallAuto(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         Command[] commands = {
             new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED),
-            new DriveDistanceAuto(driveTrain, gyro, 3, AUTO_SPEED, true),
-            new StopIntake(intake, transport),
-            new TurnAngleAuto(driveTrain, gyro, 180, AUTO_SPEED),
-            new DriveDistanceAuto(driveTrain, gyro, 6, AUTO_SPEED, false),
-            new ChangeHeading(driveTrain, gyro, 22, AUTO_SPEED, false),
-            new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
+            new WaitCommand(.01),
             new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
+            new WaitCommand(0.5),
+            new StopIntake(intake, transport),
+            new TurnAngleAuto(driveTrain, gyro, 148, AUTO_SPEED),
+            new TurnFlywheel(shooter, AUTO_FLYWHEEL_SPEED),
+            // new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
+            new WaitCommand(1.5),
+            new ShootBall(shooter, transport, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, BALL_SHOOT_TIME),
+            new WaitCommand(1),
             new ShootBall(shooter, transport, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, BALL_SHOOT_TIME),
             new TurnFlywheel(shooter, 0),
             //get out of the way
-            new DriveDistanceAuto(driveTrain, gyro, -7, AUTO_SPEED, false),
+            //new DriveDistanceAuto(driveTrain, gyro, -7, AUTO_SPEED, false),
         };
         addCommands(commands);
     }

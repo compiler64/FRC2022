@@ -37,7 +37,7 @@ public class StartIntake extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_intake.lower();
+    m_intake.raise();
     m_intake.setIntakeSpeed(m_intakeSpeed);
     m_transport.run(m_transportSpeed);
   }

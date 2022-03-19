@@ -16,6 +16,7 @@ import frc.robot.commands.OneBallAuto;
 // import frc.robot.commands.ShootTeleop;
 // import frc.robot.commands.SingleSolenoid;
 import frc.robot.commands.TeleopCommand;
+import frc.robot.commands.TwoBallAuto;
 // import frc.robot.commands.TriangleAutoCommand;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveTrain;
@@ -51,7 +52,8 @@ public class RobotContainer {
         return m_camera;
     }
 
-    private final OneBallAuto m_autonomousCommand = new OneBallAuto(m_driveTrain, m_gyro, m_camera, m_intake, m_transport, m_shooter);
+    // private final OneBallAuto m_autonomousCommand = new OneBallAuto(m_driveTrain, m_gyro, m_camera, m_intake, m_transport, m_shooter);
+    private final TwoBallAuto m_autonomousCommand = new TwoBallAuto(m_driveTrain, m_gyro, m_camera, m_intake, m_transport, m_shooter);
     private final TeleopCommand m_teleopCommand = new TeleopCommand(m_driveTrain, m_gyro, m_camera, m_intake, m_shooter, m_transport, m_hanger);
     
     /**

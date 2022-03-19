@@ -32,7 +32,7 @@ public class StopIntake extends CommandBase {
   public void initialize() {
     m_intake.setIntakeSpeed(0);
     m_transport.run(0);
-    m_intake.raise();
+    // m_intake.lower();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -46,6 +46,6 @@ public class StopIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
