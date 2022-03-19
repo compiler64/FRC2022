@@ -30,7 +30,7 @@ public class TeleopCommand extends ParallelCommandGroup {
     public TeleopCommand(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Shooter shooter, Transport transport, Hanger hanger) {
         Command[] commands = {
             new DriveTeleop(driveTrain),
-            new IntakeShooterTeleop(shooter, transport, intake, AUTO_FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, AUTO_INTAKE_SPEED),
+            new IntakeShooterTeleop(shooter, transport, intake, FLYWHEEL_SPEED, INDEXING_WHEEL_SPEED, TRANSFER_SPEED, AUTO_INTAKE_SPEED),
             new ClimberTeleop(hanger),
         };
 
