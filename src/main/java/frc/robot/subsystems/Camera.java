@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 // import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -33,6 +34,7 @@ public class Camera extends SubsystemBase {
     public Camera() {
         //post to shuffleboard periodically
         table = NetworkTableInstance.getDefault().getTable("limelight");
+        Shuffleboard.getTab("main").add(this);
         // Shuffleboard.getTab("main").addBoolean("Limelight Valid Target", () -> validTarget);
         // Shuffleboard.getTab("main").addNumber("Limelight X", () -> x);
         // Shuffleboard.getTab("main").addNumber("Limelight Y", () -> y);
