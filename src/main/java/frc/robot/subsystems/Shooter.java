@@ -18,7 +18,7 @@ public class Shooter extends SubsystemBase {
      * Creates a new Shooter subsystem.
      */
     public Shooter() {
-        Shuffleboard.getTab("main").addNumber("flywheel speed", () -> flywheelSpeed);
+        // Shuffleboard.getTab("main").addNumber("flywheel speed", () -> flywheelSpeed);
     }
 
     /**
