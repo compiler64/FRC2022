@@ -19,7 +19,7 @@ import static frc.robot.Constants.*;
 public class TwoBallAuto extends SequentialCommandGroup {
     public TwoBallAuto(DriveTrain driveTrain, Gyro gyro, Camera camera, Intake intake, Transport transport, Shooter shooter) {
         Command[] commands = {
-            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED, INTAKE_LOWER_TIME),
+            new StartIntake(intake, transport, AUTO_INTAKE_SPEED, TRANSFER_SPEED),
             new WaitCommand(.01),
             new DriveDistanceAuto(driveTrain, gyro, 4, AUTO_SPEED, true),
             new WaitCommand(1),
