@@ -7,7 +7,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 import static frc.robot.Constants.*;
@@ -24,10 +23,10 @@ public class DriveTrain extends SubsystemBase {
     private TalonSRX motorRR = new TalonSRX(PortMap.MOTOR_RR_ID);
     private DoubleSolenoid shifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
 
-    private double leftSpeed = 0;
-    private double rightSpeed = 0;
+    //private double leftSpeed = 0;
+    //private double rightSpeed = 0;
 
-    private boolean highGearOn = false;
+    //private boolean highGearOn = false;
     /**
      * Creates a new DriveTrain subsystem.
      */
@@ -57,7 +56,7 @@ public class DriveTrain extends SubsystemBase {
         motorLF.set(ControlMode.PercentOutput, -speed);
         motorLM.set(ControlMode.PercentOutput, -speed);
         motorLR.set(ControlMode.PercentOutput, -speed);
-        leftSpeed = speed;
+        //leftSpeed = speed;
     }
 
     /**
@@ -68,7 +67,7 @@ public class DriveTrain extends SubsystemBase {
         motorRF.set(ControlMode.PercentOutput, speed);
         motorRM.set(ControlMode.PercentOutput, speed);
         motorRR.set(ControlMode.PercentOutput, speed);
-        rightSpeed = speed;
+        //rightSpeed = speed;
     }
 
     /**
@@ -136,10 +135,10 @@ public class DriveTrain extends SubsystemBase {
     public void setHighGear(String value) {
         if (value.equals("on")) {
             shifter.set(Value.kForward);
-            highGearOn = true;
+            //highGearOn = true;
         } else if (value.equals("off")) {
             shifter.set(Value.kReverse);
-            highGearOn = false;
+            //highGearOn = false;
         } else if (value.equals("centered")) {
             shifter.set(Value.kOff);
         } else {

@@ -4,7 +4,6 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Transport;
@@ -17,7 +16,7 @@ public class StartIntake extends CommandBase {
   private Transport m_transport;
   private double m_intakeSpeed;
   private double m_transportSpeed;
-  private double m_intakeTime;
+
   
 
   /**
@@ -43,11 +42,6 @@ public class StartIntake extends CommandBase {
     m_intake.raise();
     m_intake.setIntakeSpeed(m_intakeSpeed);
     m_transport.run(m_transportSpeed);
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> 8639c9982342fcd00c7a31ec4e0734ee4c46b120
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -61,10 +55,6 @@ public class StartIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-<<<<<<< HEAD
-    // return m_timer.get() >= m_intakeTime;
-=======
->>>>>>> 8639c9982342fcd00c7a31ec4e0734ee4c46b120
     return true;
   }
 }
