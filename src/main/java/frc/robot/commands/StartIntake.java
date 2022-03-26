@@ -43,11 +43,6 @@ public class StartIntake extends CommandBase {
     m_intake.raise();
     m_intake.setIntakeSpeed(m_intakeSpeed);
     m_transport.run(m_transportSpeed);
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> 8639c9982342fcd00c7a31ec4e0734ee4c46b120
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -61,10 +56,6 @@ public class StartIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-<<<<<<< HEAD
-    // return m_timer.get() >= m_intakeTime;
-=======
->>>>>>> 8639c9982342fcd00c7a31ec4e0734ee4c46b120
     return true;
   }
 }
