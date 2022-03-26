@@ -17,12 +17,8 @@ public class StartIntake extends CommandBase {
   private Transport m_transport;
   private double m_intakeSpeed;
   private double m_transportSpeed;
-<<<<<<< HEAD
   private double m_intakeTime;
   
-=======
-
->>>>>>> 8639c9982342fcd00c7a31ec4e0734ee4c46b120
 
   /**
    * Starts the intake.
@@ -36,8 +32,7 @@ public class StartIntake extends CommandBase {
     m_transport = transport;
     m_intakeSpeed = intakeSpeed;
     m_transportSpeed = transportSpeed;
-    m_intakeTime = intakeTime;
-
+    
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intake, transport);
   }
