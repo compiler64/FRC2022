@@ -25,7 +25,7 @@ public final class Constants {
     public static final double AUTO_BELT_SPEED = -1;
     public static final double AUTO_INTAKE_TIME = 1;
     public static final double AUTO_FLYWHEEL_SPEED = -0.63;
-    public static final double FLYWHEEL_SPEED = -0.60;
+    public static final double FLYWHEEL_SPEED = -1;//-0.60;
     public static final double BALL_LOAD_TIME = .5;
     public static final double BALL_SHOOT_TIME = 5;
     public static final double INDEXING_WHEEL_SPEED = -0.5;

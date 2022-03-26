@@ -4,7 +4,6 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Transport;
@@ -17,7 +16,7 @@ public class StartIntake extends CommandBase {
   private Transport m_transport;
   private double m_intakeSpeed;
   private double m_transportSpeed;
-  private double m_intakeTime;
+
   
 
   /**
