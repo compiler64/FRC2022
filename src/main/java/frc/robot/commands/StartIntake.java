@@ -17,8 +17,7 @@ public class StartIntake extends CommandBase {
   private Transport m_transport;
   private double m_intakeSpeed;
   private double m_transportSpeed;
-  private double m_intakeTime;
-  private Timer m_timer;
+
 
   /**
    * Starts the intake.
@@ -27,7 +26,7 @@ public class StartIntake extends CommandBase {
    * @param intakeSpeed the speed to run the intake at
    * @param transportSpeed the speed to run the transport at.
    */
-  public StartIntake(Intake intake, Transport transport, double intakeSpeed, double transportSpeed, double intakeTime) {
+  public StartIntake(Intake intake, Transport transport, double intakeSpeed, double transportSpeed) {
     m_intake = intake;
     m_transport = transport;
     m_intakeSpeed = intakeSpeed;
@@ -43,9 +42,6 @@ public class StartIntake extends CommandBase {
     m_intake.raise();
     m_intake.setIntakeSpeed(m_intakeSpeed);
     m_transport.run(m_transportSpeed);
-
-    m_timer.start();
-    m_timer.reset();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -59,6 +55,6 @@ public class StartIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_timer.get() >= m_intakeTime;
+    return true;
   }
 }
