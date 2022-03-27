@@ -7,6 +7,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PortMap;
 import static frc.robot.Constants.*;
@@ -26,7 +27,7 @@ public class DriveTrain extends SubsystemBase {
     //private double leftSpeed = 0;
     //private double rightSpeed = 0;
 
-    //private boolean highGearOn = false;
+    private boolean highGearOn = false;
     /**
      * Creates a new DriveTrain subsystem.
      */
@@ -37,7 +38,7 @@ public class DriveTrain extends SubsystemBase {
         // Shuffleboard.getTab("main").addNumber("left encoder", () -> getLeftEncoderDistance()).withPosition(0, 1);
         // Shuffleboard.getTab("main").addNumber("right encoder", () -> getRightEncoderDistance()).withPosition(1, 1);
         // Shuffleboard.getTab("main").addNumber("average encoder distance", () -> getAverageEncoderDistance()).withSize(2, 1).withPosition(2, 0);
-        // Shuffleboard.getTab("main").addBoolean("highGearOn", () -> highGearOn);
+        Shuffleboard.getTab("main").addBoolean("highGearOn", () -> highGearOn);
 
         motorLM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute); 
         motorLM.setSensorPhase(true);
@@ -135,10 +136,10 @@ public class DriveTrain extends SubsystemBase {
     public void setHighGear(String value) {
         if (value.equals("on")) {
             shifter.set(Value.kForward);
-            //highGearOn = true;
+            highGearOn = true;
         } else if (value.equals("off")) {
             shifter.set(Value.kReverse);
-            //highGearOn = false;
+            highGearOn = false;
         } else if (value.equals("centered")) {
             shifter.set(Value.kOff);
         } else {
